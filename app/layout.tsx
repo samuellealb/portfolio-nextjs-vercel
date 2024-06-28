@@ -3,8 +3,8 @@ import { Header } from "./features/Header";
 import "./styles/index.scss";
 
 export const metadata: Metadata = {
-  title: "Árvore Amarela",
-  description: "Árvore Amarela Design Visual",
+  title: "Jeanne Dosse",
+  description: "Jeanne Dosse - Portfolio",
 };
 
 export default function RootLayout({
