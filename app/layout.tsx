@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Header } from "./features/Header";
 import "./styles/index.scss";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Árvore Amarela",
@@ -16,7 +14,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <div className="wrapper">
+          <div className="stickyfooter-container">
+            <Header></Header>
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
