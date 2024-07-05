@@ -1,0 +1,13 @@
+@import "./variables";
+
+/**
+ * Calculates the value in rem units based on the given pixel value.
+ *
+ * @param {number} $n - The pixel value to convert to rem.
+ * @return {string} - The converted value in rem units.
+ */
+@function rem($n) {
+  $base: var(--font-size-base) / 1px;
+  $rem: $n / $base;
+  @return #{$rem}rem;
+}
