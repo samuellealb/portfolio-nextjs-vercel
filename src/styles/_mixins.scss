@@ -1,4 +1,4 @@
-@import "./functions";
+// @import "./functions";
 
 /**
  * Mixin for creating a sticky footer layout.
@@ -9,7 +9,7 @@
  * @param {string} $footer-selector - The selector for the footer element.
  */
 @mixin sticky-footer(
-  $footer-height: 96px, // TODO: convert to rem
+  $footer-height: 96px, // TODO: move to variables.scss
   $wrapper-selector: "#wrapper--body",
   $container-selector: "#container--sf",
   $footer-selector: "#footer"
@@ -20,7 +20,6 @@
   }
 
   body {
-    margin: 0px;
     padding: 0px;
   }
 
