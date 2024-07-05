@@ -13,11 +13,15 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html>
       <body>
-        <Header />
-        <main>{children}</main>
-        <footer>Footer</footer>
+        <div id="wrapper--body">
+          <div id="container--sf">
+            <Header />
+            <main>{children}</main>
+          </div>
+        </div>
+        <footer id="footer">Footer</footer>
       </body>
     </html>
   );

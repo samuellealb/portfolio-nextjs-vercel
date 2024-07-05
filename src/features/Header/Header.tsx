@@ -7,7 +7,8 @@ export const Header = () => {
 
   return (
     <header className={styles.header} role="banner">
-      Header
+      <div>Header component</div>
+      <nav>Navigation Component</nav>
     </header>
   );
 };
