@@ -1,3 +1,31 @@
+@import "@/src/styles/functions.scss";
+@import "@/src/styles/mixins.scss";
+
 .header {
   width: 100%;
+}
+
+.logo {
+  margin-bottom: rem(85);
+
+  &__img {
+    &Desktop {
+      position: relative;
+      height: rem(150);
+      display: none;
+
+      @include media-query(tablet) {
+        display: block;
+      }
+    }
+
+    &Mobile {
+      position: relative;
+      height: rem(100);
+
+      @include media-query(tablet) {
+        display: none;
+      }
+    }
+  }
 }

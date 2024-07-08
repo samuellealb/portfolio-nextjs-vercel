@@ -28,7 +28,7 @@
 
 // Global styles
 body {
-  background-color: var(--color-yellow-main);
+  background-color: $color-yellow-main;
   max-width: rem(1280);
   margin: 0 auto;
 }

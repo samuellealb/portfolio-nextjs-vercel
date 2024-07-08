@@ -1,4 +1,5 @@
 // @import "./functions";
+@import "./variables";
 
 /**
  * Mixin for creating a sticky footer layout.
@@ -9,7 +10,7 @@
  * @param {string} $footer-selector - The selector for the footer element.
  */
 @mixin sticky-footer(
-  $footer-height: 96px, // TODO: move to variables.scss
+  $footer-height: $font-size-base,
   $wrapper-selector: "#wrapper--body",
   $container-selector: "#container--sf",
   $footer-selector: "#footer"
@@ -36,5 +37,25 @@
 
   #{$footer-selector} {
     height: $footer-height;
+  }
+}
+
+@mixin media-query($viewport) {
+  @if $viewport==mobile {
+    @media (max-width: calc(map-get($breakpoints, "sm") - 1px)) {
+      @content;
+    }
+  }
+
+  @if $viewport==tablet {
+    @media (min-width: map-get($breakpoints, "sm")) {
+      @content;
+    }
+  }
+
+  @if $viewport==desktop {
+    @media (min-width: map-get($breakpoints, "lg")) {
+      @content;
+    }
   }
 }
