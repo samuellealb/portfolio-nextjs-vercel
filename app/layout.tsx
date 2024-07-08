@@ -1,26 +1,21 @@
-import type { Metadata } from "next";
-import { Header } from "./features/Header";
-import "./styles/index.scss";
+import { Header } from "@/src/features/Header";
+import "@/src/styles/index.scss";
 
-export const metadata: Metadata = {
-  title: "Jeanne Dosse",
-  description: "Jeanne Dosse - Portfolio",
+type RootLayoutProps = {
+  children: React.ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html>
       <body>
-        <div className="wrapper">
-          <div className="stickyfooter-container">
-            <Header></Header>
-            {children}
+        <div id="wrapper--body">
+          <div id="container--sf">
+            <Header />
+            <main>{children}</main>
           </div>
         </div>
+        <footer id="footer">Footer</footer>
       </body>
     </html>
   );

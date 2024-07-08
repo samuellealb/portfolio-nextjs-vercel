@@ -1,0 +1,36 @@
+@import "./functions";
+@import "./mixins";
+@import "./variables";
+
+// Fonts
+@font-face {
+  font-family: "caviar_dreamsregular";
+  src:
+    url("../../public/fonts/caviardreams-webfont.woff2") format("woff2"),
+    url("../../public/fonts/caviardreams-webfont.woff") format("woff");
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i&subset=latin-ext");
+
+@font-face {
+  font-family: "passengers";
+  src:
+    url("../../public/fonts/passengers_script-webfont.woff") format("woff2"),
+    url("../../public/fonts/passengers_script-webfont.woff2") format("woff");
+}
+
+@font-face {
+  font-family: "swash";
+  src:
+    url("../../public/fonts/swash_passengers-webfont.woff") format("woff2"),
+    url("../../public/fonts/swash_passengers-webfont.woff2") format("woff");
+}
+
+// Global styles
+body {
+  background-color: var(--color-yellow-main);
+  max-width: rem(1280);
+  margin: 0 auto;
+}
+
+@include sticky-footer();

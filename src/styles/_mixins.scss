@@ -1,0 +1,40 @@
+// @import "./functions";
+
+/**
+ * Mixin for creating a sticky footer layout.
+ *
+ * @param {number} $footer-height - The height of the footer.
+ * @param {string} $wrapper-selector - The selector for the wrapper element.
+ * @param {string} $container-selector - The selector for the container element.
+ * @param {string} $footer-selector - The selector for the footer element.
+ */
+@mixin sticky-footer(
+  $footer-height: 96px, // TODO: move to variables.scss
+  $wrapper-selector: "#wrapper--body",
+  $container-selector: "#container--sf",
+  $footer-selector: "#footer"
+) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    padding: 0px;
+  }
+
+  #{$wrapper-selector} {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+
+    #{$container-selector} {
+      padding: 0 0 $footer-height 0;
+    }
+  }
+
+  #{$footer-selector} {
+    height: $footer-height;
+  }
+}

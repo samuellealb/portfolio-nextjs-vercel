@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+// import Image from "next/image";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
@@ -7,7 +6,8 @@ export const Header = () => {
 
   return (
     <header className={styles.header} role="banner">
-      Header
+      <div>Header component</div>
+      <nav>Navigation Component</nav>
     </header>
   );
 };
