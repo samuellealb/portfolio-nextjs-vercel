@@ -1,4 +1,5 @@
 import "@/src/styles/index.scss";
+import { Base } from "@/src/templates/Base";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -8,19 +9,10 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html>
       <body>
-        <BaseLayout>{children}</BaseLayout>
+        <Base>{children}</Base>
       </body>
     </html>
   );
 }
 
-export const BaseLayout = ({ children }: LayoutProps) => {
-  return (
-    <>
-      <div id="wrapper--body">
-        <div id="container--sf">{children}</div>
-      </div>
-      <footer id="footer">Footer</footer>
-    </>
-  );
-};
+

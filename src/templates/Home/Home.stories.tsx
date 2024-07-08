@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 // import { fn } from '@storybook/test';
-import { BaseLayout } from "@/app/layout";
+import { Base } from "@/src/templates/Base";
 import { default as HomePage } from "@/app/page";
 
 const meta: Meta<typeof HomePage> = {
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Home: Story = {
   render: () => (
-    <BaseLayout>
+    <Base>
       <HomePage />
-    </BaseLayout>
+    </Base>
   ),
 };
