@@ -1,22 +1,26 @@
-import { Header } from "@/src/features/Header";
 import "@/src/styles/index.scss";
 
-type RootLayoutProps = {
+type LayoutProps = {
   children: React.ReactNode;
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html>
       <body>
-        <div id="wrapper--body">
-          <div id="container--sf">
-            <Header />
-            <main>{children}</main>
-          </div>
-        </div>
-        <footer id="footer">Footer</footer>
+        <BaseLayout>{children}</BaseLayout>
       </body>
     </html>
   );
 }
+
+export const BaseLayout = ({ children }: LayoutProps) => {
+  return (
+    <>
+      <div id="wrapper--body">
+        <div id="container--sf">{children}</div>
+      </div>
+      <footer id="footer">Footer</footer>
+    </>
+  );
+};
