@@ -9,8 +9,8 @@
     "lint": "next lint",
     "dev:sb": "storybook dev --ci -p 6006",
     "build:sb": "storybook build",
-    "dev:all": "concurrently \"npm run dev:next\" \"npm run dev:sb\"",
-    "build:all": "concurrently \"npm run build:next\" \"npm run build:sb\""
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:sb\"",
+    "build:all": "concurrently \"npm run build\" \"npm run build:sb\""
   },
   "dependencies": {
     "next": "14.2.4",
