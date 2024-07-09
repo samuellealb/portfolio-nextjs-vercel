@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 // import { fn } from '@storybook/test';
-import { Base } from "@/src/templates/Base";
+import { Base } from "@/src/layouts/Base";
 import { default as HomePage } from "@/app/page";
 
 const meta: Meta<typeof HomePage> = {

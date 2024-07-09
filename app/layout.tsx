@@ -1,5 +1,5 @@
 import "@/src/styles/index.scss";
-import { Base } from "@/src/templates/Base";
+import { Base } from "@/src/layouts/Base";
 
 type LayoutProps = {
   children: React.ReactNode;
