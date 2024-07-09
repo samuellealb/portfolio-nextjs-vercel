@@ -10,7 +10,8 @@ const meta: Meta<typeof ThumbnailComponent> = {
     layout: "fullscreen",
   },
   args: {
-    url: "",
+    slug: "",
+    src: "",
     title: "",
   },
 };

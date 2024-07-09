@@ -1,4 +1,5 @@
 export type TThumbnail = {
-  url: string;
+  slug: string;
   title: string;
-}
+  src: string;
+};
