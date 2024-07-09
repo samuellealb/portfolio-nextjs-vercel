@@ -1,10 +1,9 @@
+@import "./functions";
+
 $breakpoints: (
-  sm: 36rem,
-  // 576px
-  md: 48rem,
-  // 768px
-  lg: 75rem,
-  // 1200px
+  sm: rem(576),
+  md: rem(768),
+  lg: rem(1200),
 );
 
 $font-size-base: 16px;

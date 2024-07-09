@@ -1,4 +1,3 @@
-// @import "./functions";
 @import "./variables";
 
 /**
@@ -40,6 +39,17 @@
   }
 }
 
+/**
+ * @mixin media-query
+ * @description A mixin for creating media queries based on different viewports.
+ *
+ * @param {string} $viewport - The viewport to target. Possible values: "mobile", "tablet", "desktop".
+ *
+ * @example Usage:
+ *   @include media-query(mobile) {
+ *     // Styles for mobile viewport
+ *   }
+ */
 @mixin media-query($viewport) {
   @if $viewport==mobile {
     @media (max-width: calc(map-get($breakpoints, "sm") - 1px)) {
