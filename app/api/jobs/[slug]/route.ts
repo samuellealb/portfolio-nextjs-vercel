@@ -1,13 +1,13 @@
 import { jobs } from "../../mocks";
 import { NextRequest, NextResponse } from "next/server";
-import { GetCategoriesProps, Jobs } from "../../types";
+import { GetJobsProps, Job } from "../../types";
 
-export async function GET(_request: NextRequest, { params }: GetCategoriesProps): Promise<NextResponse> {
+export async function GET(_request: NextRequest, { params }: GetJobsProps): Promise<NextResponse> {
 
   // TODO: replace with Contentful API
-  const job = await new Promise<Jobs[] | undefined>((resolve) => {
+  const job = await new Promise<Job | undefined>((resolve) => {
     setTimeout(() => {
-      resolve(jobs.filter((job) => job.category.label === params.slug));
+      resolve(jobs.find((job) => job.slug === params.slug));
     }, 1000);
   });
 

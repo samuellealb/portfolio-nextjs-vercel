@@ -1,5 +1,6 @@
-export interface Jobs {
+export interface Job {
   id: number;
+  slug: string;
   title: string;
   genre: string;
   duration: number;
@@ -27,7 +28,7 @@ export interface Image {
 
 export interface GetJobsProps {
   params: {
-    id: string;
+    slug: string;
   };
 }
 export interface GetCategoriesProps {

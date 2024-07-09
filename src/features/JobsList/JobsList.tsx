@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Thumbnail } from "../Thumbnail";
-import { Jobs } from "@/app/api/types";
+import { Thumbnail } from "@/src/components/Thumbnail";
+import { Job } from "@/app/api/types";
 
 export const JobsList = ({ category }: { category?: string }) => {
-  const [jobs, setJobs] = useState<Jobs[] | null>(null);
+  const [jobs, setJobs] = useState<Job[] | null>(null);
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         let response;
         if (category) {
-          response = await fetch(`/api/category/${category}`);
+          response = await fetch(`/api/categories/${category}`);
         } else {
           response = await fetch("/api/jobs");
         }

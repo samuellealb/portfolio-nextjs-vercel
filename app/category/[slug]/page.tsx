@@ -1,7 +1,7 @@
 import { data } from "@/src/features/Header/Header.mocks"; // TODO: replace this with actual data
 import { Header } from "@/src/features/Header";
 import { Metadata } from "next";
-import { JobsList } from "@/src/components/JobsList";
+import { JobsList } from "@/src/features/JobsList";
 
 export const metadata: Metadata = {
   title: "Category title",
