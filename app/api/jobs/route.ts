@@ -1,19 +1,17 @@
-import { jobs } from "../mocks";
+import { jobs } from "./mocks";
 import { NextRequest, NextResponse } from "next/server";
-import { GetJobsProps, Jobs } from "../types";
+import { Jobs } from "./types";
 
-export async function GET(_request: NextRequest, { params }: GetJobsProps): Promise<NextResponse> {
-
-  const id: number = parseInt(params.id);
+export async function GET(_request: NextRequest): Promise<NextResponse> {
 
   // TODO: replace with Contentful API
-  const job = await new Promise<Jobs | undefined>((resolve) => {
+  const jobsList = await new Promise<Jobs[] | undefined>((resolve) => {
     setTimeout(() => {
-      resolve(jobs.find((job) => job.id === id));
+      resolve(jobs);
     }, 1000);
   });
 
-  if (!job) {
+  if (!jobsList) {
     return NextResponse.json(
       {
         success: true,
@@ -29,8 +27,8 @@ export async function GET(_request: NextRequest, { params }: GetJobsProps): Prom
   return NextResponse.json(
     {
       success: true,
-      message: "Detail Data Job",
-      data: job,
+      message: "Jobs Lists",
+      data: jobsList,
     },
     {
       status: 200,

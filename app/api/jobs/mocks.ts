@@ -13,22 +13,26 @@ export const jobs: Jobs[] = [
       label: 'Sci-Fi',
       jobs: [],
     },
+    thumbnail: {
+      src: 'https://dummyimage.com/230x210',
+      alt: 'The Matrix Thumbnail',
+    },
     cover: {
-      src: 'https://via.placeholder.com/300x400',
+      src: 'https://dummyimage.com/980x522',
       alt: 'The Matrix',
     },
     trailer: 'https://www.youtube.com/watch?v=m8e-FF8MsqU',
     gallery: [
       {
-        src: 'https://via.placeholder.com/300x400',
+        src: 'https://dummyimage.com/980x522',
         alt: 'The Matrix',
       },
       {
-        src: 'https://via.placeholder.com/300x400',
+        src: 'https://dummyimage.com/980x522',
         alt: 'The Matrix',
       },
       {
-        src: 'https://via.placeholder.com/300x400',
+        src: 'https://dummyimage.com/980x522',
         alt: 'The Matrix',
       },
     ],
@@ -48,22 +52,26 @@ export const jobs: Jobs[] = [
       label: 'Sci-Fi',
       jobs: [],
     },
+    thumbnail: {
+      src: 'https://dummyimage.com/230x210',
+      alt: 'The Matrix Thumbnail',
+    },
     cover: {
-      src: 'https://via.placeholder.com/300x400',
+      src: 'https://dummyimage.com/980x522',
       alt: 'The Matrix Reloaded',
     },
     trailer: 'https://www.youtube.com/watch?v=2F7Hw8vO5is',
     gallery: [
       {
-        src: 'https://via.placeholder.com/300x400',
+        src: 'https://dummyimage.com/980x522',
         alt: 'The Matrix Reloaded',
       },
       {
-        src: 'https://via.placeholder.com/300x400',
+        src: 'https://dummyimage.com/980x522',
         alt: 'The Matrix Reloaded',
       },
       {
-        src: 'https://via.placeholder.com/300x400',
+        src: 'https://dummyimage.com/980x522',
         alt: 'The Matrix Reloaded',
       },
     ],

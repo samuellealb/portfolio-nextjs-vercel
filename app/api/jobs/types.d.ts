@@ -12,6 +12,7 @@ export interface Jobs {
   location: string;
   year: number;
   tag: Tag;
+  thumbnail: Image;
   cover: Image;
   trailer: string;
   gallery: Image[];
