@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 // import { fn } from '@storybook/test';
 import { Base as BaseLayout } from "@/src/layouts/Base";
-import { default as HomePage } from "@/app/page";
+import { default as CategoryPage } from "@/app/category/[slug]/page";
 
-const meta: Meta<typeof HomePage> = {
-  title: "Pages/Home",
-  component: HomePage,
+const meta: Meta<typeof CategoryPage> = {
+  title: "Pages/Category",
+  component: CategoryPage,
   parameters: {
     layout: "fullscreen",
   },
@@ -16,10 +16,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Home: Story = {
+export const Category: Story = {
   render: () => (
     <BaseLayout>
-      <HomePage />
+      <CategoryPage params={{ slug: 'test-category' }}/>
     </BaseLayout>
   ),
 };
