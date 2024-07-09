@@ -1,10 +1,10 @@
 import Image from "next/image";
 import type { TThumbnail } from "./Thumbnail.d";
 
-export const Thumbnail = ({ id, src, title }: TThumbnail) => {
+export const Thumbnail = ({ slug, src, title }: TThumbnail) => {
   return (
     <article className="post col-xs-12 col-sm-6 col-lg-3">
-      <a href={`/job/${id}`} title={title}>
+      <a href={`/job/${slug}`} title={title}>
         <Image
           src={src}
           alt={title}

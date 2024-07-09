@@ -23,7 +23,7 @@ export const JobsList = async ({ category }: { category?: string }) => {
     return jobs.map((job) => (
       <Thumbnail
         key={job.id}
-        id={job.id.toString()}
+        slug={job.slug}
         title={job.title}
         src={job.thumbnail.src}
       />
