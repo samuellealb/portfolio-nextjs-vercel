@@ -1,6 +1,7 @@
 import { data } from "@/src/features/Header/Header.mocks"; // TODO: replace this with actual data
-import { Header } from "@/src/features/Header";
 import { Metadata } from "next";
+import { Header } from "@/src/features/Header";
+import { JobPanel } from "@/src/features/JobPanel";
 
 export const metadata: Metadata = {
   title: "Job title",
@@ -16,7 +17,7 @@ export default function Page({ params }: JobPageProps ) {
     <>
       <Header pagesLogo={pagesLogo} mobileLogo={mobileLogo} />
       <main role="main">
-        <div>Job page: {params.slug} </div>
+        <JobPanel slug={params.slug}/>
       </main>
     </>
   );
