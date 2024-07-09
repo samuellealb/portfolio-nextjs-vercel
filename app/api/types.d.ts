@@ -1,9 +1,3 @@
-export interface GetJobsProps {
-  params: {
-    id: string;
-  };
-}
-
 export interface Jobs {
   id: number;
   title: string;
@@ -11,7 +5,7 @@ export interface Jobs {
   duration: number;
   location: string;
   year: number;
-  tag: Tag;
+  category: Category;
   thumbnail: Image;
   cover: Image;
   trailer: string;
@@ -21,13 +15,23 @@ export interface Jobs {
   details: string; // rich text
 }
 
-export interface Tag {
+export interface Category {
   id: number;
   label: string;
-  jobs: Jobs[];
 }
 
 export interface Image {
   src: string;
   alt: string;
+}
+
+export interface GetJobsProps {
+  params: {
+    id: string;
+  };
+}
+export interface GetCategoriesProps {
+  params: {
+    slug: string;
+  };
 }

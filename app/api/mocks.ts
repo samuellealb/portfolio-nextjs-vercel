@@ -8,10 +8,9 @@ export const jobs: Jobs[] = [
     duration: 136,
     location: 'Sydney',
     year: 1999,
-    tag: {
+    category: {
       id: 1,
-      label: 'Sci-Fi',
-      jobs: [],
+      label: 'sci-fi',
     },
     thumbnail: {
       src: 'https://dummyimage.com/230x210',
@@ -42,41 +41,40 @@ export const jobs: Jobs[] = [
   },
   {
     id: 2,
-    title: 'The Matrix Reloaded',
-    genre: 'Action',
-    duration: 138,
-    location: 'Sydney',
-    year: 2003,
-    tag: {
-      id: 1,
-      label: 'Sci-Fi',
-      jobs: [],
+    title: 'Lord of the Rings',
+    genre: 'Fantasy',
+    duration: 178,
+    location: 'New Zealand',
+    year: 2001,
+    category: {
+      id: 2,
+      label: 'fantasy',
     },
     thumbnail: {
       src: 'https://dummyimage.com/230x210',
-      alt: 'The Matrix Thumbnail',
+      alt: 'Lord of the Rings Thumbnail',
     },
     cover: {
       src: 'https://dummyimage.com/980x522',
-      alt: 'The Matrix Reloaded',
+      alt: 'Lord of the Rings',
     },
-    trailer: 'https://www.youtube.com/watch?v=2F7Hw8vO5is',
+    trailer: 'https://www.youtube.com/watch?v=V75dMMIW2B4',
     gallery: [
       {
         src: 'https://dummyimage.com/980x522',
-        alt: 'The Matrix Reloaded',
+        alt: 'Lord of the Rings',
       },
       {
         src: 'https://dummyimage.com/980x522',
-        alt: 'The Matrix Reloaded',
+        alt: 'Lord of the Rings',
       },
       {
         src: 'https://dummyimage.com/980x522',
-        alt: 'The Matrix Reloaded',
+        alt: 'Lord of the Rings',
       },
     ],
-    sinonpsis: 'The Matrix Reloaded is a 2003 science fiction action film written and directed by the Wachowskis.',
-    crew: 'Directed by: The Wachowskis',
-    details: 'The Matrix Reloaded is a 2003 science fiction action film written and directed by the Wachowskis.',
+    sinonpsis: 'The Lord of the Rings is a 2001 fantasy film directed by Peter Jackson.',
+    crew: 'Directed by: Peter Jackson',
+    details: 'The Lord of the Rings is a 2001 fantasy film directed by Peter Jackson.',
   },
 ];

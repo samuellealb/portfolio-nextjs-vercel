@@ -1,6 +1,6 @@
-import { jobs } from "./mocks";
+import { jobs } from "../mocks";
 import { NextRequest, NextResponse } from "next/server";
-import { Jobs } from "./types";
+import { Jobs } from "../types";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
 
