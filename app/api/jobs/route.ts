@@ -1,11 +1,11 @@
 import { jobs } from "../mocks";
 import { NextRequest, NextResponse } from "next/server";
-import { Jobs } from "../types";
+import { Job } from "../types";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
 
   // TODO: replace with Contentful API
-  const jobsList = await new Promise<Jobs[] | undefined>((resolve) => {
+  const jobsList = await new Promise<Job[] | undefined>((resolve) => {
     setTimeout(() => {
       resolve(jobs);
     }, 1000);
