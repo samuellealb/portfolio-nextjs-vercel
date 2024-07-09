@@ -4,7 +4,7 @@ export const JobPanel = async ({ slug }: { slug: string }) => {
   let job: Job | null = null;
 
   try {
-    const response = await fetch(`http://localhost:3000/api/jobs/${slug}`);
+    const response = await fetch(process.env.URL + `/api/jobs/${slug}`);
     const { data } = await response.json();
     job = data;
   } catch (error) {
