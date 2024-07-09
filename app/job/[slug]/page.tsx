@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   description: "Job description",
 };
 
-export default function Page({ params }: { params: { slug: string } }) {
+export type JobPageProps = { params: { slug: string } };
+
+export default function Page({ params }: JobPageProps ) {
   const { pagesLogo, mobileLogo } = data;
 
   return (

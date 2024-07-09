@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   description: "Category description",
 };
 
-export default function Page({ params }: { params: { slug: string } }) {
+export type CategoryPageProps = { params: { slug: string } };
+
+export default function Page({ params }: CategoryPageProps) {
   const { pagesLogo, mobileLogo } = data;
 
   return (
