@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Header } from "@/src/features/Header";
-import { JobsList } from "@/src/components/JobsList";
+import { JobsList } from "@/src/features/JobsList";
 
 import { data } from "@/src/features/Header/Header.mocks";
 
