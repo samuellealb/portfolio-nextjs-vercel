@@ -2,24 +2,29 @@
 
 import { useEffect, useState } from "react";
 import { Thumbnail } from "../Thumbnail";
-import { Jobs } from "@/app/api/jobs/types";
+import { Jobs } from "@/app/api/types";
 
-export const JobsList = () => {
+export const JobsList = ({ category }: { category?: string }) => {
   const [jobs, setJobs] = useState<Jobs[] | null>(null);
 
-  const fetchJobs = async () => {
-    try {
-      const response = await fetch("/api/jobs");
-      const { data } = await response.json();
-      setJobs(data);
-    } catch (error) {
-      console.error("Error fetching jobs:", error);
-    }
-  };
-
   useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        let response;
+        if (category) {
+          response = await fetch(`/api/category/${category}`);
+        } else {
+          response = await fetch("/api/jobs");
+        }
+        const { data } = await response.json();
+        setJobs(data);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      }
+    };
+
     fetchJobs();
-  }, []);
+  }, [category]);
 
   return (
     <div>
