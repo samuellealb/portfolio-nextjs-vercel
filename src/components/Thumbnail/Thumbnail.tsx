@@ -1,15 +1,15 @@
 import Image from "next/image";
 import type { TThumbnail } from "./Thumbnail.d";
 
-export const Thumbnail = ({ url, title }: TThumbnail) => {
+export const Thumbnail = ({ id, src, title }: TThumbnail) => {
   return (
     <article className="post col-xs-12 col-sm-6 col-lg-3">
-      <a href="#" title={title}>
+      <a href={`/job/${id}`} title={title}>
         <Image
-          src={url}
+          src={src}
           alt={title}
-          width={300}
-          height={200}
+          width={230}
+          height={210}
           className="grid-img"
         />
       </a>

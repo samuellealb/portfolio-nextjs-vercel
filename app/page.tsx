@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { Header } from "@/src/features/Header";
+import { JobsList } from "@/src/components/JobsList";
 
 import { data } from "@/src/features/Header/Header.mocks";
-const { homeLogo, mobileLogo } = data;
 
 export const metadata: Metadata = {
   title: "Jeanne Dosse Portfolio",
@@ -10,11 +10,13 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const { homeLogo, mobileLogo } = data;
+
   return (
     <>
       <Header homeLogo={homeLogo} mobileLogo={mobileLogo} />
       <main role="main">
-        <div>Home Page</div>
+        <JobsList />
       </main>
     </>
   );

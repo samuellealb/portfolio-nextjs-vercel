@@ -6,7 +6,7 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
   return (
     <header className={styles.header} role="banner">
       <div className={styles.logo}>
-        <a href="/">
+        <a href="/" title="logo">
           <div className={styles.logo__imgDesktop}>
             <Image
               src={homeLogo ? homeLogo?.src : pagesLogo?.src || ""}
