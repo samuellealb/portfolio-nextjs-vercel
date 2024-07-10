@@ -1,1 +1,1 @@
-export * from './JobPanel.server'
+export * from './JobPanel'

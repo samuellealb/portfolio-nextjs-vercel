@@ -1,1 +1,1 @@
-export * from './JobsList.server'
+export * from './JobsList'
