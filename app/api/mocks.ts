@@ -47,11 +47,10 @@ export const jobs: Job[] = [
         alt: "The Matrix",
       },
     ],
-    sinonpsis:
+    sinopsis:
       "The Matrix is a 1999 science fiction action film written and directed by the Wachowskis.",
     crew: "Directed by: The Wachowskis",
-    details:
-      "The Matrix is a 1999 science fiction action film written and directed by the Wachowskis.",
+    awardsAndExhibitions: "Oscar for Best Visual Effects",
   },
   {
     id: 2,
@@ -88,10 +87,9 @@ export const jobs: Job[] = [
         alt: "Lord of the Rings",
       },
     ],
-    sinonpsis:
+    sinopsis:
       "The Lord of the Rings is a 2001 fantasy film directed by Peter Jackson.",
     crew: "Directed by: Peter Jackson",
-    details:
-      "The Lord of the Rings is a 2001 fantasy film directed by Peter Jackson.",
+    awardsAndExhibitions: "Oscar for Best Picture",
   },
 ];

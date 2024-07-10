@@ -3,7 +3,9 @@ import { Metadata } from "next";
 import { Header } from "@/src/features/Header";
 import { JobPanel } from "@/src/features/JobPanel";
 
-export async function generateMetadata({ params }: JobPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: JobPageProps): Promise<Metadata> {
   const slug = params.slug;
   const response = await fetch(process.env.URL + `/api/jobs/${slug}`);
   const { data } = await response.json();
@@ -11,14 +13,14 @@ export async function generateMetadata({ params }: JobPageProps): Promise<Metada
   if (data) {
     return {
       title: data.title,
-      description: data.details,
+      description: data.sinopsis ? data.sinopsis : data.title,
     };
   }
 
   return {
-    title: 'Job not found',
-    description: 'Job not found',
-  }
+    title: "Job not found",
+    description: "Job not found",
+  };
 }
 
 export type JobPageProps = { params: { slug: string } };

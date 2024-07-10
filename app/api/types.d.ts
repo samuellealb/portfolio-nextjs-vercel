@@ -11,9 +11,9 @@ export interface Job {
   cover: Image;
   trailer: string;
   gallery: Image[];
-  sinonpsis: string; // rich text
+  sinopsis: string; // rich text
   crew: string; // rich text
-  details: string; // rich text
+  awardsAndExhibitions: string; // rich text
 }
 
 export interface Category {
