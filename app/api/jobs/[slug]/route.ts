@@ -1,17 +1,17 @@
-import { jobs } from "../../mocks";
 import { NextRequest, NextResponse } from "next/server";
 import { GetJobsProps, Job } from "../../types";
 
-export async function GET(_request: NextRequest, { params }: GetJobsProps): Promise<NextResponse> {
+export async function GET(
+  _request: NextRequest,
+  { params }: GetJobsProps
+): Promise<NextResponse> {
+  const response = await fetch(
+    process.env.CONTENTFUL_CND_URL +
+      `/spaces/${process.env.CONTENTFUL_SPACE_ID}/entries?content_type=job&fields.slug=${params.slug}&access_token=${process.env.CONTENTFUL_ACCESS_TOKEN}`
+  );
+  const job = await response.json();
 
-  // TODO: replace with Contentful API
-  const job = await new Promise<Job | undefined>((resolve) => {
-    setTimeout(() => {
-      resolve(jobs.find((job) => job.slug === params.slug));
-    }, 1000);
-  });
-
-  if (!job) {
+  if (!job.items.length) {
     return NextResponse.json(
       {
         success: true,
@@ -28,7 +28,7 @@ export async function GET(_request: NextRequest, { params }: GetJobsProps): Prom
     {
       success: true,
       message: "Detail Data Job",
-      data: job,
+      data: job.items[0].fields as Job,
     },
     {
       status: 200,

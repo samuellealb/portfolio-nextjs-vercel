@@ -1,21 +1,13 @@
 import { Job } from "@/app/api/types";
 
-export const JobPanel = async ({ slug }: { slug: string }) => {
-  let job: Job | null = null;
+export const JobPanel = async (jobData: Job) => {
+  const jobExists = jobData && Object.keys(jobData).length > 0;
 
-  try {
-    const response = await fetch(process.env.URL + `/api/jobs/${slug}`);
-    const { data } = await response.json();
-    job = data;
-  } catch (error) {
-    console.error("Error fetching job:", error);
-  }
-
-  if (job) {
+  if (jobExists) {
     return (
       <div>
         Job Data:
-        {job && <pre>{JSON.stringify(job, null, 2)}</pre>}
+        {jobData && <pre>{JSON.stringify(jobData, null, 2)}</pre>}
       </div>
     );
   }
