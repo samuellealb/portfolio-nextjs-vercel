@@ -2,17 +2,12 @@ import { data as HeaderData } from "@/src/features/Header/Header.mocks"; // TODO
 import { Header } from "@/src/features/Header";
 import { Metadata } from "next";
 import { JobsList } from "@/src/features/JobsList";
-
-const getCategoryData = async (slug: string) => {
-  const response = await fetch(process.env.URL + `/api/categories/${slug}`);
-  const { data } = await response.json();
-  return data;
-};
+import { getCategory } from "@/src/lib/categories";
 
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
-  const data = await getCategoryData(params.slug);
+  const data = await getCategory(params.slug);
   if (data) {
     return {
       title: "Jeanne Dosse works on " + params.slug,
@@ -30,7 +25,7 @@ export type CategoryPageProps = { params: { slug: string } };
 
 export default async function Page({ params }: CategoryPageProps) {
   const { pagesLogo, mobileLogo } = HeaderData; // TODO: replace this with actual data
-  const categoryData = await getCategoryData(params.slug);
+  const categoryData = await getCategory(params.slug);
 
   return (
     <>
