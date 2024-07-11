@@ -2,28 +2,11 @@ import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
 import { NextRequest, NextResponse } from "next/server";
 import { Category } from "../types";
+import { getCategories } from "@/src/lib/categories";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
 
-  const CategoriesList: Category[] | undefined = await client
-    .query({
-      query: gql`
-        query GetCategories {
-          categoryCollection {
-            items {
-              sys {
-                id
-              }
-              label
-              slug
-            }
-          }
-        }
-      `,
-    })
-    .then((response) => {
-      return response.data.categoryCollection.items.test;
-    });
+  const CategoriesList: Category[] | undefined = await getCategories();
 
   if (!CategoriesList) {
     return NextResponse.json(

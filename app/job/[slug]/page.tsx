@@ -2,17 +2,12 @@ import { data as HeaderData } from "@/src/features/Header/Header.mocks"; // TODO
 import { Metadata } from "next";
 import { Header } from "@/src/features/Header";
 import { JobPanel } from "@/src/features/JobPanel";
-
-const getJobData = async (slug: string) => {
-  const response = await fetch(process.env.URL + `/api/jobs/${slug}`);
-  const { data } = await response.json();
-  return data;
-};
+import { getJob } from "@/src/lib/jobs";
 
 export async function generateMetadata({
   params,
 }: JobPageProps): Promise<Metadata> {
-  const data = await getJobData(params.slug);
+  const data = await getJob(params.slug);
   if (data) {
     return {
       title: data.title,
@@ -30,7 +25,7 @@ export type JobPageProps = { params: { slug: string } };
 
 export default async function Page({ params }: JobPageProps) {
   const { pagesLogo, mobileLogo } = HeaderData; // TODO: replace this with actual data
-  const jobData = await getJobData(params.slug);
+  const jobData = await getJob(params.slug);
 
   return (
     <>

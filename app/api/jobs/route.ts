@@ -1,37 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client } from "@/src/lib/client";
-import { gql } from "graphql-tag";
 import { Job } from "../types";
+import { getJobs } from "@/src/lib/jobs";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
-  const jobsList: Job[] | undefined = await client
-    .query({
-      query: gql`
-        query GetAllJobs {
-          jobCollection {
-            items {
-              slug
-              cover {
-                url
-                title
-              }
-              sys {
-                id
-                locale
-              }
-              categoryCollection {
-                items {
-                  slug
-                }
-              }
-            }
-          }
-        }
-      `,
-    })
-    .then((response) => {
-      return response.data.jobCollection.items;
-    });
+  const jobsList: Job[] | undefined = await getJobs();
 
   if (!jobsList) {
     return NextResponse.json(
