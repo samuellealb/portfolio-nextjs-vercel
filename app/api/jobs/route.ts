@@ -1,15 +1,35 @@
-import { jobs } from "../mocks";
 import { NextRequest, NextResponse } from "next/server";
-import { Job } from "../types";
+import { client } from "@/src/lib/client";
+import { gql } from "graphql-tag";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
 
-  // TODO: replace with Contentful API
-  const jobsList = await new Promise<Job[] | undefined>((resolve) => {
-    setTimeout(() => {
-      resolve(jobs);
-    }, 1000);
-  });
+  let jobsList
+
+  await client
+    .query({
+      query: gql`
+        query GetAllJobs {
+          jobCollection {
+            items {
+              slug
+              title
+              cover {
+                url
+                title
+              }
+              sys {
+                id
+                locale
+              }
+            }
+          }
+        }
+      `,
+    })
+    .then((response) =>{
+      jobsList = response.data.jobCollection.items
+    });
 
   if (!jobsList) {
     return NextResponse.json(

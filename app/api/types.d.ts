@@ -1,5 +1,7 @@
 export interface Job {
-  id: number;
+  sys: {
+    id: number;
+  };
   slug: string;
   title: string;
   genre: string;
@@ -22,8 +24,8 @@ export interface Category {
 }
 
 export interface Image {
-  src: string;
-  alt: string;
+  url: string;
+  title: string;
 }
 
 export interface GetJobsProps {
