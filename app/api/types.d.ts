@@ -8,7 +8,9 @@ export interface Job {
   duration: number;
   location: string;
   year: number;
-  category: Category;
+  categoryCollection: {
+    items: Category[];
+  };
   thumbnail: Image;
   cover: Image;
   trailer: string;
@@ -19,8 +21,11 @@ export interface Job {
 }
 
 export interface Category {
-  id: number;
+  sys: {
+    id: number;
+  };
   label: string;
+  slug: string;
 }
 
 export interface Image {
