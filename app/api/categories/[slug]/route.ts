@@ -1,7 +1,7 @@
 import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
 import { NextRequest, NextResponse } from "next/server";
-import { GetCategoriesProps } from "../../types";
+import { GetCategoriesProps, Job } from "../../types";
 
 export async function GET(
   _request: NextRequest,
@@ -61,7 +61,7 @@ export async function GET(
     {
       success: true,
       message: "Detail Data Job",
-      data: job,
+      data: job as Job[],
     },
     {
       status: 200,

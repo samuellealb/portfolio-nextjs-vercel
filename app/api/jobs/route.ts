@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
+import { Job } from "../types";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
   let jobsList;
@@ -52,7 +53,7 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
     {
       success: true,
       message: "Jobs Lists",
-      data: jobsList,
+      data: jobsList as Job[],
     },
     {
       status: 200,
