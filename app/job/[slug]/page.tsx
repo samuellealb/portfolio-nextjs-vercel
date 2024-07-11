@@ -6,7 +6,6 @@ import { JobPanel } from "@/src/features/JobPanel";
 const getJobData = async (slug: string) => {
   const response = await fetch(process.env.URL + `/api/jobs/${slug}`);
   const { data } = await response.json();
-  console.log(data);
   return data;
 };
 

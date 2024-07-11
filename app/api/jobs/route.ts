@@ -3,8 +3,7 @@ import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
-
-  let jobsList
+  let jobsList;
 
   await client
     .query({
@@ -13,7 +12,6 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
           jobCollection {
             items {
               slug
-              title
               cover {
                 url
                 title
@@ -22,13 +20,19 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
                 id
                 locale
               }
+              categoryCollection {
+                items {
+                  slug
+                }
+              }
             }
           }
         }
       `,
     })
-    .then((response) =>{
-      jobsList = response.data.jobCollection.items
+    .then((response) => {
+      const hasItems = response.data.jobCollection.items.length > 0;
+      if (hasItems) jobsList = response.data.jobCollection.items;
     });
 
   if (!jobsList) {
