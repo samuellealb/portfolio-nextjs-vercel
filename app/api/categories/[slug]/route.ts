@@ -1,20 +1,19 @@
-import { jobs } from "../../mocks";
 import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
 import { NextRequest, NextResponse } from "next/server";
-import { GetCategoriesProps, Job } from "../../types";
+import { GetCategoriesProps } from "../../types";
 
 export async function GET(
   _request: NextRequest,
   { params }: GetCategoriesProps
 ): Promise<NextResponse> {
-  let job
+  let job;
 
   await client
     .query({
       query: gql`
-        query GetAllJobs {
-          jobCollection {
+        query GetJobsByCategory($slug: String!) {
+          jobCollection(where: { category: { slug: $slug } }) {
             items {
               slug
               title
@@ -24,15 +23,25 @@ export async function GET(
               }
               sys {
                 id
-                locale
+              }
+              categoryCollection {
+                items {
+                  slug
+                }
               }
             }
           }
         }
       `,
+      variables: {
+        slug: params.slug,
+      },
     })
-    .then((response) =>{
-      job = response.data.jobCollection.items
+    .then((response) => {
+      const hasItems = response.data.jobCollection.items.length > 0;
+      if (hasItems) {
+        job = response.data.jobCollection.items;
+      }
     });
 
   if (!job) {
