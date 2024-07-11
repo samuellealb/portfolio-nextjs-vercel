@@ -4,9 +4,7 @@ import { gql } from "graphql-tag";
 import { Job } from "../types";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
-  let jobsList;
-
-  await client
+  const jobsList: Job[] | undefined = await client
     .query({
       query: gql`
         query GetAllJobs {
@@ -32,8 +30,7 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
       `,
     })
     .then((response) => {
-      const hasItems = response.data.jobCollection.items.length > 0;
-      if (hasItems) jobsList = response.data.jobCollection.items;
+      return response.data.jobCollection.items;
     });
 
   if (!jobsList) {
@@ -53,7 +50,7 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
     {
       success: true,
       message: "Jobs Lists",
-      data: jobsList as Job[],
+      data: jobsList,
     },
     {
       status: 200,

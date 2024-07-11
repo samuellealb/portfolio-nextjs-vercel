@@ -7,9 +7,7 @@ export async function GET(
   _request: NextRequest,
   { params }: GetJobsProps
 ): Promise<NextResponse> {
-  let job;
-
-  await client
+  const job: Job | undefined = await client
     .query({
       query: gql`
         query GetJobBySlug($slug: String!) {
@@ -61,8 +59,7 @@ export async function GET(
       },
     })
     .then((response) => {
-      const jobExists = response.data.jobCollection.items.length > 0;
-      if (jobExists) job = response.data.jobCollection.items[0];
+      return response.data.jobCollection.items[0];
     });
 
   if (!job) {
@@ -82,7 +79,7 @@ export async function GET(
     {
       success: true,
       message: "Detail Data Job",
-      data: job as Job,
+      data: job,
     },
     {
       status: 200,

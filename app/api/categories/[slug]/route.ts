@@ -7,9 +7,7 @@ export async function GET(
   _request: NextRequest,
   { params }: GetCategoriesProps
 ): Promise<NextResponse> {
-  let job;
-
-  await client
+  const job: Job[] = await client
     .query({
       query: gql`
         query GetJobsByCategory($slug: String!) {
@@ -38,13 +36,10 @@ export async function GET(
       },
     })
     .then((response) => {
-      const hasItems = response.data.jobCollection.items.length > 0;
-      if (hasItems) {
-        job = response.data.jobCollection.items;
-      }
+      return response.data.jobCollection.items;
     });
 
-  if (!job) {
+  if (!job.length) {
     return NextResponse.json(
       {
         success: true,
@@ -61,7 +56,7 @@ export async function GET(
     {
       success: true,
       message: "Detail Data Job",
-      data: job as Job[],
+      data: job,
     },
     {
       status: 200,
