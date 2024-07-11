@@ -1,19 +1,22 @@
-import { data } from "@/src/features/Header/Header.mocks"; // TODO: replace this with actual data
+import { data as HeaderData } from "@/src/features/Header/Header.mocks"; // TODO: replace this with actual data
 import { Header } from "@/src/features/Header";
 import { Metadata } from "next";
 import { JobsList } from "@/src/features/JobsList";
 
+const getCategoryData = async (slug: string) => {
+  const response = await fetch(process.env.URL + `/api/categories/${slug}`);
+  const { data } = await response.json();
+  return data;
+};
+
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
-  const slug = params.slug;
-  const response = await fetch(process.env.URL + `/api/categories/${slug}`);
-  const { data } = await response.json();
-
-  if (data.length) {
+  const data = await getCategoryData(params.slug);
+  if (data) {
     return {
-      title: "Jeanne Dosse works on " + slug,
-      description: slug + " Jobs",
+      title: "Jeanne Dosse works on " + params.slug,
+      description: params.slug + " jobs",
     };
   }
 
@@ -25,14 +28,15 @@ export async function generateMetadata({
 
 export type CategoryPageProps = { params: { slug: string } };
 
-export default function Page({ params }: CategoryPageProps) {
-  const { pagesLogo, mobileLogo } = data;
+export default async function Page({ params }: CategoryPageProps) {
+  const { pagesLogo, mobileLogo } = HeaderData; // TODO: replace this with actual data
+  const categoryData = await getCategoryData(params.slug);
 
   return (
     <>
       <Header pagesLogo={pagesLogo} mobileLogo={mobileLogo} />
       <main role="main">
-        <JobsList category={params.slug} />
+        <JobsList {...categoryData} />
       </main>
     </>
   );

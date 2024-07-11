@@ -1,29 +1,36 @@
 export interface Job {
-  id: number;
+  sys: {
+    id: number;
+  };
   slug: string;
   title: string;
   genre: string;
   duration: number;
   location: string;
   year: number;
-  category: Category;
+  categoryCollection: {
+    items: Category[];
+  };
   thumbnail: Image;
   cover: Image;
   trailer: string;
   gallery: Image[];
-  sinonpsis: string; // rich text
+  sinopsis: string; // rich text
   crew: string; // rich text
-  details: string; // rich text
+  awardsAndExhibitions: string; // rich text
 }
 
 export interface Category {
-  id: number;
+  sys: {
+    id: number;
+  };
   label: string;
+  slug: string;
 }
 
 export interface Image {
-  src: string;
-  alt: string;
+  url: string;
+  title: string;
 }
 
 export interface GetJobsProps {

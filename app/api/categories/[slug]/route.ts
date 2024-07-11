@@ -1,17 +1,45 @@
-import { jobs } from "../../mocks";
+import { client } from "@/src/lib/client";
+import { gql } from "graphql-tag";
 import { NextRequest, NextResponse } from "next/server";
 import { GetCategoriesProps, Job } from "../../types";
 
-export async function GET(_request: NextRequest, { params }: GetCategoriesProps): Promise<NextResponse> {
+export async function GET(
+  _request: NextRequest,
+  { params }: GetCategoriesProps
+): Promise<NextResponse> {
+  const job: Job[] = await client
+    .query({
+      query: gql`
+        query GetJobsByCategory($slug: String!) {
+          jobCollection(where: { category: { slug: $slug } }) {
+            items {
+              slug
+              title
+              cover {
+                url
+                title
+              }
+              sys {
+                id
+              }
+              categoryCollection {
+                items {
+                  slug
+                }
+              }
+            }
+          }
+        }
+      `,
+      variables: {
+        slug: params.slug,
+      },
+    })
+    .then((response) => {
+      return response.data.jobCollection.items;
+    });
 
-  // TODO: replace with Contentful API
-  const job = await new Promise<Job[] | undefined>((resolve) => {
-    setTimeout(() => {
-      resolve(jobs.filter((job) => job.category.label === params.slug));
-    }, 1000);
-  });
-
-  if (!job) {
+  if (!job.length) {
     return NextResponse.json(
       {
         success: true,
