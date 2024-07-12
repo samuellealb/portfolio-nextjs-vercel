@@ -1,7 +1,7 @@
 import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
 import { NextRequest, NextResponse } from "next/server";
-import { Category } from "../types";
+import { Category } from "@/src/lib/types";
 import { getCategories } from "@/src/lib/categories";
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {

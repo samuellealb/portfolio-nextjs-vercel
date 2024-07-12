@@ -1,5 +1,5 @@
 import { Thumbnail } from "@/src/components/Thumbnail";
-import { Job } from "@/app/api/types";
+import { Job } from "@/src/lib/types";
 
 export const JobsList = async (jobsList: Job[]) => {
   if (jobsList && Object.keys(jobsList).length > 0) {

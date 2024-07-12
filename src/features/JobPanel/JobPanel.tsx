@@ -1,4 +1,4 @@
-import { Job } from "@/app/api/types";
+import { Job } from "@/src/lib/types";
 
 export const JobPanel = async (jobData: Job) => {
   const jobExists = jobData && Object.keys(jobData).length > 0;

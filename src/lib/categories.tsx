@@ -1,6 +1,6 @@
 import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
-import { Category, Job } from "@/app/api/types";
+import { Category, Job } from "@/src/lib/types";
 
 export async function getCategories(): Promise<Category[] | undefined> {
   const { data } = await client.query({

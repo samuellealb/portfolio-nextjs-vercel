@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GetCategoriesProps, Job } from "../../types";
+import { GetCategoriesProps, Job } from "@/src/lib/types";
 import { getCategory } from "@/src/lib/categories";
 
 export async function GET(

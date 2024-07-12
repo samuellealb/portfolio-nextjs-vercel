@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getJob } from "@/src/lib/jobs";
-import { GetJobsProps, Job } from "../../types";
+import { GetJobsProps, Job } from "@/src/lib/types";
 
 export async function GET(
   _request: NextRequest,

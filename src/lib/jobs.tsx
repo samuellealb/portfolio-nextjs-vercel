@@ -1,4 +1,4 @@
-import { Job } from "@/app/api/types";
+import { Job } from "@/src/lib/types";
 import { client } from "@/src/lib/client";
 import { gql } from "graphql-tag";
 
