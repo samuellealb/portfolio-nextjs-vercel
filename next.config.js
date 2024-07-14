@@ -5,6 +5,6 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["dummyimage.com", "images.ctfassets.net"],
+    domains: ["images.ctfassets.net"],
   },
 };
