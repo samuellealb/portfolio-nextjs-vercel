@@ -10,7 +10,7 @@ export async function getJobs(): Promise<Job[]> {
           jobCollection {
             items {
               slug
-              cover {
+              thumbnail {
                 url
                 title
               }

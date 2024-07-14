@@ -40,25 +40,25 @@ export const jobs: Job[] = [
       ],
     },
     thumbnail: {
-      url: "https://dummyimage.com/230x210",
+      url: "https://placehold.co/230x210",
       title: "The Matrix Thumbnail",
     },
     cover: {
-      url: "https://dummyimage.com/980x522",
+      url: "https://placehold.co/980x522",
       title: "The Matrix",
     },
     trailer: "https://www.youtube.com/watch?v=m8e-FF8MsqU",
     gallery: [
       {
-        url: "https://dummyimage.com/980x522",
+        url: "https://placehold.co/980x522",
         title: "The Matrix",
       },
       {
-        url: "https://dummyimage.com/980x522",
+        url: "https://placehold.co/980x522",
         title: "The Matrix",
       },
       {
-        url: "https://dummyimage.com/980x522",
+        url: "https://placehold.co/980x522",
         title: "The Matrix",
       },
     ],
@@ -89,25 +89,25 @@ export const jobs: Job[] = [
       ],
     },
     thumbnail: {
-      url: "https://dummyimage.com/230x210",
+      url: "https://placehold.co/230x210",
       title: "Lord of the Rings Thumbnail",
     },
     cover: {
-      url: "https://dummyimage.com/980x522",
+      url: "https://placehold.co/980x522",
       title: "Lord of the Rings",
     },
     trailer: "https://www.youtube.com/watch?v=V75dMMIW2B4",
     gallery: [
       {
-        url: "https://dummyimage.com/980x522",
+        url: "https://placehold.co/980x522",
         title: "Lord of the Rings",
       },
       {
-        url: "https://dummyimage.com/980x522",
+        url: "https://placehold.co/980x522",
         title: "Lord of the Rings",
       },
       {
-        url: "https://dummyimage.com/980x522",
+        url: "https://placehold.co/980x522",
         title: "Lord of the Rings",
       },
     ],

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 // import { fn } from '@storybook/test';
 import { Thumbnail as ThumbnailComponent } from "./Thumbnail";
+import { jobs } from "@/src/lib/mocks";
 
 const meta: Meta<typeof ThumbnailComponent> = {
   title: "Components/Thumbnail",
@@ -10,9 +11,9 @@ const meta: Meta<typeof ThumbnailComponent> = {
     layout: "fullscreen",
   },
   args: {
-    slug: "",
-    src: "",
-    title: "",
+    slug: jobs[0].slug,
+    title: jobs[0].thumbnail?.title,
+    src: jobs[0].thumbnail?.url,
   },
 };
 

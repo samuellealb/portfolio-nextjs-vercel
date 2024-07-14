@@ -1,0 +1,9 @@
+@import "@/src/styles/variables.scss";
+
+.thumbnail {
+  display: flex;
+  height: rem(210);
+  width: rem(230);
+  border-radius: rem(20);
+  overflow: hidden;
+}

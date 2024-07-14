@@ -1,9 +1,10 @@
 import Image from "next/image";
+import styles from "./Thumbnail.module.scss";
 import type { TThumbnail } from "./Thumbnail.d";
 
 export const Thumbnail = ({ slug, src, title }: TThumbnail) => {
   return (
-    <article className="post col-xs-12 col-sm-6 col-lg-3">
+    <article className={styles.thumbnail}>
       <a href={`/job/${slug}`} title={title}>
         <Image
           src={src}

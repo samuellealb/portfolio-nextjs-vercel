@@ -30,7 +30,7 @@ export async function getCategory(slug: string): Promise<Job[]> {
           items {
             slug
             title
-            cover {
+            thumbnail {
               url
               title
             }
