@@ -1,6 +1,4 @@
-// @import './variables.scss';
-
-$font-size-base: 16px; // TODO move to variables.scss
+@import './variables';
 
 /**
  * Calculates the value in rem units based on the given pixel value.
