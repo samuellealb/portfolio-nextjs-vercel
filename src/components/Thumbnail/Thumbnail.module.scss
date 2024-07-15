@@ -1,9 +1,21 @@
+@import "@/src/styles/functions.scss";
+@import "@/src/styles/mixins.scss";
 @import "@/src/styles/variables.scss";
 
 .thumbnail {
+  position: relative;
   display: flex;
-  height: rem(210);
-  width: rem(230);
+  width: rem($thumb-width);
+  height: rem($thumb-height);
   border-radius: rem(20);
   overflow: hidden;
+
+  @include media-query(mobile) {
+    width: 100vw;
+    height: calc(100vw * #{$thumb-aspect-ratio});
+  }
+
+  img {
+    object-fit: cover;
+  }
 }

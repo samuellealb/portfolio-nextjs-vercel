@@ -20,8 +20,10 @@ type Story = StoryObj<typeof meta>;
 
 export const JobsList: Story = {
   render: (args) => (
-      <BaseLayout>
-        <JobsListComponent {...args as Job[]} />
-      </BaseLayout>
-    ),
+    <BaseLayout>
+      <main role="main">
+        <JobsListComponent {...(args as Job[])} />
+      </main>
+    </BaseLayout>
+  ),
 };
