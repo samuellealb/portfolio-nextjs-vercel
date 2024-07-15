@@ -1,9 +1,6 @@
 @import "@/src/styles/functions.scss";
 @import "@/src/styles/mixins.scss";
-
-$thumb-width: 230;
-$thumb-height: 210;
-$thumb-aspect-ratio: #{$thumb-height / $thumb-width};
+@import "@/src/styles/variables.scss";
 
 .thumbnail {
   position: relative;

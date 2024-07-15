@@ -1,5 +1,14 @@
+@import "@/src/styles/functions.scss";
+@import "@/src/styles/mixins.scss";
+@import "@/src/styles/variables.scss";
+
 .jobsList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, rem($thumb-width));
   gap: 1rem;
+  justify-content: center;
+
+  @include media-query(mobile) {
+    grid-template-columns: 1fr;
+  }
 }
