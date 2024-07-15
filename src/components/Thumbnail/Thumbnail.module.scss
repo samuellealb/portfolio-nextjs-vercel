@@ -1,9 +1,24 @@
 @import "@/src/styles/variables.scss";
+@import "@/src/styles/mixins.scss";
+
+$thumb-width: 230;
+$thumb-height: 210;
+$thumb-aspect-ratio: #{$thumb-height / $thumb-width};
 
 .thumbnail {
+  position: relative;
   display: flex;
-  height: rem(210);
-  width: rem(230);
+  width: rem($thumb-width);
+  height: rem($thumb-height);
   border-radius: rem(20);
   overflow: hidden;
+
+  @include media-query(mobile) {
+    width: 100vw;
+    height: calc(100vw * #{$thumb-aspect-ratio});
+  }
+
+  img {
+    object-fit: cover;
+  }
 }
