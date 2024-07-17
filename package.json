@@ -10,8 +10,7 @@
     "build:sb": "storybook build",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:sb\"",
     "build:all": "concurrently \"npm run build\" \"npm run build:sb\"",
-    "lint": "prettier --check .",
-    "format": "prettier --write .",
+    "lint": "next lint",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -43,6 +42,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
