@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getJob } from "@/src/lib/jobs";
-import { GetJobsProps, Job } from "@/src/lib/types";
+import { NextRequest, NextResponse } from 'next/server';
+import { getJob } from '@/src/lib/jobs';
+import { GetJobsProps, Job } from '@/src/lib/types';
 
 export async function GET(
   _request: NextRequest,
-  { params }: GetJobsProps
+  { params }: GetJobsProps,
 ): Promise<NextResponse> {
   const job: Job | undefined = await getJob(params.slug);
 
@@ -12,23 +12,23 @@ export async function GET(
     return NextResponse.json(
       {
         success: true,
-        message: "Job Not Found!",
+        message: 'Job Not Found!',
         data: null,
       },
       {
         status: 404,
-      }
+      },
     );
   }
 
   return NextResponse.json(
     {
       success: true,
-      message: "Detail Data Job",
+      message: 'Detail Data Job',
       data: job,
     },
     {
       status: 200,
-    }
+    },
   );
 }

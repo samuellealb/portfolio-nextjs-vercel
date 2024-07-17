@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 /**
  * Mixin for creating a sticky footer layout.
@@ -10,9 +10,9 @@
  */
 @mixin sticky-footer(
   $footer-height: $font-size-base,
-  $wrapper-selector: "#wrapper--body",
-  $container-selector: "#container--sf",
-  $footer-selector: "#footer"
+  $wrapper-selector: '#wrapper--body',
+  $container-selector: '#container--sf',
+  $footer-selector: '#footer'
 ) {
   html,
   body {
@@ -52,19 +52,19 @@
  */
 @mixin media-query($viewport) {
   @if $viewport==mobile {
-    @media (max-width: calc(map-get($breakpoints, "sm") - 1px)) {
+    @media (max-width: calc(map-get($breakpoints, 'sm') - 1px)) {
       @content;
     }
   }
 
   @if $viewport==tablet {
-    @media (min-width: map-get($breakpoints, "sm")) {
+    @media (min-width: map-get($breakpoints, 'sm')) {
       @content;
     }
   }
 
   @if $viewport==desktop {
-    @media (min-width: map-get($breakpoints, "lg")) {
+    @media (min-width: map-get($breakpoints, 'lg')) {
       @content;
     }
   }

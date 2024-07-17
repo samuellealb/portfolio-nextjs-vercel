@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 // import { fn } from '@storybook/test';
-import { Base as BaseLayout } from "@/src/layouts/Base";
-import { default as HomePage } from "@/app/page";
+import { Base as BaseLayout } from '@/src/layouts/Base';
+import { default as HomePage } from '@/app/page';
 
 const meta: Meta<typeof HomePage> = {
-  title: "Pages/Home",
+  title: 'Pages/Home',
   component: HomePage,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
   args: {},
 };

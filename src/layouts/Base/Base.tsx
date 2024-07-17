@@ -1,4 +1,4 @@
-import "@/src/styles/index.scss";
+import '@/src/styles/index.scss';
 
 export const Base = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 // import { fn } from '@storybook/test';
-import { Header as HeaderComponent } from "./Header";
-import { data } from "./Header.mocks";
+import { Header as HeaderComponent } from './Header';
+import { data } from './Header.mocks';
 
 const meta: Meta<typeof HeaderComponent> = {
-  title: "Features/Header",
+  title: 'Features/Header',
   component: HeaderComponent,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
   // args: {
   // onLogin: fn()

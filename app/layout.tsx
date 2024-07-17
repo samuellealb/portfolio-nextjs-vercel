@@ -1,5 +1,5 @@
-import "@/src/styles/index.scss";
-import { Base } from "@/src/layouts/Base";
+import '@/src/styles/index.scss';
+import { Base } from '@/src/layouts/Base';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -14,5 +14,3 @@ export default function RootLayout({ children }: LayoutProps) {
     </html>
   );
 }
-
-

@@ -1,6 +1,6 @@
-import { Job } from "@/src/lib/types";
-import { client } from "@/src/lib/client";
-import { gql } from "graphql-tag";
+import { Job } from '@/src/lib/types';
+import { client } from '@/src/lib/client';
+import { gql } from 'graphql-tag';
 
 export async function getJobs(): Promise<Job[]> {
   return client

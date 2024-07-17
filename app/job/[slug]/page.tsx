@@ -1,8 +1,8 @@
-import { data as HeaderData } from "@/src/features/Header/Header.mocks"; // TODO: replace this with actual data
-import { Metadata } from "next";
-import { Header } from "@/src/features/Header";
-import { JobPanel } from "@/src/features/JobPanel";
-import { getJob } from "@/src/lib/jobs";
+import { data as HeaderData } from '@/src/features/Header/Header.mocks'; // TODO: replace this with actual data
+import { Metadata } from 'next';
+import { Header } from '@/src/features/Header';
+import { JobPanel } from '@/src/features/JobPanel';
+import { getJob } from '@/src/lib/jobs';
 
 export async function generateMetadata({
   params,
@@ -16,8 +16,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: "Job not found",
-    description: "Job not found",
+    title: 'Job not found',
+    description: 'Job not found',
   };
 }
 
