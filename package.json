@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "prettier --check .",
-    "format": "prettier --write .",
-    "prepare": "husky install",
     "dev:sb": "storybook dev --ci -p 6006",
     "build:sb": "storybook build",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:sb\"",
-    "build:all": "concurrently \"npm run build\" \"npm run build:sb\""
+    "build:all": "concurrently \"npm run build\" \"npm run build:sb\"",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
