@@ -1,6 +1,7 @@
 import { Job } from '@/src/lib/types';
 import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 export async function getJobs(): Promise<Job[]> {
   return client
@@ -59,9 +60,7 @@ export async function getJob(slug: string): Promise<Job> {
                 url
                 title
               }
-              trailer {
-                json
-              }
+              vimeoVideoId
               galleryCollection(limit: 10) {
                 items {
                   title
@@ -86,6 +85,22 @@ export async function getJob(slug: string): Promise<Job> {
       },
     })
     .then((response) => {
-      return response.data.jobCollection.items[0];
+      const job = response.data.jobCollection.items[0];
+      let modifiedJob = job;
+      modifiedJob = {
+        ...modifiedJob,
+        sinopsis: documentToHtmlString(job.sinopsis.json),
+      };
+      modifiedJob = {
+        ...modifiedJob,
+        crew: documentToHtmlString(job.crew.json),
+      };
+      modifiedJob = {
+        ...modifiedJob,
+        awardsAndExhibitions: documentToHtmlString(
+          job.awardsAndExhibitions.json,
+        ),
+      };
+      return modifiedJob;
     });
 }

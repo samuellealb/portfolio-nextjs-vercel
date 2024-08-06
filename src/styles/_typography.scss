@@ -1,0 +1,17 @@
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/functions.scss';
+
+.mainHeading {
+  font-family: $font-family-heading;
+  font-size: rem(32);
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.subHeading {
+  font-family: $font-family-heading;
+  font-size: rem(16);
+  font-weight: 600;
+  color: $color-black-off;
+}

@@ -13,11 +13,13 @@ export interface Job {
   };
   thumbnail: Image;
   cover: Image;
-  trailer: string;
-  gallery: Image[];
-  sinopsis: string; // rich text
-  crew: string; // rich text
-  awardsAndExhibitions: string; // rich text
+  vimeoVideoId: string;
+  galleryCollection: {
+    items: Image[];
+  };
+  sinopsis: string[];
+  crew: string[];
+  awardsAndExhibitions: string[];
 }
 
 export interface Category {
