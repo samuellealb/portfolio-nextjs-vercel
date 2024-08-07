@@ -7,5 +7,6 @@
   "rules": {
     "no-unused-vars": "error",
     "no-undef": "error"
-  }
+  },
+  "ignorePatterns": [".gitignore"]
 }
