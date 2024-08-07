@@ -11,7 +11,7 @@ export async function generateMetadata({
   if (data) {
     return {
       title: data.title,
-      description: data.sinopsis ? data.sinopsis : data.title,
+      description: data.sinopsis.length ? data.sinopsis.join(' ') : data.title,
     };
   }
 
