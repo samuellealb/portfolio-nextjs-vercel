@@ -30,21 +30,9 @@ export const JobPanel = (jobData: Job) => {
             )}
           </React.Fragment>
         ))}
-        {jobData.vimeoVideoId && (
+        {jobData.videoEmbedCode && (
           <div className={styles.jobTrailer}>
-            <iframe
-              src={`https://player.vimeo.com/video/${jobData.vimeoVideoId}?title=0&byline=0&portrait=0`}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-              }}
-              allowFullScreen
-            ></iframe>
-            <script src="https://player.vimeo.com/api/player.js" async></script>
+            <div dangerouslySetInnerHTML={{ __html: jobData.videoEmbedCode }} />
           </div>
         )}
         <Image

@@ -13,7 +13,7 @@ export interface Job {
   };
   thumbnail: Image;
   cover: Image;
-  vimeoVideoId: string;
+  videoEmbedCode: string;
   galleryCollection: {
     items: Image[];
   };

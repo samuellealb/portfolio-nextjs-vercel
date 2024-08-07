@@ -60,7 +60,7 @@ export async function getJob(slug: string): Promise<Job> {
                 url
                 title
               }
-              vimeoVideoId
+              videoEmbedCode
               galleryCollection(limit: 10) {
                 items {
                   title

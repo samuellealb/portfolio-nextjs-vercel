@@ -47,7 +47,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'The Matrix',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wg7V2_OBXwQ?si=4pcTp-wAgmhEInon" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     galleryCollection: {
       items: [
         {
@@ -99,7 +100,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Lord of the Rings',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -151,7 +153,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Star Wars',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -203,7 +206,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Jurassic Park',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -255,7 +259,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Avatar',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -303,7 +308,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Inception',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -355,7 +361,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Interstellar',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -403,7 +410,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Blade Runner',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
@@ -455,7 +463,8 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'The Fifth Element',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
       items: [
         {
