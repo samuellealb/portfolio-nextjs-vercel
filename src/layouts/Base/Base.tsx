@@ -1,3 +1,4 @@
+import React from 'react';
 import '@/src/styles/index.scss';
 
 export const Base = ({ children }: { children: React.ReactNode }) => {

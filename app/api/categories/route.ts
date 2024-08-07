@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { Category } from '@/src/lib/types';
 import { getCategories } from '@/src/lib/categories';
 
-export async function GET(_request: NextRequest): Promise<NextResponse> {
+export async function GET(): Promise<NextResponse> {
   const CategoriesList: Category[] | undefined = await getCategories();
 
   if (!CategoriesList) {

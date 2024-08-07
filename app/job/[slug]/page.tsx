@@ -11,7 +11,11 @@ export async function generateMetadata({
   if (data) {
     return {
       title: data.title,
-      description: data.sinopsis ? data.sinopsis : data.title,
+      description: Array.isArray(data.sinopsis)
+        ? data.sinopsis[0]
+        : data.sinopsis
+          ? data.sinopsis
+          : data.title,
     };
   }
 

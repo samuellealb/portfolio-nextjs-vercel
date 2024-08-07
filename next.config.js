@@ -5,6 +5,17 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['images.ctfassets.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+    ],
+  },
+  webpack(config, { dev }) {
+    if (dev) {
+      config.devtool = 'eval-source-map';
+    }
+    return config;
   },
 };
