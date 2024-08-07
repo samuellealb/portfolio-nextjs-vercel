@@ -2,20 +2,44 @@
 
 .jobTitle {
   @extend .mainHeading;
+  @include media-query(tablet) {
+    display: block;
+  }
+  display: inline-block;
+  padding-inline-end: rem(16);
 }
 
 .jobMetadata {
   @extend .subHeading;
+  padding-inline: rem(8);
+  display: inline-block;
+  @include media-query(tablet) {
+    display: block;
+    padding-inline: rem(16);
+  }
+}
+
+.jobCategories {
+  display: block;
+  @include media-query(tablet) {
+    display: inline-block;
+  }
 }
 
 .jobCategory {
   @extend .subHeading;
   text-transform: lowercase;
   text-decoration: none;
+  display: inline-block;
+  &Separator {
+    padding-inline: rem(4);
+  }
 }
 
 .jobCover {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
 .jobGalleryImage {
@@ -25,6 +49,6 @@
 .jobTrailer {
   display: block;
   position: relative;
-  width: 800px;
-  height: 450px;
+  width: 100%;
+  height: auto;
 }

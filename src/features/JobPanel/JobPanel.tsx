@@ -9,27 +9,29 @@ export const JobPanel = (jobData: Job) => {
 
   if (jobExists) {
     return (
-      <div>
-        <h1 className={styles.jobTitle}>{jobData.title}</h1>
-        <p className={styles.jobMetadata}>
+      <>
+        <div className={styles.jobMetadata}>
+          <h1 className={styles.jobTitle}>{jobData.title}</h1>
           {jobData.genre}, {jobData.duration}min, {jobData.location},{' '}
           {jobData.year}{' '}
-        </p>
+          <div className={styles.jobCategories}>
+            {jobData.categoryCollection.items.map((category, index) => (
+              <React.Fragment key={index}>
+                <Link
+                  className={styles.jobCategory}
+                  href={`/category/${category.slug}`}
+                  title={category.label}
+                >
+                  {category.label}
+                </Link>
+                {!(jobData.categoryCollection.items.length - 1 === index) && (
+                  <span className={styles.jobCategorySeparator}> | </span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
 
-        {jobData.categoryCollection.items.map((category, index) => (
-          <React.Fragment key={index}>
-            <Link
-              className={styles.jobCategory}
-              href={`/category/${category.slug}`}
-              title={category.label}
-            >
-              {category.label}
-            </Link>
-            {!(jobData.categoryCollection.items.length - 1 === index) && (
-              <span className={styles.jobCategory}> | </span>
-            )}
-          </React.Fragment>
-        ))}
         {jobData.videoEmbedCode && (
           <div className={styles.jobTrailer}>
             <div dangerouslySetInnerHTML={{ __html: jobData.videoEmbedCode }} />
@@ -58,7 +60,7 @@ export const JobPanel = (jobData: Job) => {
             className={styles.jobGalleryImage}
           />
         ))}
-      </div>
+      </>
     );
   }
 
