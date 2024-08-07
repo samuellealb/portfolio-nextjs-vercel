@@ -47,25 +47,28 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'The Matrix',
     },
-    trailer: 'https://www.youtube.com/watch?v=m8e-FF8MsqU',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'The Matrix',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'The Matrix',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'The Matrix',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'The Matrix',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'The Matrix',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'The Matrix',
+        },
+      ],
+    },
+    sinopsis: [
       'The Matrix is a 1999 science fiction action film written and directed by the Wachowskis.',
-    crew: 'Directed by: The Wachowskis',
-    awardsAndExhibitions: 'Oscar for Best Visual Effects',
+    ],
+    crew: ['Directed by: The Wachowskis'],
+    awardsAndExhibitions: ['Oscar for Best Visual Effects'],
   },
   {
     sys: {
@@ -96,25 +99,28 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Lord of the Rings',
     },
-    trailer: 'https://www.youtube.com/watch?v=V75dMMIW2B4',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Lord of the Rings',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Lord of the Rings',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Lord of the Rings',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Lord of the Rings',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Lord of the Rings',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Lord of the Rings',
+        },
+      ],
+    },
+    sinopsis: [
       'The Lord of the Rings is a 2001 fantasy film directed by Peter Jackson.',
-    crew: 'Directed by: Peter Jackson',
-    awardsAndExhibitions: 'Oscar for Best Picture',
+    ],
+    crew: ['Directed by: Peter Jackson'],
+    awardsAndExhibitions: ['Oscar for Best Picture'],
   },
   {
     sys: {
@@ -145,25 +151,28 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Star Wars',
     },
-    trailer: 'https://www.youtube.com/watch?v=1g3_CFmnU7k',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Star Wars',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Star Wars',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Star Wars',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Star Wars',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Star Wars',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Star Wars',
+        },
+      ],
+    },
+    sinopsis: [
       'Star Wars is a 1977 space opera film written and directed by George Lucas.',
-    crew: 'Directed by: George Lucas',
-    awardsAndExhibitions: 'Oscar for Best Art Direction',
+    ],
+    crew: ['Directed by: George Lucas'],
+    awardsAndExhibitions: ['Oscar for Best Art Direction'],
   },
   {
     sys: {
@@ -194,25 +203,28 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Jurassic Park',
     },
-    trailer: 'https://www.youtube.com/watch?v=lc0UehYemQA',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Jurassic Park',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Jurassic Park',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Jurassic Park',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Jurassic Park',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Jurassic Park',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Jurassic Park',
+        },
+      ],
+    },
+    sinopsis: [
       'Jurassic Park is a 1993 science fiction adventure film directed by Steven Spielberg.',
-    crew: 'Directed by: Steven Spielberg',
-    awardsAndExhibitions: 'Oscar for Best Sound Editing',
+    ],
+    crew: ['Directed by: Steven Spielberg'],
+    awardsAndExhibitions: ['Oscar for Best Sound Editing'],
   },
   {
     sys: {
@@ -243,21 +255,24 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Avatar',
     },
-    trailer: 'https://www.youtube.com/watch?v=5PSNL1qE6VY',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Avatar',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Avatar',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Avatar',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Avatar',
+        },
+      ],
+    },
+    sinopsis: [
       'Avatar is a 2009 science fiction film directed by James Cameron.',
-    crew: 'Directed by: James Cameron',
-    awardsAndExhibitions: 'Oscar for Best Cinematography',
+    ],
+    crew: ['Directed by: James Cameron'],
+    awardsAndExhibitions: ['Oscar for Best Cinematography'],
   },
   {
     sys: {
@@ -288,25 +303,28 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Inception',
     },
-    trailer: 'https://www.youtube.com/watch?v=YoHD9XEInc0',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Inception',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Inception',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Inception',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Inception',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Inception',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Inception',
+        },
+      ],
+    },
+    sinopsis: [
       'Inception is a 2010 science fiction action film written and directed by Christopher Nolan.',
-    crew: 'Directed by: Christopher Nolan',
-    awardsAndExhibitions: 'Oscar for Best Visual Effects',
+    ],
+    crew: ['Directed by: Christopher Nolan'],
+    awardsAndExhibitions: ['Oscar for Best Visual Effects'],
   },
   {
     sys: {
@@ -337,21 +355,24 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Interstellar',
     },
-    trailer: 'https://www.youtube.com/watch?v=zSWdZVtXT7E',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Interstellar',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Interstellar',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Interstellar',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Interstellar',
+        },
+      ],
+    },
+    sinopsis: [
       'Interstellar is a 2014 science fiction film directed by Christopher Nolan.',
-    crew: 'Directed by: Christopher Nolan',
-    awardsAndExhibitions: 'Oscar for Best Visual Effects',
+    ],
+    crew: ['Directed by: Christopher Nolan'],
+    awardsAndExhibitions: ['Oscar for Best Visual Effects'],
   },
   {
     sys: {
@@ -382,25 +403,28 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Blade Runner',
     },
-    trailer: 'https://www.youtube.com/watch?v=eogpIG53Cis',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Blade Runner',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Blade Runner',
-      },
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'Blade Runner',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Blade Runner',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Blade Runner',
+        },
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'Blade Runner',
+        },
+      ],
+    },
+    sinopsis: [
       'Blade Runner is a 1982 science fiction film directed by Ridley Scott.',
-    crew: 'Directed by: Ridley Scott',
-    awardsAndExhibitions: 'Oscar for Best Visual Effects',
+    ],
+    crew: ['Directed by: Ridley Scott'],
+    awardsAndExhibitions: ['Oscar for Best Visual Effects'],
   },
   {
     sys: {
@@ -431,16 +455,19 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'The Fifth Element',
     },
-    trailer: 'https://www.youtube.com/watch?v=fQ9RqgcR24g',
-    gallery: [
-      {
-        url: 'https://placehold.co/980x522',
-        title: 'The Fifth Element',
-      },
-    ],
-    sinopsis:
+    vimeoVideoId: '144505730',
+    galleryCollection: {
+      items: [
+        {
+          url: 'https://placehold.co/980x522',
+          title: 'The Fifth Element',
+        },
+      ],
+    },
+    sinopsis: [
       'The Fifth Element is a 1997 science fiction action film directed by Luc Besson.',
-    crew: 'Directed by: Luc Besson',
-    awardsAndExhibitions: 'Oscar for Best Costume Design',
+    ],
+    crew: ['Directed by: Luc Besson'],
+    awardsAndExhibitions: ['Oscar for Best Costume Design'],
   },
 ];
