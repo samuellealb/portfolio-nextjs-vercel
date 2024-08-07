@@ -86,21 +86,22 @@ export async function getJob(slug: string): Promise<Job> {
     })
     .then((response) => {
       const job = response.data.jobCollection.items[0];
-      let modifiedJob = job;
-      modifiedJob = {
-        ...modifiedJob,
-        sinopsis: documentToHtmlString(job.sinopsis.json),
-      };
-      modifiedJob = {
-        ...modifiedJob,
-        crew: documentToHtmlString(job.crew.json),
-      };
-      modifiedJob = {
-        ...modifiedJob,
-        awardsAndExhibitions: documentToHtmlString(
+      let modifiedJob = { ...job };
+
+      if (job.sinopsis) {
+        modifiedJob.sinopsis = documentToHtmlString(job.sinopsis.json);
+      }
+
+      if (job.crew) {
+        modifiedJob.crew = documentToHtmlString(job.crew.json);
+      }
+
+      if (job.awardsAndExhibitions) {
+        modifiedJob.awardsAndExhibitions = documentToHtmlString(
           job.awardsAndExhibitions.json,
-        ),
-      };
+        );
+      }
+
       return modifiedJob;
     });
 }
