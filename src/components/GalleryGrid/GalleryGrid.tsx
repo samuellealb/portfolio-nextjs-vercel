@@ -2,15 +2,15 @@
 
 import { TImage } from '@/src/lib/types';
 import { TGalleryGrid } from './GalleryGrid.d';
-import Image from 'next/image';
 import styles from './GalleryGrid.module.scss';
 import { getScreenSize } from '@/src/lib/utlis';
 import { useEffect, useState, useRef } from 'react';
+import { ParallaxImage } from '../ParallaxImage/ParallaxImage';
 
 export const GalleryGrid = ({ images }: TGalleryGrid) => {
   const [columns, setColumns] = useState(1);
 
-  const galleryGrid = useRef<HTMLDivElement>(null);
+  const galleryGridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const resetCols = () => {
@@ -33,41 +33,27 @@ export const GalleryGrid = ({ images }: TGalleryGrid) => {
     return 1;
   };
 
-  const setWrapperHeight = (imageWidth: number, imageHeight: number) => {
-    const orientation = imageWidth > imageHeight ? 'landscape' : 'portrait';
-    const columnWidth =
-      (galleryGrid.current?.offsetWidth &&
-        galleryGrid.current?.offsetWidth / columns) ||
-      window.innerWidth / columns;
-    if (orientation === 'landscape')
-      return columnWidth / (imageWidth / imageHeight);
-    return columnWidth / (imageHeight / imageWidth);
-  };
-
   const distributeImages = (images: TImage[], columns: number) => {
     const distributedImages = Array.from({ length: columns }, (_, i) =>
       images.filter((_, index) => index % columns === i),
     );
 
-    return distributedImages.flatMap((imageList) => (
-      <div className={styles.imageList}>
+    return distributedImages.flatMap((imageList, index) => (
+      <div key={`image-list-${index}`} className={styles.imageList}>
         {imageList.map((image, index) => (
-          <div
-            key={index}
-            className={styles.imageWrapper}
-            style={{
-              height: `${setWrapperHeight(image.width, image.height)}px`,
-            }}
-          >
-            <Image alt={image.title} src={image.url} fill></Image>
-          </div>
+          <ParallaxImage
+            key={`parallax-image-${index}`}
+            image={image}
+            columns={columns}
+            container={galleryGridRef}
+          ></ParallaxImage>
         ))}
       </div>
     ));
   };
 
   return (
-    <div ref={galleryGrid} className={styles.galleryGrid}>
+    <div ref={galleryGridRef} className={styles.galleryGrid}>
       {distributeImages(images, columns)}
     </div>
   );

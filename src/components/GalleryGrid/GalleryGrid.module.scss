@@ -2,26 +2,11 @@
 @import '@/src/styles/mixins.scss';
 @import '@/src/styles/variables.scss';
 
-$gridGap: rem(8);
-
 .galleryGrid {
   display: flex;
-  gap: $gridGap;
+  gap: rem(8);
 }
 
 .imageList {
   width: 100%;
-}
-
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: rem(20);
-  margin-block: $gridGap;
-
-  img {
-    object-fit: cover;
-    transform: scale(1.25);
-  }
 }
