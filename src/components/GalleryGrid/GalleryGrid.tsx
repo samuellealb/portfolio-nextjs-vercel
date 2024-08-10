@@ -1,13 +1,16 @@
 'use client';
 
 import { TImage } from '@/src/lib/types';
+import { TGalleryGrid } from './GalleryGrid.d';
 import Image from 'next/image';
 import styles from './GalleryGrid.module.scss';
 import { getScreenSize } from '@/src/lib/utlis';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-export const GalleryGrid = ({ images }: { images: TImage[] }) => {
+export const GalleryGrid = ({ images }: TGalleryGrid) => {
   const [columns, setColumns] = useState(1);
+
+  const galleryGrid = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const resetCols = () => {
@@ -30,9 +33,15 @@ export const GalleryGrid = ({ images }: { images: TImage[] }) => {
     return 1;
   };
 
-  const getAspectRatio = (image: TImage) => {
-    if (image.width === image.height) return;
-    return image.width > image.height ? styles.landscape : styles.portrait;
+  const setWrapperHeight = (imageWidth: number, imageHeight: number) => {
+    const orientation = imageWidth > imageHeight ? 'landscape' : 'portrait';
+    const columnWidth =
+      (galleryGrid.current?.offsetWidth &&
+        galleryGrid.current?.offsetWidth / columns) ||
+      window.innerWidth / columns;
+    if (orientation === 'landscape')
+      return columnWidth / (imageWidth / imageHeight);
+    return columnWidth / (imageHeight / imageWidth);
   };
 
   const distributeImages = (images: TImage[], columns: number) => {
@@ -44,8 +53,11 @@ export const GalleryGrid = ({ images }: { images: TImage[] }) => {
       <div className={styles.imageList}>
         {imageList.map((image, index) => (
           <div
-            className={[styles.imageWrapper, getAspectRatio(image)].join(' ')}
             key={index}
+            className={styles.imageWrapper}
+            style={{
+              height: `${setWrapperHeight(image.width, image.height)}px`,
+            }}
           >
             <Image alt={image.title} src={image.url} fill></Image>
           </div>
@@ -55,7 +67,7 @@ export const GalleryGrid = ({ images }: { images: TImage[] }) => {
   };
 
   return (
-    <div className={styles.galleryGrid}>
+    <div ref={galleryGrid} className={styles.galleryGrid}>
       {distributeImages(images, columns)}
     </div>
   );

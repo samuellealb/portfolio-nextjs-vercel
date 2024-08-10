@@ -2,7 +2,7 @@
 @import '@/src/styles/mixins.scss';
 @import '@/src/styles/variables.scss';
 
-$gridGap: rem(16);
+$gridGap: rem(8);
 
 .galleryGrid {
   display: flex;
@@ -15,7 +15,6 @@ $gridGap: rem(16);
 
 .imageWrapper {
   position: relative;
-  height: rem(300);
   width: 100%;
   overflow: hidden;
   border-radius: rem(20);
@@ -23,13 +22,6 @@ $gridGap: rem(16);
 
   img {
     object-fit: cover;
+    transform: scale(1.25);
   }
-}
-
-.landscape {
-  height: rem(250);
-}
-
-.portrait {
-  height: rem(600);
 }
