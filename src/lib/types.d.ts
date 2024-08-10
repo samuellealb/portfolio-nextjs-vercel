@@ -33,6 +33,8 @@ export interface TCategory {
 export interface TImage {
   url: string;
   title: string;
+  width: number;
+  height: number;
 }
 
 export interface TGetJobsProps {

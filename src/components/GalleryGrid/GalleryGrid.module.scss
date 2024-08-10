@@ -1,0 +1,42 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+
+.galleryGrid {
+  display: flex;
+}
+
+.imageList {
+  width: 100%;
+
+  //   @include media-query(tablet) {
+  //     width: 50%;
+  //   }
+
+  //   @include media-query(desktop) {
+  //     width: 33.3333%;
+  //   }
+
+  //   @include media-query(ultrawide) {
+  //     width: 25%;
+  //   }
+}
+
+.imageWrapper {
+  position: relative;
+  height: rem(300);
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.landscape {
+  height: rem(200);
+}
+
+.portrait {
+  height: rem(600);
+}

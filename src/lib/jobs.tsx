@@ -65,6 +65,8 @@ export async function getJob(slug: string): Promise<TJob> {
                 items {
                   title
                   url
+                  width
+                  height
                 }
               }
               sinopsis {

@@ -7,9 +7,13 @@
 export const imageFactory = (length: number) => {
   const images = [];
   for (let i = 0; i < length; i++) {
+    const width = Math.floor(Math.random() * 1000) + 300;
+    const height = Math.floor(Math.random() * 1000) + 300;
     images.push({
-      url: `https://placehold.co/${Math.floor(Math.random() * 1000) + 300}x${Math.floor(Math.random() * 1000) + 300}`,
+      url: `https://placehold.co/${width}x${height}`,
       title: `Random Movie ${i}`,
+      width: width,
+      height: height,
     });
   }
   return images;

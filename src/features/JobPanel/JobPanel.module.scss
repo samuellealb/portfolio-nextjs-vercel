@@ -1,5 +1,10 @@
 @import '@/src/styles/_typography.scss';
 
+.jobPanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .jobTitle {
   @extend .mainHeading;
   @include media-query(tablet) {
