@@ -7,7 +7,18 @@ export const Base = ({ children }: { children: React.ReactNode }) => {
       <div id="wrapper--body">
         <div id="container--sf">{children}</div>
       </div>
-      <footer id="footer">Footer</footer>
+      <footer
+        id="footer"
+        style={{
+          maxWidth: '1280px',
+          display: 'block',
+          margin: '20px auto 0',
+          border: 'solid black 2px',
+          padding: '16px',
+        }}
+      >
+        Footer
+      </footer>
     </>
   );
 };
