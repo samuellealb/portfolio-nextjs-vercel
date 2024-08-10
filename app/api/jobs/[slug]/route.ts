@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getJob } from '@/src/lib/jobs';
-import { GetJobsProps, Job } from '@/src/lib/types';
+import { TGetJobsProps, TJob } from '@/src/lib/types';
 
 export async function GET(
   _request: NextRequest,
-  { params }: GetJobsProps,
+  { params }: TGetJobsProps,
 ): Promise<NextResponse> {
-  const job: Job | undefined = await getJob(params.slug);
+  const job: TJob | undefined = await getJob(params.slug);
 
   if (!job) {
     return NextResponse.json(
