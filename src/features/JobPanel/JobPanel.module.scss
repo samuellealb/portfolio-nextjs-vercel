@@ -1,34 +1,35 @@
-@import '@/src/styles/_typography.scss';
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/typography.scss';
 
 .jobPanel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: rem(8);
+
+  @include media-query(tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-query(desktop) {
+    grid-template-columns: 1fr 2fr;
+    padding: rem(16);
+  }
 }
 
 .jobTitle {
   @extend .mainHeading;
-  @include media-query(tablet) {
-    display: block;
-  }
-  display: inline-block;
-  padding-inline-end: rem(16);
+  display: block;
 }
 
 .jobMetadata {
   @extend .subHeading;
-  padding-inline: rem(8);
-  display: inline-block;
-  @include media-query(tablet) {
-    display: block;
-    padding-inline: rem(16);
-  }
+  text-align: center;
 }
 
 .jobCategories {
   display: block;
-  @include media-query(tablet) {
-    display: inline-block;
-  }
 }
 
 .jobCategory {
@@ -39,6 +40,12 @@
   &Separator {
     padding-inline: rem(4);
   }
+}
+
+.jobTextBlock {
+  @extend .body;
+  padding-inline: rem(8);
+  margin-bottom: rem(32);
 }
 
 .jobCover {

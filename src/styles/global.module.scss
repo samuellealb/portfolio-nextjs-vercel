@@ -32,4 +32,12 @@ body {
   margin: 0 auto;
 }
 
+main {
+  padding: rem(8);
+
+  @include media-query(desktop) {
+    padding: rem(16);
+  }
+}
+
 @include sticky-footer();

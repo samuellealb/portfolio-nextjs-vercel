@@ -33,15 +33,20 @@ export const JobPanel = (jobData: TJob) => {
               ))}
             </div>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: jobData.sinopsis }} />
-          <div dangerouslySetInnerHTML={{ __html: jobData.crew }} />
           <div
+            className={styles.jobTextBlock}
+            dangerouslySetInnerHTML={{ __html: jobData.sinopsis }}
+          />
+          <div
+            className={styles.jobTextBlock}
+            dangerouslySetInnerHTML={{ __html: jobData.crew }}
+          />
+          <div
+            className={styles.jobTextBlock}
             dangerouslySetInnerHTML={{ __html: jobData.awardsAndExhibitions }}
           />
         </div>
         <div className={styles.jobImageSection}>
-          <GalleryGrid images={jobData.galleryCollection.items} />
-
           {jobData.videoEmbedCode && (
             <div className={styles.jobTrailer}>
               <div
@@ -49,6 +54,9 @@ export const JobPanel = (jobData: TJob) => {
               />
             </div>
           )}
+
+          <GalleryGrid images={jobData.galleryCollection.items} />
+
           {/* <Image
             src={jobData.cover.url}
             alt={jobData.title}
