@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId } from 'react';
+import { useEffect, useState, useId } from 'react';
 import { TImage } from '@/src/lib/types';
 import Image from 'next/image';
 import styles from './ParallaxImage.module.scss';
@@ -17,20 +17,10 @@ export const ParallaxImage = ({
   container,
 }: ParallaxImageProps) => {
   const id = useId();
-
-  const setWrapperHeight = (imageWidth: number, imageHeight: number) => {
-    const orientation = imageWidth > imageHeight ? 'landscape' : 'portrait';
-    const columnWidth =
-      (container.current?.offsetWidth &&
-        container.current?.offsetWidth / columns) ||
-      window.innerWidth / columns;
-    if (orientation === 'landscape')
-      return columnWidth / (imageWidth / imageHeight);
-    return columnWidth / (imageHeight / imageWidth);
-  };
+  let [wrapperHeight, setWrapperHeight] = useState(0);
 
   useEffect(() => {
-    document.addEventListener('scroll', function () {
+    const translateImage = (id: string) => {
       const wrapper = document.getElementById(id);
       if (!wrapper) return;
 
@@ -42,21 +32,37 @@ export const ParallaxImage = ({
       const scrollPosition = (windowBottom - wrapperRect.top) / 10;
 
       if (wrapperRect.top < windowBottom + 50 && wrapperRect.bottom >= 0) {
-        console.log(id);
-
         image.style.transform = `translateY(${scrollPosition * parallaxSpeed}px) scale(1.75)`;
       } else {
         image.style.transform = 'translateY(0) scale(1.75)';
       }
+    };
+    document.addEventListener('scroll', function () {
+      translateImage(id);
     });
-  }, [id]);
+    translateImage(id);
+
+    const getWrapperHeight = (imageWidth: number, imageHeight: number) => {
+      if (!container.current && typeof window === 'undefined') return 0;
+      const orientation = imageWidth > imageHeight ? 'landscape' : 'portrait';
+      const columnWidth =
+        (container.current?.offsetWidth &&
+          container.current?.offsetWidth / columns) ||
+        window.innerWidth / columns;
+      if (orientation === 'landscape')
+        return columnWidth / (imageWidth / imageHeight);
+      return columnWidth / (imageHeight / imageWidth);
+    };
+    const height = getWrapperHeight(image.width, image.height);
+    setWrapperHeight(height);
+  }, [columns, container, image.height, image.width, id]);
 
   return (
     <div
       id={id}
       className={styles.ParallaxWrapper}
       style={{
-        height: `${setWrapperHeight(image.width, image.height)}px`,
+        height: `${wrapperHeight}px`,
       }}
     >
       <Image
