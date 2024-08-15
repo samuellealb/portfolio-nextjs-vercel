@@ -7,7 +7,7 @@
   display: flex;
   width: rem($thumb-width);
   height: rem($thumb-height);
-  border-radius: rem(20);
+  border-radius: rem($border-radius);
   overflow: hidden;
 
   @include media-query(mobile) {
