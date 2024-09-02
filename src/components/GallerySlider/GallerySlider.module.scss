@@ -1,0 +1,18 @@
+@import '@/src/styles/variables.scss';
+
+.Gallery {
+  //   background-color: $color-black-80;
+  position: relative;
+}
+
+.GallerySlider {
+  .GallerySlide {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
