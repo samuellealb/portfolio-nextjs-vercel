@@ -7,8 +7,26 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: $color-white-off;
-  padding: 20px;
+  padding: rem(20);
   border-radius: rem($border-radius);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.25);
   z-index: 1000;
+  width: 100%;
+}
+
+.Wrapper {
+  position: relative;
+}
+
+// CONTINUAR DAQUI, POSICIONAR O BOTÃO DE FECHAR
+.CloseButton {
+  position: absolute;
+  top: rem(225);
+  right: rem(40);
+  padding: rem(10);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: rem(24);
+  height: rem(24);
 }

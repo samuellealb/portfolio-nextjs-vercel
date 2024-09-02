@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
+import { ModalDialog } from '../ModalDialog/ModalDialog';
 import { GallerySlider as GallerySliderComponent } from './GallerySlider';
 import { imageFactory } from '@/src/lib/factory';
 
@@ -18,4 +20,20 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const GallerySlider: Story = {};
+export const GallerySlider: Story = {
+  render: (args) => <GallerySliderComponent {...args} />,
+};
+
+export const SliderInModal: Story = {
+  render: (args) => {
+    const [modalOpen, setModalOpen] = useState(false);
+    return (
+      <>
+        <button onClick={() => setModalOpen(true)}>Open Modal</button>
+        <ModalDialog isOpen={modalOpen} closeAction={() => setModalOpen(false)}>
+          <GallerySliderComponent {...args} />
+        </ModalDialog>
+      </>
+    );
+  },
+};
