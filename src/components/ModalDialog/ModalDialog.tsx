@@ -7,7 +7,6 @@ export const ModalDialog = ({ isOpen, closeAction, children }: TModal) => {
   return (
     <div className={styles.ModalDialog}>
       <div className={styles.Wrapper}>
-        {children}
         <button
           className={styles.CloseButton}
           onClick={() => closeAction()}
@@ -16,6 +15,7 @@ export const ModalDialog = ({ isOpen, closeAction, children }: TModal) => {
         >
           <Image src="/imgs/close.svg" alt="Close" width={24} height={24} />
         </button>
+        {children}
       </div>
     </div>
   );
