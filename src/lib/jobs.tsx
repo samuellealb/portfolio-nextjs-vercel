@@ -1,9 +1,9 @@
-import { Job } from '@/src/lib/types';
+import { TJob } from '@/src/lib/types';
 import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-export async function getJobs(): Promise<Job[]> {
+export async function getJobs(): Promise<TJob[]> {
   return client
     .query({
       query: gql`
@@ -34,7 +34,7 @@ export async function getJobs(): Promise<Job[]> {
     });
 }
 
-export async function getJob(slug: string): Promise<Job> {
+export async function getJob(slug: string): Promise<TJob> {
   return client
     .query({
       query: gql`
@@ -60,11 +60,16 @@ export async function getJob(slug: string): Promise<Job> {
                 url
                 title
               }
-              vimeoVideoId
+              videoEmbedCode
               galleryCollection(limit: 10) {
                 items {
+                  sys {
+                    id
+                  }
                   title
                   url
+                  width
+                  height
                 }
               }
               sinopsis {

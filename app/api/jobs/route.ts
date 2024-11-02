@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { Job } from '@/src/lib/types';
+import { TJob } from '@/src/lib/types';
 import { getJobs } from '@/src/lib/jobs';
 
 export async function GET(): Promise<NextResponse> {
-  const jobsList: Job[] | undefined = await getJobs();
+  const jobsList: TJob[] | undefined = await getJobs();
 
   if (!jobsList) {
     return NextResponse.json(

@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { Category } from '@/src/lib/types';
+import { TCategory } from '@/src/lib/types';
 import { getCategories } from '@/src/lib/categories';
 
 export async function GET(): Promise<NextResponse> {
-  const CategoriesList: Category[] | undefined = await getCategories();
+  const CategoriesList: TCategory[] | undefined = await getCategories();
 
   if (!CategoriesList) {
     return NextResponse.json(
@@ -22,7 +22,7 @@ export async function GET(): Promise<NextResponse> {
     {
       success: true,
       message: 'Categories Lists',
-      data: CategoriesList as Category[],
+      data: CategoriesList as TCategory[],
     },
     {
       status: 200,

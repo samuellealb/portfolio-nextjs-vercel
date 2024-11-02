@@ -12,6 +12,7 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
               src={homeLogo ? homeLogo?.src : pagesLogo?.src || ''}
               alt={homeLogo ? homeLogo?.alt : pagesLogo?.alt || ''}
               fill
+              priority
             />
           </div>
           <div className={styles.logo__imgMobile}>
@@ -19,6 +20,7 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
               src={mobileLogo?.src || ''}
               alt={mobileLogo?.alt || ''}
               fill
+              priority
             />
           </div>
         </a>

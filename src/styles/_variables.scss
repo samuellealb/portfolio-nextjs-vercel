@@ -3,19 +3,26 @@ $breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 1200px,
+  xl: 1920px,
 );
 
 // Typography
 $font-size-base: 16px;
 $font-family-heading: 'caviar_dreamsregular', sans-serif;
+$font-family-body: 'Open Sans', sans-serif;
 
 // Colors
 $color-yellow-main: #e1ad02;
 $color-yellow-light: #fdd44e;
-$color-black-off: #1a1a1a;
 $color-white-off: #f5f5f5;
+$color-black-off: #1a1a1a;
+$color-black-80: rgba(26, 26, 26, 0.8);
+$color-highlight-dark: #3700d3;
 
 // Thumbnail component
 $thumb-width: 230;
 $thumb-height: 210;
 $thumb-aspect-ratio: #{$thumb-height / $thumb-width};
+
+// Misc
+$border-radius: 20;

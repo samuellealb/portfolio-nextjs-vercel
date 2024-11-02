@@ -29,8 +29,30 @@
 // Global styles
 body {
   background-color: $color-yellow-main;
-  max-width: rem(1280);
   margin: 0 auto;
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+main {
+  max-width: rem(1400);
+  margin: 0 auto;
+  padding: rem(8);
+
+  @include media-query(desktop) {
+    padding: rem(16);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex='0']:focus-visible {
+  outline: 4px solid $color-highlight-dark;
+  outline-offset: 2px;
 }
 
 @include sticky-footer();

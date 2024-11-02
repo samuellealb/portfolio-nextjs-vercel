@@ -1,4 +1,5 @@
 .prettierignore
 /.husky/*
+*.svg
 yarn.lock
 .gitignore

@@ -1,4 +1,4 @@
-export interface Job {
+export interface TJob {
   sys: {
     id: number;
   };
@@ -9,11 +9,11 @@ export interface Job {
   location: string;
   year: number;
   categoryCollection: {
-    items: Category[];
+    items: TCategory[];
   };
   thumbnail: Image;
   cover: Image;
-  vimeoVideoId: string;
+  videoEmbedCode: string;
   galleryCollection: {
     items: Image[];
   };
@@ -22,7 +22,7 @@ export interface Job {
   awardsAndExhibitions: string[];
 }
 
-export interface Category {
+export interface TCategory {
   sys: {
     id: number;
   };
@@ -30,17 +30,22 @@ export interface Category {
   slug: string;
 }
 
-export interface Image {
+export interface TImage {
+  sys: {
+    id: string;
+  };
   url: string;
   title: string;
+  width: number;
+  height: number;
 }
 
-export interface GetJobsProps {
+export interface TGetJobsProps {
   params: {
     slug: string;
   };
 }
-export interface GetCategoriesProps {
+export interface TGetCategoriesProps {
   params: {
     slug: string;
   };

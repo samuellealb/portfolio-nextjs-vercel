@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Base as BaseLayout } from '@/src/layouts/Base';
 import { JobPanel as JobPanelComponent } from './JobPanel';
 import { jobs } from '@/src/lib/mocks';
-import { Job } from '@/src/lib/types';
+import { TJob } from '@/src/lib/types';
 
 const meta: Meta<typeof JobPanelComponent> = {
   title: 'Features/JobPanel',
@@ -19,10 +19,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const JobPanel: Story = {
-  render: (args) => (
+  render: (args: TJob) => (
     <BaseLayout>
       <main role="main">
-        <JobPanelComponent {...(args as Job)} />
+        <JobPanelComponent {...args} />
       </main>
     </BaseLayout>
   ),
