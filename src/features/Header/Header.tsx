@@ -25,7 +25,6 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
           </div>
         </a>
       </div>
-      Sidebar component
     </header>
   );
 };
