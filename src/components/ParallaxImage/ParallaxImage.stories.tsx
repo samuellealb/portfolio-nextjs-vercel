@@ -10,7 +10,10 @@ const meta: Meta<typeof ParallaxImageComponent> = {
   parameters: { layout: 'fullscreen' },
   args: {
     image: {
-      url: 'https://via.placeholder.com/800x600',
+      sys: {
+        id: 'test-id',
+      },
+      url: 'https://via.placeholder.com/300x300',
       title: 'Placeholder Image',
       width: 800,
       height: 600,
