@@ -1,6 +1,6 @@
 export interface TJob {
   sys: {
-    id: number;
+    id: string;
   };
   slug: string;
   title: string;
@@ -24,7 +24,7 @@ export interface TJob {
 
 export interface TCategory {
   sys: {
-    id: number;
+    id: string;
   };
   label: string;
   slug: string;

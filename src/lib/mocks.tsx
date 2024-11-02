@@ -4,24 +4,59 @@ import { imageFactory } from './factory';
 export const categories: TCategory[] = [
   {
     sys: {
-      id: 1,
+      id: '1',
     },
     label: 'Sci Fi',
     slug: 'sci-fi',
   },
   {
     sys: {
-      id: 2,
+      id: '2',
     },
     label: 'Fantasy',
     slug: 'fantasy',
+  },
+  {
+    sys: {
+      id: '3',
+    },
+    label: 'Action',
+    slug: 'action',
+  },
+  {
+    sys: {
+      id: '4',
+    },
+    label: 'Adventure',
+    slug: 'adventure',
+  },
+  {
+    sys: {
+      id: '5',
+    },
+    label: 'Drama',
+    slug: 'drama',
+  },
+  {
+    sys: {
+      id: '6',
+    },
+    label: 'Horror',
+    slug: 'horror',
+  },
+  {
+    sys: {
+      id: '7',
+    },
+    label: 'Comedy',
+    slug: 'comedy',
   },
 ];
 
 export const jobs: TJob[] = [
   {
     sys: {
-      id: 1,
+      id: '1',
     },
     slug: 'the-matrix',
     title: 'The Matrix',
@@ -33,7 +68,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -61,7 +96,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 2,
+      id: '2',
     },
     slug: 'lord-of-the-rings',
     title: 'Lord of the Rings',
@@ -73,7 +108,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 2,
+            id: '2',
           },
           label: 'Fantasy',
           slug: 'fantasy',
@@ -101,7 +136,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 3,
+      id: '3',
     },
     slug: 'star-wars',
     title: 'Star Wars',
@@ -113,7 +148,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -141,7 +176,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 4,
+      id: '4',
     },
     slug: 'jurassic-park',
     title: 'Jurassic Park',
@@ -153,7 +188,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -181,7 +216,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 5,
+      id: '5',
     },
     slug: 'avatar',
     title: 'Avatar',
@@ -193,7 +228,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -221,7 +256,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 6,
+      id: '6',
     },
     slug: 'inception',
     title: 'Inception',
@@ -233,7 +268,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -261,7 +296,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 7,
+      id: '7',
     },
     slug: 'interstellar',
     title: 'Interstellar',
@@ -273,7 +308,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -301,7 +336,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 8,
+      id: '8',
     },
     slug: 'blade-runner',
     title: 'Blade Runner',
@@ -313,7 +348,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -341,7 +376,7 @@ export const jobs: TJob[] = [
   },
   {
     sys: {
-      id: 9,
+      id: '9',
     },
     slug: 'the-fifth-element',
     title: 'The Fifth Element',
@@ -353,7 +388,7 @@ export const jobs: TJob[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',

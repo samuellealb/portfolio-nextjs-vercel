@@ -7,11 +7,10 @@
   max-width: rem(1280);
   display: block;
   margin: 0 auto;
+  padding-block: rem(32);
 }
 
 .logo {
-  margin-bottom: rem(85);
-
   &__img {
     &Desktop {
       position: relative;
