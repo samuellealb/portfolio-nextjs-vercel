@@ -31,11 +31,15 @@
 
   .Controls {
     position: absolute;
-    top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
+    top: 95%;
+
+    @include media-query(desktop) {
+      top: 50%;
+    }
 
     button {
       background: transparent;
