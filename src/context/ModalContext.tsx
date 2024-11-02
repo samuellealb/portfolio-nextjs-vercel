@@ -4,14 +4,12 @@ import { createContext, useState, ReactNode } from 'react';
 
 type ModalContextType = {
   modalOpen: boolean;
-  imageIndex: number | null;
   // eslint-disable-next-line no-unused-vars
-  setModalOpen: (_open: boolean, _index?: number | null) => void;
+  setModalOpen: (_open: boolean) => void;
 };
 
 export const ModalContext = createContext<ModalContextType>({
   modalOpen: false,
-  imageIndex: null,
   setModalOpen: () => {},
 });
 
@@ -21,15 +19,13 @@ type ModalProviderProps = {
 
 export const ModalProvider = ({ children }: ModalProviderProps) => {
   const [modalOpen, setModalOpenState] = useState(false);
-  const [imageIndex, setImageIndex] = useState<number | null>(null);
 
-  const setModalOpen = (open: boolean, index: number | null = null) => {
+  const setModalOpen = (open: boolean) => {
     setModalOpenState(open);
-    setImageIndex(index);
   };
 
   return (
-    <ModalContext.Provider value={{ modalOpen, imageIndex, setModalOpen }}>
+    <ModalContext.Provider value={{ modalOpen, setModalOpen }}>
       {children}
     </ModalContext.Provider>
   );

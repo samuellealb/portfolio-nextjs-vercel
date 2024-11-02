@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Image from 'next/image';
 import { IParallaxImage } from './ParallaxImage.d';
 import styles from './ParallaxImage.module.scss';
-import { useContext } from 'react';
 import { ModalContext } from '@/src/context/ModalContext';
+import { SliderContext } from '@/src/context/SliderContext';
 
 export const ParallaxImage = ({
   image,
@@ -16,6 +16,7 @@ export const ParallaxImage = ({
   let [wrapperHeight, setWrapperHeight] = useState(0);
 
   const { setModalOpen } = useContext(ModalContext);
+  const { setImageIndex } = useContext(SliderContext);
 
   useEffect(() => {
     const translateImage = (id: string) => {
@@ -63,9 +64,15 @@ export const ParallaxImage = ({
         height: `${wrapperHeight}px`,
       }}
       tabIndex={0}
-      onClick={() => setModalOpen(true, index)}
+      onClick={() => {
+        setImageIndex(index);
+        setModalOpen(true);
+      }}
       onKeyDown={(e) => {
-        if (e.key === 'Enter') setModalOpen(true, index);
+        if (e.key === 'Enter') {
+          setImageIndex(index);
+          setModalOpen(true);
+        }
       }}
     >
       <Image

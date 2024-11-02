@@ -2,6 +2,7 @@ import React from 'react';
 import '@/src/styles/index.scss';
 import { Base } from '@/src/layouts/Base';
 import { ModalProvider } from '@/src/context/ModalContext';
+import { SliderProvider } from '@/src/context/SliderContext';
 import { BodyClassManager } from '@/src/lib/bodyClassHandler';
 
 type LayoutProps = {
@@ -13,9 +14,11 @@ export default function RootLayout({ children }: LayoutProps) {
     <html>
       <body>
         <ModalProvider>
-          <BodyClassManager>
-            <Base>{children}</Base>
-          </BodyClassManager>
+          <SliderProvider>
+            <BodyClassManager>
+              <Base>{children}</Base>
+            </BodyClassManager>
+          </SliderProvider>
         </ModalProvider>
       </body>
     </html>

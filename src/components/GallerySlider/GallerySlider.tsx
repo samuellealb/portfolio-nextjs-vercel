@@ -4,10 +4,10 @@ import Image from 'next/image';
 import styles from './GallerySlider.module.scss';
 import { TGallerySlider } from './GallerySlider.d';
 import { useEffect, useContext, useRef, useCallback, useState } from 'react';
-import { ModalContext } from '@/src/context/ModalContext';
+import { SliderContext } from '@/src/context/SliderContext';
 
 export const GallerySlider = ({ images }: TGallerySlider) => {
-  const { imageIndex, modalOpen } = useContext(ModalContext);
+  const { imageIndex } = useContext(SliderContext);
   const glideRef = useRef<Glide | null>(null);
   const [verticalFit, setVerticalFit] = useState(false);
 
@@ -40,7 +40,7 @@ export const GallerySlider = ({ images }: TGallerySlider) => {
         glideRef.current.go(`=${imageIndex}`);
       }
     }
-  }, [modalOpen, images, imageIndex]);
+  }, [images, imageIndex]);
 
   return (
     <div className={styles.Gallery}>
