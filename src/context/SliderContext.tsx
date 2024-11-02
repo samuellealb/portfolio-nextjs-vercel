@@ -9,7 +9,7 @@ type SliderContextType = {
 };
 
 export const SliderContext = createContext<SliderContextType>({
-  imageIndex: null,
+  imageIndex: 0,
   setImageIndex: () => {},
 });
 
@@ -18,7 +18,7 @@ type SliderProviderProps = {
 };
 
 export const SliderProvider = ({ children }: SliderProviderProps) => {
-  const [imageIndex, setImageIndexState] = useState<number | null>(null);
+  const [imageIndex, setImageIndexState] = useState<number | null>(0);
 
   const setImageIndex = (index: number | null) => {
     setImageIndexState(index);
