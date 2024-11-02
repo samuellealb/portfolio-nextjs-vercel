@@ -8,14 +8,24 @@
 }
 
 .GallerySlider {
+  height: 100vh;
+  align-content: center;
+
   .GallerySlide {
     display: flex;
     justify-content: center;
     align-self: center;
+    overflow: hidden;
 
     img {
       width: auto;
+      height: auto;
       max-height: 100vh;
+
+      &.AdjustVertical {
+        max-height: unset;
+        max-width: 100vw;
+      }
     }
   }
 

@@ -3,15 +3,27 @@ import '@glidejs/glide/dist/css/glide.core.min.css';
 import Image from 'next/image';
 import styles from './GallerySlider.module.scss';
 import { TGallerySlider } from './GallerySlider.d';
-import { useEffect, useContext, useRef } from 'react';
+import { useEffect, useContext, useRef, useCallback, useState } from 'react';
 import { ModalContext } from '@/src/context/ModalContext';
 
 export const GallerySlider = ({ images }: TGallerySlider) => {
   const { imageIndex, modalOpen } = useContext(ModalContext);
   const glideRef = useRef<Glide | null>(null);
+  const [verticalFit, setVerticalFit] = useState(false);
+
+  const handleResize = useCallback(() => {
+    setVerticalFit(window.innerWidth <= window.innerHeight);
+  }, []);
 
   useEffect(() => {
-    if (modalOpen && images && imageIndex !== null) {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [handleResize]);
+
+  useEffect(() => {
+    if (images && imageIndex !== null) {
       const sliderOptions = {
         type: 'slider' as const,
         perView: 1,
@@ -19,11 +31,14 @@ export const GallerySlider = ({ images }: TGallerySlider) => {
         keyboard: true,
         startAt: imageIndex,
       };
-      glideRef.current = new Glide('.glide', sliderOptions);
-      glideRef.current.mount();
-    } else if (!modalOpen && glideRef.current) {
-      glideRef.current.destroy();
-      glideRef.current = null;
+
+      if (!glideRef.current) {
+        glideRef.current = new Glide('.glide', sliderOptions);
+        glideRef.current.mount();
+      } else {
+        glideRef.current.update(sliderOptions);
+        glideRef.current.go(`=${imageIndex}`);
+      }
     }
   }, [modalOpen, images, imageIndex]);
 
@@ -43,6 +58,7 @@ export const GallerySlider = ({ images }: TGallerySlider) => {
                   className={['glide__slide', styles.GallerySlide].join(' ')}
                 >
                   <Image
+                    className={verticalFit ? styles.AdjustVertical : ''}
                     src={image.url}
                     alt={image.title}
                     width={image.width}
@@ -61,7 +77,6 @@ export const GallerySlider = ({ images }: TGallerySlider) => {
               <button
                 key={`bullet-${index}`}
                 data-glide-dir={`=${index}`}
-                type="button"
                 title={`Go to slide ${index + 1}`}
               ></button>
             ))}
