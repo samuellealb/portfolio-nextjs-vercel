@@ -31,6 +31,9 @@ export interface TCategory {
 }
 
 export interface TImage {
+  sys: {
+    id: string;
+  };
   url: string;
   title: string;
   width: number;

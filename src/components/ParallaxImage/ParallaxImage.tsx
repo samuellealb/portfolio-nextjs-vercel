@@ -1,23 +1,21 @@
 'use client';
 
-import { useEffect, useState, useId } from 'react';
-import { TImage } from '@/src/lib/types';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { IParallaxImage } from './ParallaxImage.d';
 import styles from './ParallaxImage.module.scss';
-
-interface ParallaxImageProps {
-  image: TImage;
-  columns: number;
-  container: any;
-}
+import { useContext } from 'react';
+import { ModalContext } from '@/src/context/ModalContext';
 
 export const ParallaxImage = ({
   image,
   columns,
   container,
-}: ParallaxImageProps) => {
-  const id = useId();
+  index,
+}: IParallaxImage) => {
   let [wrapperHeight, setWrapperHeight] = useState(0);
+
+  const { setModalOpen } = useContext(ModalContext);
 
   useEffect(() => {
     const translateImage = (id: string) => {
@@ -38,9 +36,9 @@ export const ParallaxImage = ({
       }
     };
     document.addEventListener('scroll', function () {
-      translateImage(id);
+      translateImage(image.sys.id);
     });
-    translateImage(id);
+    translateImage(image.sys.id);
 
     const getWrapperHeight = (imageWidth: number, imageHeight: number) => {
       if (!container.current && typeof window === 'undefined') return 0;
@@ -55,14 +53,19 @@ export const ParallaxImage = ({
     };
     const height = getWrapperHeight(image.width, image.height);
     setWrapperHeight(height);
-  }, [columns, container, image.height, image.width, id]);
+  }, [columns, container, image.height, image.width, image.sys.id]);
 
   return (
     <div
-      id={id}
+      id={image.sys.id}
       className={styles.ParallaxWrapper}
       style={{
         height: `${wrapperHeight}px`,
+      }}
+      tabIndex={0}
+      onClick={() => setModalOpen(true, index)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') setModalOpen(true, index);
       }}
     >
       <Image

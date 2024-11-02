@@ -63,6 +63,9 @@ export async function getJob(slug: string): Promise<TJob> {
               videoEmbedCode
               galleryCollection(limit: 10) {
                 items {
+                  sys {
+                    id
+                  }
                   title
                   url
                   width

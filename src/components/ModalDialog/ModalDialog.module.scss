@@ -6,7 +6,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: $color-white-off;
+  background-color: $color-black-80;
   border-radius: rem($border-radius);
   box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.25);
   z-index: 1000;
@@ -25,9 +25,9 @@
 
 .CloseButton {
   position: absolute;
-  top: 0;
+  top: rem(16);
   right: rem(16);
-  padding: rem(10);
+  padding: 0;
   cursor: pointer;
   border: none;
   background-color: transparent;

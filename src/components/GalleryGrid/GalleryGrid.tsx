@@ -39,15 +39,21 @@ export const GalleryGrid = ({ images }: TGalleryGrid) => {
     );
 
     return distributedImages.flatMap((imageList, index) => (
-      <div key={`image-list-${index}`} className={styles.imageList}>
-        {imageList.map((image, index) => (
-          <ParallaxImage
-            key={`parallax-image-${index}`}
-            image={image}
-            columns={columns}
-            container={galleryGridRef}
-          ></ParallaxImage>
-        ))}
+      <div key={`image-list-item-${index}`} className={styles.imageList}>
+        {imageList.map((image) => {
+          const originalIndex = images.findIndex(
+            (img) => img.sys.id === image.sys.id,
+          );
+          return (
+            <ParallaxImage
+              key={`parallax-image-${image.sys.id}`}
+              image={image}
+              columns={columns}
+              container={galleryGridRef}
+              index={originalIndex}
+            ></ParallaxImage>
+          );
+        })}
       </div>
     ));
   };

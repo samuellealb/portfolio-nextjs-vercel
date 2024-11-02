@@ -32,12 +32,26 @@ body {
   margin: 0 auto;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 main {
   padding: rem(8);
 
   @include media-query(desktop) {
     padding: rem(16);
   }
+}
+
+// Add global outline style for focusable elements when focused
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex='0']:focus-visible {
+  outline: 4px solid $color-highlight-dark;
+  outline-offset: 2px;
 }
 
 @include sticky-footer();
