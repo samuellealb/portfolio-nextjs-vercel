@@ -1,3 +1,9 @@
+import { Locale } from '@/i18n-config';
+
+export interface TParams {
+  params: { lang: Locale };
+}
+
 export interface TJob {
   sys: {
     id: string;
@@ -43,11 +49,13 @@ export interface TImage {
 export interface TGetJobsProps {
   params: {
     slug: string;
+    lang: string;
   };
 }
 export interface TGetCategoriesProps {
   params: {
     slug: string;
+    lang: string;
   };
 }
 

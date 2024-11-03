@@ -3,12 +3,15 @@ import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-export async function getBio(id: string): Promise<TGetBioProps> {
+export async function getBio(
+  id: string,
+  locale: string,
+): Promise<TGetBioProps> {
   return client
     .query({
       query: gql`
-        query GetBio($id: String!) {
-          splitPage(id: $id) {
+        query GetBio($id: String!, $locale: String!) {
+          splitPage(id: $id, locale: $locale) {
             text {
               json
             }
@@ -25,6 +28,7 @@ export async function getBio(id: string): Promise<TGetBioProps> {
       `,
       variables: {
         id: id,
+        locale: locale,
       },
     })
     .then((response) => {
