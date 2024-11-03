@@ -1,0 +1,30 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/typography.scss';
+
+.AboutPanel {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: rem(24);
+  padding-bottom: rem(48);
+
+  @include media-query(tablet) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: rem(48);
+  }
+
+  .Text {
+    @extend .bodyLarge;
+  }
+
+  .Image {
+    position: relative;
+
+    img {
+      object-fit: contain;
+    }
+  }
+}

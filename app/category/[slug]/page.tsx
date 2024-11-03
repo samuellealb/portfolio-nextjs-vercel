@@ -2,7 +2,7 @@ import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
 import { Metadata } from 'next';
 import { JobsList } from '@/src/features/JobsList';
-import { getCategory, getCategories } from '@/src/lib/categories';
+import { getCategory } from '@/src/lib/categories';
 import { getLogos } from '@/src/lib/logos';
 
 export async function generateMetadata({
@@ -24,15 +24,14 @@ export async function generateMetadata({
 
 export type CategoryPageProps = { params: { slug: string } };
 
-export default async function Page({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const { headerListPage, headerMobile } = await getLogos();
   const categoryData = await getCategory(params.slug);
-  const categories = await getCategories();
 
   return (
     <>
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
-      <NavBar categories={categories} />
+      <NavBar />
       <main role="main">
         <JobsList {...categoryData} />
       </main>

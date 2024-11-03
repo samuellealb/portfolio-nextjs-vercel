@@ -38,3 +38,17 @@
     }
   }
 }
+
+.bodyLarge {
+  font-family: $font-family-body;
+  font-size: rem(16);
+
+  a {
+    color: $color-black-off;
+    font-weight: 600;
+
+    &:visited {
+      color: $color-black-off;
+    }
+  }
+}

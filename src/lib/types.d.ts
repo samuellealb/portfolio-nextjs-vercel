@@ -51,6 +51,13 @@ export interface TGetCategoriesProps {
   };
 }
 
+export interface TGetBioProps {
+  text: string;
+  image: Image;
+  description: string;
+  title: string;
+}
+
 export interface ILogo {
   url: string;
   title: string;
