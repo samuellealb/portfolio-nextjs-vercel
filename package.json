@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.8",
+    "@formatjs/intl-localematcher": "^0.5.7",
     "@glidejs/glide": "^3.6.2",
     "graphql": "^16.9.0",
     "next": "14.2.4",
@@ -40,6 +41,7 @@
     "@storybook/react": "^8.1.11",
     "@storybook/test": "^8.1.11",
     "@types/glidejs__glide": "^3.6.5",
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -50,6 +52,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
+    "negotiator": "^1.0.0",
     "path": "^0.12.7",
     "prettier": "^3.3.3",
     "sass": "^1.77.6",

@@ -1,5 +1,6 @@
 import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
+import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { Metadata } from 'next';
 import { JobsList } from '@/src/features/JobsList';
 import { getCategory, getCategories } from '@/src/lib/categories';
@@ -9,7 +10,7 @@ import { getLogos } from '@/src/lib/logos';
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
-  const data = await getCategory(params.slug);
+  const data = await getCategory(params.slug, params.lang);
   if (data) {
     return {
       title: 'Jeanne Dosse works on ' + params.slug,
@@ -23,16 +24,17 @@ export async function generateMetadata({
   };
 }
 
-export type CategoryPageProps = { params: { slug: string } };
+export type CategoryPageProps = { params: { slug: string; lang: string } };
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { headerListPage, headerMobile } = await getLogos();
-  const categoryData = await getCategory(params.slug);
-  const categories = await getCategories();
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ');
+  const categoryData = await getCategory(params.slug, params.lang);
+  const categories = await getCategories(params.lang);
+  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
 
   return (
     <>
+      <LocaleSwitcher locale={params.lang} />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
       <NavBar categories={categories} bioTitle={bioData.title} />
       <main role="main">

@@ -6,7 +6,7 @@ export async function GET(
   _request: NextRequest,
   { params }: TGetCategoriesProps,
 ): Promise<NextResponse> {
-  const job: TJob[] = await getCategory(params.slug);
+  const job: TJob[] = await getCategory(params.slug, params.lang);
 
   if (!job.length) {
     return NextResponse.json(
