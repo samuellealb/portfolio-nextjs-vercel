@@ -3,9 +3,9 @@ import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
 import { JobsList } from '@/src/features/JobsList';
 import { getJobs } from '@/src/lib/jobs';
+import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { TJob } from '@/src/lib/types';
-import { data as HeaderData } from '@/src/features/Header/Header.mocks'; // TODO: replace this with actual data
 
 export const metadata: Metadata = {
   title: 'Jeanne Dosse Portfolio',
@@ -13,15 +13,13 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const { homeLogo, mobileLogo } = HeaderData; // TODO: replace this with actual data
-
+  const { headerDesktop, headerMobile } = await getLogos();
   const jobsList: TJob[] = await getJobs();
   const categories = await getCategories();
-  console.log(categories);
 
   return (
     <>
-      <Header homeLogo={homeLogo} mobileLogo={mobileLogo} />
+      <Header homeLogo={headerDesktop} mobileLogo={headerMobile} />
       <NavBar categories={categories} />
       <main role="main">
         <JobsList {...jobsList} />

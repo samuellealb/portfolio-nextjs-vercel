@@ -1,24 +1,17 @@
 import React from 'react';
+import { getLogos } from '@/src/lib/logos';
+import { Footer } from '@/src/features/Footer/Footer';
 import '@/src/styles/index.scss';
 
-export const Base = ({ children }: { children: React.ReactNode }) => {
+export const Base = async ({ children }: { children: React.ReactNode }) => {
+  const { footerDesktop, footerMobile } = await getLogos();
+
   return (
     <>
       <div id="wrapper--body">
         <div id="container--sf">{children}</div>
       </div>
-      <footer
-        id="footer"
-        style={{
-          maxWidth: '1280px',
-          display: 'block',
-          margin: '20px auto 0',
-          border: 'solid black 2px',
-          padding: '16px',
-        }}
-      >
-        Footer
-      </footer>
+      <Footer footerDesktop={footerDesktop} footerMobile={footerMobile} />
     </>
   );
 };
