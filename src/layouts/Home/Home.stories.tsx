@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Home: Story = {
   render: () => (
     <BaseLayout>
-      <HomePage />
+      <HomePage params={{ lang: 'fr' }} />
     </BaseLayout>
   ),
 };

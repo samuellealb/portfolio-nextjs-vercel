@@ -49,11 +49,13 @@ export interface TImage {
 export interface TGetJobsProps {
   params: {
     slug: string;
+    lang: string;
   };
 }
 export interface TGetCategoriesProps {
   params: {
     slug: string;
+    lang: string;
   };
 }
 

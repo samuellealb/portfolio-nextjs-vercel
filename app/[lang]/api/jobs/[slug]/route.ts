@@ -6,7 +6,7 @@ export async function GET(
   _request: NextRequest,
   { params }: TGetJobsProps,
 ): Promise<NextResponse> {
-  const job: TJob | undefined = await getJob(params.slug);
+  const job: TJob | undefined = await getJob(params.slug, params.lang);
 
   if (!job) {
     return NextResponse.json(
