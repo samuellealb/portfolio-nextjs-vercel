@@ -2,30 +2,27 @@
 @import '@/src/styles/mixins.scss';
 @import '@/src/styles/variables.scss';
 
-.Header {
-  width: 100%;
+.Footer {
+  margin: 0 auto;
   max-width: rem(1280);
   display: block;
-  margin: 0 auto;
-  padding-block: rem(32);
-}
+  padding: 0;
 
-.Logo {
   .Desktop {
     position: relative;
-    height: rem(150);
+    height: 100%;
     display: none;
 
-    @include media-query(mobileLarge) {
+    @include media-query(tablet) {
       display: block;
     }
   }
-
   .Mobile {
     position: relative;
-    height: rem(100);
+    height: 100%;
+    display: block;
 
-    @include media-query(mobileLarge) {
+    @include media-query(tablet) {
       display: none;
     }
   }

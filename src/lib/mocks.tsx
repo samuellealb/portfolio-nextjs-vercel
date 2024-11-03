@@ -415,3 +415,26 @@ export const jobs: TJob[] = [
     awardsAndExhibitions: ['Oscar for Best Costume Design'],
   },
 ];
+
+export const logos = {
+  homeLogo: {
+    url: '/imgs/logo.svg',
+    title: 'Logo Home',
+  },
+  pagesLogo: {
+    url: '/imgs/logo2.svg',
+    title: 'Logo List Page',
+  },
+  mobileLogo: {
+    url: '/imgs/logo3.svg',
+    title: 'Logo Mobile',
+  },
+  footerDesktop: {
+    url: '/imgs/footer.svg',
+    title: 'Footer Desktop',
+  },
+  footerMobile: {
+    url: '/imgs/footer3.svg',
+    title: 'Footer Mobile',
+  },
+};
