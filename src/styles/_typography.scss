@@ -25,6 +25,14 @@
   text-decoration: none;
 }
 
+.highlight {
+  font-family: $font-family-cursive;
+  font-size: rem(28);
+  font-weight: 400;
+  color: $color-black-off;
+  text-decoration: none;
+}
+
 .body {
   font-family: $font-family-body;
   font-size: rem(12);

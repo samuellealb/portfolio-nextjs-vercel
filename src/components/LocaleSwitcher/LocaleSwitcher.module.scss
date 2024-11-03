@@ -1,0 +1,42 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/typography.scss';
+
+.LocaleSwitcher {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+
+  .List {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: rem(8);
+    list-style: none;
+    margin: rem(16) 0 0;
+    padding: 0 rem(32);
+  }
+
+  .ListItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    a {
+      @extend .highlight;
+    }
+  }
+
+  .ListItemActive {
+    a {
+      color: $color-white-off;
+    }
+  }
+
+  .Separator {
+    display: inline-grid;
+    @extend .highlight;
+  }
+}

@@ -1,12 +1,19 @@
+'use client';
+
 import { THeader } from './Header.d';
 import styles from './Header.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useContext } from 'react';
+import { LocaleContext } from '@/src/context/LocaleContext';
 
 export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
+  const { locale } = useContext(LocaleContext);
+
   return (
     <header className={styles.Header} role="banner">
       <div className={styles.Logo}>
-        <a href="/" title="logo">
+        <Link href={`/${locale}`} title="logo">
           <div className={styles.Desktop}>
             <Image
               src={homeLogo ? homeLogo?.url : pagesLogo?.url || ''}
@@ -23,7 +30,7 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
               priority
             />
           </div>
-        </a>
+        </Link>
       </div>
     </header>
   );

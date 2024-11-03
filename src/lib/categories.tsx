@@ -2,11 +2,13 @@ import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { TCategory, TJob } from '@/src/lib/types';
 
-export async function getCategories(): Promise<TCategory[] | undefined> {
+export async function getCategories(
+  locale: string,
+): Promise<TCategory[] | undefined> {
   const { data } = await client.query({
     query: gql`
-      query {
-        categoryCollection(order: sys_publishedAt_DESC) {
+      query GetCategories($locale: String!) {
+        categoryCollection(locale: $locale, order: sys_publishedAt_DESC) {
           items {
             sys {
               id
@@ -17,16 +19,22 @@ export async function getCategories(): Promise<TCategory[] | undefined> {
         }
       }
     `,
+    variables: {
+      locale: locale,
+    },
   });
 
   return data.categoryCollection.items;
 }
 
-export async function getCategory(slug: string): Promise<TJob[]> {
+export async function getCategory(
+  slug: string,
+  locale: string,
+): Promise<TJob[]> {
   const { data } = await client.query({
     query: gql`
-      query GetJobsByCategory($slug: String!) {
-        jobCollection(where: { category: { slug: $slug } }) {
+      query GetJobsByCategory($slug: String!, $locale: String!) {
+        jobCollection(where: { category: { slug: $slug } }, locale: $locale) {
           items {
             slug
             title
@@ -48,6 +56,7 @@ export async function getCategory(slug: string): Promise<TJob[]> {
     `,
     variables: {
       slug: slug,
+      locale: locale,
     },
   });
 

@@ -1,3 +1,9 @@
+import { Locale } from '@/i18n-config';
+
+export interface TParams {
+  params: { lang: Locale };
+}
+
 export interface TJob {
   sys: {
     id: string;

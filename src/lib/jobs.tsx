@@ -3,12 +3,12 @@ import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-export async function getJobs(): Promise<TJob[]> {
+export async function getJobs(locale: string): Promise<TJob[]> {
   return client
     .query({
       query: gql`
-        query GetAllJobs {
-          jobCollection {
+        query GetAllJobs($locale: String!) {
+          jobCollection(locale: $locale) {
             items {
               slug
               thumbnail {
@@ -28,18 +28,21 @@ export async function getJobs(): Promise<TJob[]> {
           }
         }
       `,
+      variables: {
+        locale: locale,
+      },
     })
     .then((response) => {
       return response.data.jobCollection.items;
     });
 }
 
-export async function getJob(slug: string): Promise<TJob> {
+export async function getJob(slug: string, locale: string): Promise<TJob> {
   return client
     .query({
       query: gql`
-        query GetJobBySlug($slug: String!) {
-          jobCollection(where: { slug: $slug }, limit: 1) {
+        query GetJobBySlug($slug: String!, $locale: String!) {
+          jobCollection(where: { slug: $slug }, limit: 1, locale: $locale) {
             items {
               sys {
                 id
@@ -87,6 +90,7 @@ export async function getJob(slug: string): Promise<TJob> {
       `,
       variables: {
         slug: slug,
+        locale: locale,
       },
     })
     .then((response) => {
