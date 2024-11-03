@@ -1,14 +1,8 @@
-'use client';
-
+import { TNavBar } from './NavBar.d';
 import styles from './NavBar.module.scss';
 import Link from 'next/link';
-import { getCategories } from '@/src/lib/categories';
-import { getBio } from '@/src/lib/bio';
 
-export const NavBar = async () => {
-  const categories = await getCategories();
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ');
-
+export const NavBar = ({ categories, bioTitle }: TNavBar) => {
   return (
     <nav className={styles.NavBar} role="navigation">
       <div className={styles.NavListWrapper}>
@@ -26,7 +20,7 @@ export const NavBar = async () => {
             ))}
           <li className={styles.NavItem}>
             <Link className={styles.NavLink} href={`/about`}>
-              {bioData.title}
+              {bioTitle}
             </Link>
           </li>
         </ul>
