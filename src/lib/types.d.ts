@@ -50,3 +50,16 @@ export interface TGetCategoriesProps {
     slug: string;
   };
 }
+
+export interface ILogo {
+  url: string;
+  title: string;
+}
+
+export interface IGetLogoProps {
+  headerDesktop: ILogo;
+  headerListPage: ILogo;
+  headerMobile: ILogo;
+  footerDesktop: ILogo;
+  footerMobile: ILogo;
+}

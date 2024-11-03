@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// import { fn } from '@storybook/test';
 import { Header as HeaderComponent } from './Header';
 import { data } from './Header.mocks';
 
@@ -10,9 +9,6 @@ const meta: Meta<typeof HeaderComponent> = {
   parameters: {
     layout: 'fullscreen',
   },
-  // args: {
-  // onLogin: fn()
-  // },
 };
 
 export default meta;

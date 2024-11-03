@@ -1,14 +1,14 @@
 export const data = {
   homeLogo: {
-    src: '/imgs/logo.svg',
-    alt: 'Logo',
+    url: '/imgs/logo.svg',
+    title: 'Logo',
   },
   pagesLogo: {
-    src: '/imgs/logo2.svg',
-    alt: 'Logo',
+    url: '/imgs/logo2.svg',
+    title: 'Logo',
   },
   mobileLogo: {
-    src: '/imgs/logo3.svg',
-    alt: 'Logo',
+    url: '/imgs/logo3.svg',
+    title: 'Logo',
   },
 };

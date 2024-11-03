@@ -9,16 +9,16 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
         <a href="/" title="logo">
           <div className={styles.logo__imgDesktop}>
             <Image
-              src={homeLogo ? homeLogo?.src : pagesLogo?.src || ''}
-              alt={homeLogo ? homeLogo?.alt : pagesLogo?.alt || ''}
+              src={homeLogo ? homeLogo?.url : pagesLogo?.url || ''}
+              alt={homeLogo ? homeLogo?.title : pagesLogo?.title || ''}
               fill
               priority
             />
           </div>
           <div className={styles.logo__imgMobile}>
             <Image
-              src={mobileLogo?.src || ''}
-              alt={mobileLogo?.alt || ''}
+              src={mobileLogo?.url || ''}
+              alt={mobileLogo?.title || ''}
               fill
               priority
             />
