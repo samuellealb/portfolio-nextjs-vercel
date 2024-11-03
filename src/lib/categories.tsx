@@ -6,7 +6,7 @@ export async function getCategories(): Promise<TCategory[] | undefined> {
   const { data } = await client.query({
     query: gql`
       query {
-        categoryCollection {
+        categoryCollection(order: sys_publishedAt_DESC) {
           items {
             sys {
               id
