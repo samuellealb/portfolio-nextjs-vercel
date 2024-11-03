@@ -438,3 +438,28 @@ export const logos = {
     title: 'Footer Mobile',
   },
 };
+
+export const socialIcons = {
+  items: [
+    {
+      title: 'Facebook',
+      url: 'https://www.facebook.com',
+      icon: {
+        url: '/imgs/facebook.svg',
+        title: 'Facebook',
+        width: 32,
+        height: 32,
+      },
+    },
+    {
+      title: 'Vimeo',
+      url: 'https://www.vimeo.com',
+      icon: {
+        url: '/imgs/vimeo.svg',
+        title: 'Vimeo',
+        width: 32,
+        height: 32,
+      },
+    },
+  ],
+};

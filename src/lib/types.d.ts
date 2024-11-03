@@ -58,6 +58,20 @@ export interface TGetBioProps {
   title: string;
 }
 
+export type TSocialIcon = {
+  title: string;
+  icon: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  url: string;
+};
+
+export interface TGetSocialIconsProps {
+  items: TSocialIcon[];
+}
+
 export interface ILogo {
   url: string;
   title: string;
