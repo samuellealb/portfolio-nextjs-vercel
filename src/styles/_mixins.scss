@@ -3,13 +3,15 @@
 /**
  * Mixin for creating a sticky footer layout.
  *
- * @param {number} $footer-height - The height of the footer.
+ * @param {number} $footer-height-desktop - The height of the footer for desktop viewports.
+ * @param {number} $footer-height-mobile - The height of the footer for mobile viewports.
  * @param {string} $wrapper-selector - The selector for the wrapper element.
  * @param {string} $container-selector - The selector for the container element.
  * @param {string} $footer-selector - The selector for the footer element.
  */
 @mixin sticky-footer(
-  $footer-height: $font-size-base,
+  $footer-height-desktop: $footer-height-desktop,
+  $footer-height-mobile: $footer-height-mobile,
   $wrapper-selector: '#wrapper--body',
   $container-selector: '#container--sf',
   $footer-selector: '#footer'
@@ -27,15 +29,27 @@
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin-bottom: -$footer-height;
+    margin-bottom: -$footer-height-mobile;
+
+    @include media-query(tablet) {
+      margin-bottom: -$footer-height-desktop;
+    }
 
     #{$container-selector} {
-      padding: 0 0 $footer-height 0;
+      padding: 0 0 $footer-height-mobile 0;
+
+      @include media-query(tablet) {
+        padding: 0 0 $footer-height-desktop 0;
+      }
     }
   }
 
   #{$footer-selector} {
-    height: $footer-height;
+    height: $footer-height-mobile;
+
+    @include media-query(tablet) {
+      height: $footer-height-desktop;
+    }
   }
 }
 
@@ -57,14 +71,26 @@
     }
   }
 
-  @if $viewport==tablet {
+  @if $viewport==mobileLarge {
     @media (min-width: map-get($breakpoints, 'sm')) {
+      @content;
+    }
+  }
+
+  @if $viewport==tablet {
+    @media (min-width: map-get($breakpoints, 'md')) {
       @content;
     }
   }
 
   @if $viewport==desktop {
     @media (min-width: map-get($breakpoints, 'lg')) {
+      @content;
+    }
+  }
+
+  @if $viewport==ultrawide {
+    @media (min-width: map-get($breakpoints, 'xl')) {
       @content;
     }
   }

@@ -1,0 +1,27 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/typography.scss';
+
+.SocialBar {
+  display: flex;
+  width: 100%;
+  height: rem(32);
+  justify-content: center;
+  position: relative;
+  gap: rem(32);
+  padding: rem(16) 0;
+
+  .SocialIcon {
+    img {
+      max-height: 100%;
+      width: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

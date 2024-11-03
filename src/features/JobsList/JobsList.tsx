@@ -1,8 +1,8 @@
 import { Thumbnail } from '@/src/components/Thumbnail';
-import { Job } from '@/src/lib/types';
+import { TJob } from '@/src/lib/types';
 import styles from './JobsList.module.scss';
 
-export const JobsList = (jobsList: Job[]) => {
+export const JobsList = (jobsList: TJob[]) => {
   const hasItems = jobsList && Object.keys(jobsList).length > 0;
 
   if (hasItems) {

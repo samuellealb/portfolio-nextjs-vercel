@@ -1,0 +1,16 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+
+.galleryGrid {
+  display: flex;
+  gap: rem(8);
+}
+
+.imageList {
+  width: 100%;
+
+  > * {
+    cursor: pointer;
+  }
+}

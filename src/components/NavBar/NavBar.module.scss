@@ -1,0 +1,49 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/typography.scss';
+
+.NavBar {
+  width: 100%;
+  padding-block: rem(40);
+}
+
+.NavListWrapper {
+  padding-bottom: rem(20);
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: rem(8);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: rem(4);
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
+  scrollbar-color: $color-black-off transparent;
+  scrollbar-width: thin;
+}
+
+.NavList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: max-content;
+}
+
+.NavItem {
+  margin: 0 rem(16);
+}
+
+.NavLink {
+  @extend .topicItem;
+  &:hover {
+    text-decoration: underline;
+  }
+}

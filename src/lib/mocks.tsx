@@ -1,26 +1,62 @@
-import { Job, Category } from './types';
+import { TJob, TCategory } from './types';
+import { imageFactory } from './factory';
 
-export const categories: Category[] = [
+export const categories: TCategory[] = [
   {
     sys: {
-      id: 1,
+      id: '1',
     },
     label: 'Sci Fi',
     slug: 'sci-fi',
   },
   {
     sys: {
-      id: 2,
+      id: '2',
     },
     label: 'Fantasy',
     slug: 'fantasy',
   },
-];
-
-export const jobs: Job[] = [
   {
     sys: {
-      id: 1,
+      id: '3',
+    },
+    label: 'Action',
+    slug: 'action',
+  },
+  {
+    sys: {
+      id: '4',
+    },
+    label: 'Adventure',
+    slug: 'adventure',
+  },
+  {
+    sys: {
+      id: '5',
+    },
+    label: 'Drama',
+    slug: 'drama',
+  },
+  {
+    sys: {
+      id: '6',
+    },
+    label: 'Horror',
+    slug: 'horror',
+  },
+  {
+    sys: {
+      id: '7',
+    },
+    label: 'Comedy',
+    slug: 'comedy',
+  },
+];
+
+export const jobs: TJob[] = [
+  {
+    sys: {
+      id: '1',
     },
     slug: 'the-matrix',
     title: 'The Matrix',
@@ -32,7 +68,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -47,22 +83,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'The Matrix',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wg7V2_OBXwQ?si=4pcTp-wAgmhEInon" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'The Matrix',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'The Matrix',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'The Matrix',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'The Matrix is a 1999 science fiction action film written and directed by the Wachowskis.',
@@ -72,7 +96,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 2,
+      id: '2',
     },
     slug: 'lord-of-the-rings',
     title: 'Lord of the Rings',
@@ -84,7 +108,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 2,
+            id: '2',
           },
           label: 'Fantasy',
           slug: 'fantasy',
@@ -99,22 +123,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Lord of the Rings',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Lord of the Rings',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Lord of the Rings',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Lord of the Rings',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'The Lord of the Rings is a 2001 fantasy film directed by Peter Jackson.',
@@ -124,7 +136,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 3,
+      id: '3',
     },
     slug: 'star-wars',
     title: 'Star Wars',
@@ -136,7 +148,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -151,22 +163,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Star Wars',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Star Wars',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Star Wars',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Star Wars',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'Star Wars is a 1977 space opera film written and directed by George Lucas.',
@@ -176,7 +176,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 4,
+      id: '4',
     },
     slug: 'jurassic-park',
     title: 'Jurassic Park',
@@ -188,7 +188,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -203,22 +203,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Jurassic Park',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Jurassic Park',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Jurassic Park',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Jurassic Park',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'Jurassic Park is a 1993 science fiction adventure film directed by Steven Spielberg.',
@@ -228,7 +216,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 5,
+      id: '5',
     },
     slug: 'avatar',
     title: 'Avatar',
@@ -240,7 +228,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -255,18 +243,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Avatar',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Avatar',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Avatar',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'Avatar is a 2009 science fiction film directed by James Cameron.',
@@ -276,7 +256,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 6,
+      id: '6',
     },
     slug: 'inception',
     title: 'Inception',
@@ -288,7 +268,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -303,22 +283,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Inception',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Inception',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Inception',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Inception',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'Inception is a 2010 science fiction action film written and directed by Christopher Nolan.',
@@ -328,7 +296,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 7,
+      id: '7',
     },
     slug: 'interstellar',
     title: 'Interstellar',
@@ -340,7 +308,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -355,18 +323,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Interstellar',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Interstellar',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Interstellar',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'Interstellar is a 2014 science fiction film directed by Christopher Nolan.',
@@ -376,7 +336,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 8,
+      id: '8',
     },
     slug: 'blade-runner',
     title: 'Blade Runner',
@@ -388,7 +348,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -403,22 +363,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'Blade Runner',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Blade Runner',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Blade Runner',
-        },
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'Blade Runner',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'Blade Runner is a 1982 science fiction film directed by Ridley Scott.',
@@ -428,7 +376,7 @@ export const jobs: Job[] = [
   },
   {
     sys: {
-      id: 9,
+      id: '9',
     },
     slug: 'the-fifth-element',
     title: 'The Fifth Element',
@@ -440,7 +388,7 @@ export const jobs: Job[] = [
       items: [
         {
           sys: {
-            id: 1,
+            id: '1',
           },
           label: 'Sci Fi',
           slug: 'sci-fi',
@@ -455,14 +403,10 @@ export const jobs: Job[] = [
       url: 'https://placehold.co/980x522',
       title: 'The Fifth Element',
     },
-    vimeoVideoId: '144505730',
+    videoEmbedCode:
+      '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/144505730?h=8f174d08f5&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
     galleryCollection: {
-      items: [
-        {
-          url: 'https://placehold.co/980x522',
-          title: 'The Fifth Element',
-        },
-      ],
+      items: imageFactory(15),
     },
     sinopsis: [
       'The Fifth Element is a 1997 science fiction action film directed by Luc Besson.',
@@ -471,3 +415,51 @@ export const jobs: Job[] = [
     awardsAndExhibitions: ['Oscar for Best Costume Design'],
   },
 ];
+
+export const logos = {
+  homeLogo: {
+    url: '/imgs/logo.svg',
+    title: 'Logo Home',
+  },
+  pagesLogo: {
+    url: '/imgs/logo2.svg',
+    title: 'Logo List Page',
+  },
+  mobileLogo: {
+    url: '/imgs/logo3.svg',
+    title: 'Logo Mobile',
+  },
+  footerDesktop: {
+    url: '/imgs/footer.svg',
+    title: 'Footer Desktop',
+  },
+  footerMobile: {
+    url: '/imgs/footer3.svg',
+    title: 'Footer Mobile',
+  },
+};
+
+export const socialIcons = {
+  items: [
+    {
+      title: 'Facebook',
+      url: 'https://www.facebook.com',
+      icon: {
+        url: '/imgs/facebook.svg',
+        title: 'Facebook',
+        width: 32,
+        height: 32,
+      },
+    },
+    {
+      title: 'Vimeo',
+      url: 'https://www.vimeo.com',
+      icon: {
+        url: '/imgs/vimeo.svg',
+        title: 'Vimeo',
+        width: 32,
+        height: 32,
+      },
+    },
+  ],
+};

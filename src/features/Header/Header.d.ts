@@ -1,14 +1,14 @@
 export type THeader = {
   homeLogo?: {
-    src: string;
-    alt: string;
+    url: string;
+    title: string;
   };
   pagesLogo?: {
-    src: string;
-    alt: string;
+    url: string;
+    title: string;
   };
   mobileLogo?: {
-    src: string;
-    alt: string;
+    url: string;
+    title: string;
   };
 };

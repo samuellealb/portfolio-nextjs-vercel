@@ -2,31 +2,31 @@
 @import '@/src/styles/mixins.scss';
 @import '@/src/styles/variables.scss';
 
-.header {
+.Header {
   width: 100%;
+  max-width: rem(1280);
+  display: block;
+  margin: 0 auto;
+  padding-block: rem(32);
 }
 
-.logo {
-  margin-bottom: rem(85);
+.Logo {
+  .Desktop {
+    position: relative;
+    height: rem(150);
+    display: none;
 
-  &__img {
-    &Desktop {
-      position: relative;
-      height: rem(150);
-      display: none;
-
-      @include media-query(tablet) {
-        display: block;
-      }
+    @include media-query(mobileLarge) {
+      display: block;
     }
+  }
 
-    &Mobile {
-      position: relative;
-      height: rem(100);
+  .Mobile {
+    position: relative;
+    height: rem(100);
 
-      @include media-query(tablet) {
-        display: none;
-      }
+    @include media-query(mobileLarge) {
+      display: none;
     }
   }
 }
