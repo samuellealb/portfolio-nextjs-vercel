@@ -63,6 +63,7 @@ export const jobs: TJob[] = [
     genre: 'Action',
     duration: 136,
     location: 'Sydney',
+    locale: 'fr',
     year: 1999,
     categoryCollection: {
       items: [
@@ -103,6 +104,7 @@ export const jobs: TJob[] = [
     genre: 'Fantasy',
     duration: 178,
     location: 'New Zealand',
+    locale: 'fr',
     year: 2001,
     categoryCollection: {
       items: [
@@ -143,6 +145,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 121,
     location: 'Tunisia',
+    locale: 'fr',
     year: 1977,
     categoryCollection: {
       items: [
@@ -183,6 +186,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 127,
     location: 'Hawaii',
+    locale: 'fr',
     year: 1993,
     categoryCollection: {
       items: [
@@ -223,6 +227,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 162,
     location: 'New Zealand',
+    locale: 'fr',
     year: 2009,
     categoryCollection: {
       items: [
@@ -263,6 +268,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 148,
     location: 'Paris',
+    locale: 'fr',
     year: 2010,
     categoryCollection: {
       items: [
@@ -303,6 +309,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 169,
     location: 'Alberta',
+    locale: 'fr',
     year: 2014,
     categoryCollection: {
       items: [
@@ -343,6 +350,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 117,
     location: 'Los Angeles',
+    locale: 'fr',
     year: 1982,
     categoryCollection: {
       items: [
@@ -383,6 +391,7 @@ export const jobs: TJob[] = [
     genre: 'Sci Fi',
     duration: 126,
     location: 'New York',
+    locale: 'fr',
     year: 1997,
     categoryCollection: {
       items: [

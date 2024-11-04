@@ -2,8 +2,9 @@ import { TJob } from '@/src/lib/types';
 import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Locale } from '@/i18n-config';
 
-export async function getJobs(locale: string): Promise<TJob[]> {
+export async function getJobs(locale: Locale): Promise<TJob[]> {
   return client
     .query({
       query: gql`
@@ -37,7 +38,7 @@ export async function getJobs(locale: string): Promise<TJob[]> {
     });
 }
 
-export async function getJob(slug: string, locale: string): Promise<TJob> {
+export async function getJob(slug: string, locale: Locale): Promise<TJob> {
   return client
     .query({
       query: gql`

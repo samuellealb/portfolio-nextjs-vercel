@@ -6,6 +6,7 @@ import { JobsList } from '@/src/features/JobsList';
 import { getCategory, getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { getLogos } from '@/src/lib/logos';
+import { Locale } from '@/i18n-config';
 
 export async function generateMetadata({
   params,
@@ -24,7 +25,7 @@ export async function generateMetadata({
   };
 }
 
-export type CategoryPageProps = { params: { slug: string; lang: string } };
+export type CategoryPageProps = { params: { slug: string; lang: Locale } };
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { headerListPage, headerMobile } = await getLogos();

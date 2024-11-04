@@ -7,6 +7,7 @@ import { getJob } from '@/src/lib/jobs';
 import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
+import { Locale } from '@/i18n-config';
 
 export async function generateMetadata({
   params,
@@ -29,7 +30,7 @@ export async function generateMetadata({
   };
 }
 
-export type JobPageProps = { params: { slug: string; lang: string } };
+export type JobPageProps = { params: { slug: string; lang: Locale } };
 
 export default async function JobPage({ params }: JobPageProps) {
   const { headerListPage, headerMobile } = await getLogos();
@@ -43,7 +44,7 @@ export default async function JobPage({ params }: JobPageProps) {
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
       <NavBar categories={categories} bioTitle={bioData.title} />
       <main role="main">
-        <JobPanel {...jobData} />
+        <JobPanel jobData={jobData} locale={params.lang} />
       </main>
     </>
   );

@@ -26,6 +26,7 @@ export interface TJob {
   sinopsis: string[];
   crew: string[];
   awardsAndExhibitions: string[];
+  locale: Locale;
 }
 
 export interface TCategory {
@@ -49,13 +50,13 @@ export interface TImage {
 export interface TGetJobsProps {
   params: {
     slug: string;
-    lang: string;
+    lang: Locale;
   };
 }
 export interface TGetCategoriesProps {
   params: {
     slug: string;
-    lang: string;
+    lang: Locale;
   };
 }
 
