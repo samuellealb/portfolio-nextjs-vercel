@@ -8,10 +8,16 @@ import { GalleryGrid } from '@/src/components/GalleryGrid/GalleryGrid';
 import { ModalDialog } from '@/src/components/ModalDialog/ModalDialog';
 import { GallerySlider } from '@/src/components/GallerySlider/GallerySlider';
 import { ModalContext } from '@/src/context/ModalContext';
-
+import { Locale } from '@/i18n-config';
 import React from 'react';
 
-export const JobPanel = (jobData: TJob) => {
+export const JobPanel = ({
+  jobData,
+  locale,
+}: {
+  jobData: TJob;
+  locale: Locale;
+}) => {
   const jobExists = jobData && Object.keys(jobData).length > 0;
   const { modalOpen, setModalOpen } = useContext(ModalContext);
 
@@ -29,7 +35,7 @@ export const JobPanel = (jobData: TJob) => {
                   <React.Fragment key={index}>
                     <Link
                       className={styles.jobCategory}
-                      href={`/category/${category.slug}`}
+                      href={`/${locale}/category/${category.slug}`}
                       title={category.label}
                     >
                       {category.label}

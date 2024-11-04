@@ -1,3 +1,5 @@
+import { Locale } from '@/i18n-config';
+
 export type TLocaleSwitcher = {
-  locale: string;
+  locale: Locale;
 };

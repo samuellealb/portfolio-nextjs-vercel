@@ -3,6 +3,7 @@ import { Base as BaseLayout } from '@/src/layouts/Base';
 import { JobPanel as JobPanelComponent } from './JobPanel';
 import { jobs } from '@/src/lib/mocks';
 import { TJob } from '@/src/lib/types';
+import { Locale } from '@/i18n-config';
 
 const meta: Meta<typeof JobPanelComponent> = {
   title: 'Features/JobPanel',
@@ -19,10 +20,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const JobPanel: Story = {
-  render: (args: TJob) => (
+  render: (args: { jobData: TJob; locale: Locale }) => (
     <BaseLayout>
       <main role="main">
-        <JobPanelComponent {...args} />
+        <JobPanelComponent {...args} locale={args.locale} />
       </main>
     </BaseLayout>
   ),

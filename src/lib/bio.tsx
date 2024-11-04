@@ -2,10 +2,11 @@ import { TGetBioProps } from '@/src/lib/types';
 import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Locale } from '@/i18n-config';
 
 export async function getBio(
   id: string,
-  locale: string,
+  locale: Locale,
 ): Promise<TGetBioProps> {
   return client
     .query({

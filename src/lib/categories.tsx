@@ -1,9 +1,10 @@
 import { client } from '@/src/lib/client';
 import { gql } from 'graphql-tag';
 import { TCategory, TJob } from '@/src/lib/types';
+import { Locale } from '@/i18n-config';
 
 export async function getCategories(
-  locale: string,
+  locale: Locale,
 ): Promise<TCategory[] | undefined> {
   const { data } = await client.query({
     query: gql`
@@ -29,7 +30,7 @@ export async function getCategories(
 
 export async function getCategory(
   slug: string,
-  locale: string,
+  locale: Locale,
 ): Promise<TJob[]> {
   const { data } = await client.query({
     query: gql`

@@ -1,11 +1,12 @@
 'use client';
 
 import { createContext, useState, ReactNode } from 'react';
+import { Locale } from '@/i18n-config';
 
 type LocaleContextType = {
-  locale: string;
+  locale: Locale;
   // eslint-disable-next-line no-unused-vars
-  setLocale: (_locale: string) => void;
+  setLocale: (_locale: Locale) => void;
 };
 
 export const LocaleContext = createContext<LocaleContextType>({
@@ -16,9 +17,9 @@ export const LocaleContext = createContext<LocaleContextType>({
 type LocaleProviderProps = { children: ReactNode };
 
 export const LocaleProvider = ({ children }: LocaleProviderProps) => {
-  const [locale, setLocaleState] = useState('pt');
+  const [locale, setLocaleState] = useState<Locale>('pt');
 
-  const setLocale = (locale: string) => {
+  const setLocale = (locale: Locale) => {
     setLocaleState(locale);
   };
 
