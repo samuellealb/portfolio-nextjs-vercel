@@ -12,7 +12,7 @@ export const Thumbnail = ({ slug, src, title }: TThumbnail) => {
 
   return (
     <article className={styles.thumbnail}>
-      <Link href={`${locale}/job/${slug}`} title={title}>
+      <Link href={`/${locale}/job/${slug}`} title={title}>
         <Image src={src} alt={title} fill className="grid-img" />
       </Link>
     </article>
