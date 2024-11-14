@@ -8,27 +8,17 @@ export async function GET(
 ): Promise<NextResponse> {
   const job: TJob[] = await getCategory(params.slug, params.lang);
 
-  if (!job.length) {
-    return NextResponse.json(
-      {
-        success: true,
-        message: 'Job Not Found!',
-        data: null,
-      },
-      {
-        status: 404,
-      },
-    );
-  }
-
-  return NextResponse.json(
+  const response = NextResponse.json(
     {
       success: true,
-      message: 'Detail Data Job',
-      data: job,
+      message: job.length ? 'Detail Data Job' : 'Job Not Found!',
+      data: job.length ? job : null,
     },
     {
-      status: 200,
+      status: job.length ? 200 : 404,
     },
   );
+
+  response.headers.set('Cache-Control', 'no-store');
+  return response;
 }

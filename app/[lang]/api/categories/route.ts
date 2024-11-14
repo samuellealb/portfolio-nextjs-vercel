@@ -10,27 +10,17 @@ export async function GET(
     params.lang,
   );
 
-  if (!CategoriesList) {
-    return NextResponse.json(
-      {
-        success: true,
-        message: 'Category Not Found!',
-        data: null,
-      },
-      {
-        status: 404,
-      },
-    );
-  }
-
-  return NextResponse.json(
+  const response = NextResponse.json(
     {
       success: true,
-      message: 'Categories Lists',
-      data: CategoriesList as TCategory[],
+      message: CategoriesList ? 'Categories Lists' : 'Category Not Found!',
+      data: CategoriesList || null,
     },
     {
-      status: 200,
+      status: CategoriesList ? 200 : 404,
     },
   );
+
+  response.headers.set('Cache-Control', 'no-store');
+  return response;
 }

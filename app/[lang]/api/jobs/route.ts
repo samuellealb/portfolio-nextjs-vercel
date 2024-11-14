@@ -8,27 +8,17 @@ export async function GET(
 ): Promise<NextResponse> {
   const jobsList: TJob[] | undefined = await getJobs(params.lang);
 
-  if (!jobsList) {
-    return NextResponse.json(
-      {
-        success: true,
-        message: 'Job Not Found!',
-        data: null,
-      },
-      {
-        status: 404,
-      },
-    );
-  }
-
-  return NextResponse.json(
+  const response = NextResponse.json(
     {
       success: true,
-      message: 'Jobs Lists',
-      data: jobsList,
+      message: jobsList ? 'Jobs Lists' : 'Job Not Found!',
+      data: jobsList || null,
     },
     {
-      status: 200,
+      status: jobsList ? 200 : 404,
     },
   );
+
+  response.headers.set('Cache-Control', 'no-store');
+  return response;
 }
