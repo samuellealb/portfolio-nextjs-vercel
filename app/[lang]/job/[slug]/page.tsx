@@ -3,11 +3,26 @@ import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { JobPanel } from '@/src/features/JobPanel';
-import { getJob } from '@/src/lib/jobs';
+import { getJob, getAllJobSlugs } from '@/src/lib/jobs';
 import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
-import { Locale } from '@/i18n-config';
+import { Locale, i18n } from '@/i18n-config';
+
+export type JobPageProps = { params: { slug: string; lang: Locale } };
+
+export const revalidate = 60;
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const slugs = await getAllJobSlugs();
+  const locales: Locale[] = i18n.locales.slice();
+
+  return slugs.flatMap((slug: string): JobPageProps[] =>
+    locales.map((lang): JobPageProps => ({ params: { slug, lang } })),
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -29,8 +44,6 @@ export async function generateMetadata({
     description: 'Job not found',
   };
 }
-
-export type JobPageProps = { params: { slug: string; lang: Locale } };
 
 export default async function JobPage({ params }: JobPageProps) {
   const { headerListPage, headerMobile } = await getLogos();
