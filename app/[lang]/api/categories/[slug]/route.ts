@@ -19,6 +19,5 @@ export async function GET(
     },
   );
 
-  response.headers.set('Cache-Control', 'no-store');
   return response;
 }
