@@ -8,6 +8,14 @@ import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { TParams } from '@/src/lib/types';
 
+export const revalidate = 60;
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
 export async function generateMetadata({ params }: TParams): Promise<Metadata> {
   const data = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
   if (data) {

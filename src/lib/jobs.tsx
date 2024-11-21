@@ -98,20 +98,40 @@ export async function getJob(slug: string, locale: Locale): Promise<TJob> {
       const job = response.data.jobCollection.items[0];
       let modifiedJob = { ...job };
 
-      if (job.sinopsis) {
+      if (job?.sinopsis) {
         modifiedJob.sinopsis = documentToHtmlString(job.sinopsis.json);
       }
 
-      if (job.crew) {
+      if (job?.crew) {
         modifiedJob.crew = documentToHtmlString(job.crew.json);
       }
 
-      if (job.awardsAndExhibitions) {
+      if (job?.awardsAndExhibitions) {
         modifiedJob.awardsAndExhibitions = documentToHtmlString(
           job.awardsAndExhibitions.json,
         );
       }
 
       return modifiedJob;
+    });
+}
+
+export async function getAllJobSlugs(): Promise<string[]> {
+  return client
+    .query({
+      query: gql`
+        query GetAllJobSlugs {
+          jobCollection {
+            items {
+              slug
+            }
+          }
+        }
+      `,
+    })
+    .then((response) => {
+      return response.data.jobCollection.items.map(
+        (item: { slug: string }) => item.slug,
+      );
     });
 }

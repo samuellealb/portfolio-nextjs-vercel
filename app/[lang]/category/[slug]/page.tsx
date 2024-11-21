@@ -6,7 +6,26 @@ import { JobsList } from '@/src/features/JobsList';
 import { getCategory, getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { getLogos } from '@/src/lib/logos';
-import { Locale } from '@/i18n-config';
+import { Locale, i18n } from '@/i18n-config';
+
+export type CategoryPageProps = { params: { slug: string; lang: Locale } };
+
+export const revalidate = 60;
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const locales: Locale[] = i18n.locales.slice();
+  const categories = await Promise.all(
+    locales.map((lang) => getCategories(lang)),
+  );
+
+  return categories.flatMap((categs, index) =>
+    categs?.map((categ) => ({
+      params: { slug: categ.slug, lang: locales[index] },
+    })),
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -24,8 +43,6 @@ export async function generateMetadata({
     description: 'Category not found',
   };
 }
-
-export type CategoryPageProps = { params: { slug: string; lang: Locale } };
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { headerListPage, headerMobile } = await getLogos();
