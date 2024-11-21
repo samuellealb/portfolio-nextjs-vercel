@@ -36,19 +36,22 @@
     }
 
     #{$container-selector} {
-      padding: 0 0 $footer-height-mobile 0;
+      padding: 0 $body-padding-mobile $footer-height-mobile $body-padding-mobile;
 
       @include media-query(tablet) {
-        padding: 0 0 $footer-height-desktop 0;
+        padding: 0 $body-padding-desktop $footer-height-desktop
+          $body-padding-desktop;
       }
     }
   }
 
   #{$footer-selector} {
     height: $footer-height-mobile;
+    padding: 0 $body-padding-mobile;
 
     @include media-query(tablet) {
       height: $footer-height-desktop;
+      padding: 0 $body-padding-desktop;
     }
   }
 }

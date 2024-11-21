@@ -27,7 +27,7 @@ export const JobPanel = ({
         <div className={styles.jobPanel}>
           <div className={styles.jobInfoSection}>
             <div className={styles.jobMetadata}>
-              <h1 className={styles.jobTitle}>{jobData.title}</h1>
+              <h2 className={styles.jobTitle}>{jobData.title}</h2>
               {jobData.genre}, {jobData.duration}min, {jobData.location},{' '}
               {jobData.year}{' '}
               <div className={styles.jobCategories}>
