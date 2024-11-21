@@ -15,12 +15,14 @@ export const Header = ({ homeLogo, pagesLogo, mobileLogo }: THeader) => {
       <div className={styles.Logo}>
         <Link href={`/${locale}`} title="logo">
           <div className={styles.Desktop}>
-            <Image
-              src={homeLogo ? homeLogo?.url : pagesLogo?.url || ''}
-              alt={homeLogo ? homeLogo?.title : pagesLogo?.title || ''}
-              fill
-              priority
-            />
+            <h1>
+              <Image
+                src={homeLogo ? homeLogo?.url : pagesLogo?.url || ''}
+                alt={homeLogo ? homeLogo?.title : pagesLogo?.title || ''}
+                fill
+                priority
+              />
+            </h1>
           </div>
           <div className={styles.Mobile}>
             <Image

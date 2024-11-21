@@ -38,7 +38,7 @@ export const LocaleSwitcher = ({ locale }: TLocaleSwitcher) => {
                 <Link href={redirectedPathname(locale)}>{locale}</Link>
               </li>
               {index < i18n.locales.length - 1 && (
-                <span className={styles.Separator}>/</span>
+                <li className={styles.Separator}>/</li>
               )}
             </React.Fragment>
           );
