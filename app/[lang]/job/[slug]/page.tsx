@@ -16,8 +16,8 @@ export const revalidate = 60;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const slugs = await getAllJobSlugs();
   const locales: Locale[] = i18n.locales.slice();
+  const slugs = await getAllJobSlugs();
 
   return slugs.flatMap((slug: string): JobPageProps[] =>
     locales.map((lang): JobPageProps => ({ params: { slug, lang } })),
