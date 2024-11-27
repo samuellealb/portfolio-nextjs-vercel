@@ -12,10 +12,10 @@ export const AboutPanel = ({ profileText, profileImage }: TAboutPanel) => {
       </div>
       <div className={styles.Image}>
         <Image
-          src={profileImage.url}
-          alt={profileImage.title}
-          width={profileImage.width}
-          height={profileImage.height}
+          src={profileImage?.url}
+          alt={profileImage?.title}
+          width={profileImage?.width}
+          height={profileImage?.height}
         />
       </div>
     </section>
