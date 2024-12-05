@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { TJob } from '@/src/lib/types';
 import styles from './JobPanel.module.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 import { GalleryGrid } from '@/src/components/GalleryGrid/GalleryGrid';
 import { ModalDialog } from '@/src/components/ModalDialog/ModalDialog';
 import { GallerySlider } from '@/src/components/GallerySlider/GallerySlider';
@@ -68,6 +69,17 @@ export const JobPanel = ({
               <div className={styles.jobTrailer}>
                 <div
                   dangerouslySetInnerHTML={{ __html: jobData.videoEmbedCode }}
+                />
+              </div>
+            )}
+
+            {!jobData.videoEmbedCode && jobData.cover && (
+              <div className={styles.jobCover}>
+                <Image
+                  src={jobData.cover.url}
+                  alt={jobData.cover.title}
+                  width={jobData.cover.width}
+                  height={jobData.cover.height}
                 />
               </div>
             )}

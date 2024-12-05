@@ -63,6 +63,8 @@ export async function getJob(slug: string, locale: Locale): Promise<TJob> {
               cover {
                 url
                 title
+                width
+                height
               }
               videoEmbedCode
               galleryCollection(limit: 10) {
