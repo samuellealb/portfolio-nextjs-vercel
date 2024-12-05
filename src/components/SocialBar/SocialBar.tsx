@@ -10,7 +10,7 @@ export const SocialBar = async () => {
       {socialIcons.items.map((item) => {
         return (
           <div className={styles.SocialIcon} key={item.title}>
-            <a href={item.url}>
+            <a href={item.url} title={item.title}>
               <Image
                 src={item.icon.url}
                 alt={item.title}
