@@ -10,10 +10,26 @@
   gap: rem(24);
   padding-bottom: rem(48);
 
+  &.SingleColumn {
+    grid-template-rows: 1fr;
+  }
+
   @include media-query(tablet) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: rem(48);
+
+    &.SingleColumn {
+      grid-template-columns: 1fr;
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  &.SingleColumn {
+    .Text {
+      order: 2;
+    }
   }
 
   .Text {
