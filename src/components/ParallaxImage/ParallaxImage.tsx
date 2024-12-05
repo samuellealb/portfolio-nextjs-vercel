@@ -25,19 +25,16 @@ export const ParallaxImage = ({
 
       const image = wrapper.querySelector('img');
       if (!image) return;
-      const parallaxSpeed = 0.5;
+      const parallaxSpeed = 1;
       const wrapperRect = wrapper.getBoundingClientRect();
       const windowBottom = window.innerHeight;
       const scrollPosition = (windowBottom - wrapperRect.top) / 10;
-      const imageRect = image.getBoundingClientRect();
 
-      if (wrapperRect.top < windowBottom + 50 && wrapperRect.bottom >= 0) {
-        if (
-          imageRect.top >= wrapperRect.top ||
-          imageRect.bottom <= wrapperRect.bottom
-        )
-          return;
-        image.style.transform = `translateY(${scrollPosition * parallaxSpeed}px) scale(1.75)`;
+      if (
+        wrapperRect.top < windowBottom + wrapperRect.height &&
+        wrapperRect.bottom >= 0
+      ) {
+        image.style.transform = `translateY(${(scrollPosition / 2) * parallaxSpeed}px) scale(1.75)`;
       } else {
         image.style.transform = 'translateY(0) scale(1.75)';
       }
