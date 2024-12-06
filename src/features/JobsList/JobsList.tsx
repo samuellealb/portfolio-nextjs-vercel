@@ -1,3 +1,4 @@
+import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
 import { Thumbnail } from '@/src/components/Thumbnail';
 import { TJob } from '@/src/lib/types';
 import styles from './JobsList.module.scss';
@@ -20,5 +21,5 @@ export const JobsList = (jobsList: TJob[]) => {
     );
   }
 
-  return <div>No jobs available</div>;
+  return <StatusMessage status={3} />;
 };

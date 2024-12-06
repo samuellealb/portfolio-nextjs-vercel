@@ -1,0 +1,23 @@
+@import '@/src/styles/typography.scss';
+
+.Wrapper {
+  width: 50%;
+  height: calc(50vh);
+  margin: 0 auto;
+  justify-items: center;
+  align-content: center;
+}
+.Message {
+  @extend .topicItem;
+  margin-bottom: 72px;
+}
+.Image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  max-width: 80%;
+
+  img {
+    object-fit: contain;
+  }
+}
