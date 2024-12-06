@@ -9,13 +9,14 @@ export async function getCategories(
   const { data } = await client.query({
     query: gql`
       query GetCategories($locale: String!) {
-        categoryCollection(locale: $locale, order: sys_publishedAt_DESC) {
+        categoryCollection(locale: $locale, order: menuPosition_ASC) {
           items {
             sys {
               id
             }
             label
             slug
+            menuPosition
           }
         }
       }
