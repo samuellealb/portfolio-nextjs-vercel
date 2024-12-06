@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { GalleryGrid } from '@/src/components/GalleryGrid/GalleryGrid';
 import { ModalDialog } from '@/src/components/ModalDialog/ModalDialog';
 import { GallerySlider } from '@/src/components/GallerySlider/GallerySlider';
+import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
 import { ModalContext } from '@/src/context/ModalContext';
 import { Locale } from '@/i18n-config';
 import React from 'react';
@@ -94,5 +95,5 @@ export const JobPanel = ({
     );
   }
 
-  return <div>Job not found</div>;
+  return <StatusMessage status={4} />;
 };
