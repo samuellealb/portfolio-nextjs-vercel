@@ -5,7 +5,7 @@ import { LocaleProvider } from '@/src/context/LocaleContext';
 import { ModalProvider } from '@/src/context/ModalContext';
 import { SliderProvider } from '@/src/context/SliderContext';
 import { BodyClassManager } from '@/src/lib/bodyClassHandler';
-import { i18n, type Locale } from '../../i18n-config';
+import { i18n, type Locale } from '@/i18n-config';
 
 type LayoutProps = {
   children: React.ReactNode;
