@@ -8,7 +8,6 @@ import { SliderProvider } from '@/src/context/SliderContext';
 const meta: Meta<typeof GallerySliderComponent> = {
   title: 'Components/GallerySlider',
   component: GallerySliderComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
@@ -21,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const GallerySlider: Story = {
+export const Standalone: Story = {
   render: (args) => (
     <SliderProvider>
       <GallerySliderComponent {...args} />

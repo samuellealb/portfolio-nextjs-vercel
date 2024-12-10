@@ -5,7 +5,6 @@ import { ReactNode } from 'react';
 const meta: Meta<typeof ModalDialogComponent> = {
   title: 'Components/ModalDialog',
   component: ModalDialogComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
