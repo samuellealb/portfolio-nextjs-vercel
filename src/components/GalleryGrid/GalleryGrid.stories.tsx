@@ -5,7 +5,6 @@ import { jobs } from '@/src/lib/mocks';
 const meta: Meta<typeof GalleryGridComponent> = {
   title: 'Components/GalleryGrid',
   component: GalleryGridComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
@@ -18,4 +17,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const GalleryGrid: Story = {};

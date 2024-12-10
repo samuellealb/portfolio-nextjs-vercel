@@ -6,7 +6,6 @@ import { jobs } from '@/src/lib/mocks';
 const meta: Meta<typeof ThumbnailComponent> = {
   title: 'Components/Thumbnail',
   component: ThumbnailComponent,
-  tags: ['autodocs'], // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   parameters: {
     layout: 'fullscreen',
   },
@@ -21,4 +20,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Thumbnail: Story = {};
