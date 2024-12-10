@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
   ],
+  features: { experimentalRSC: true },
   framework: {
     name: '@storybook/nextjs',
     options: {},

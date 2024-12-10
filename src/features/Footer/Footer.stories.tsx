@@ -5,7 +5,6 @@ import { logos } from '@/src/lib/mocks';
 const meta: Meta<typeof FooterComponent> = {
   title: 'Features/Footer',
   component: FooterComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// import { fn } from '@storybook/test';
 import { Base as BaseLayout } from '@/src/layouts/Base';
 import { default as CategoryPage } from '@/app/[lang]/category/[slug]/page';
 
@@ -19,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const Category: Story = {
   render: () => (
     <BaseLayout>
-      <CategoryPage params={{ slug: 'test-category', lang: 'fr' }} />
+      <CategoryPage params={{ slug: 'camera', lang: 'fr' }} />
     </BaseLayout>
   ),
 };

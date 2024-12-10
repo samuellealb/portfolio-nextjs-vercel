@@ -5,7 +5,6 @@ import { logos } from '@/src/lib/mocks';
 const meta: Meta<typeof HeaderComponent> = {
   title: 'Features/Header',
   component: HeaderComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },

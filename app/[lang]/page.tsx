@@ -3,9 +3,11 @@ import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { JobsList } from '@/src/features/JobsList';
+import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
 import { getJobs } from '@/src/lib/jobs';
 import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
+import { getMaintenanceModeStatus } from '@/src/lib/maintenanceMode';
 import { getBio } from '@/src/lib/bio';
 import { TJob } from '@/src/lib/types';
 import { TParams } from '@/src/lib/types';
@@ -36,7 +38,16 @@ export default async function Home({ params }: TParams) {
   const jobsList: TJob[] = await getJobs(params.lang);
   const categories = await getCategories(params.lang);
   const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const maintenanceMode = await getMaintenanceModeStatus(params.lang);
 
+  if (maintenanceMode) {
+    return (
+      <>
+        <Header homeLogo={headerDesktop} mobileLogo={headerMobile} />
+        <StatusMessage status={1} />
+      </>
+    );
+  }
   return (
     <>
       <LocaleSwitcher locale={params.lang} />

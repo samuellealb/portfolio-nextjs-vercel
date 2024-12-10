@@ -7,7 +7,6 @@ import { TJob } from '@/src/lib/types';
 const meta: Meta<typeof JobsListComponent> = {
   title: 'Features/JobsList',
   component: JobsListComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },

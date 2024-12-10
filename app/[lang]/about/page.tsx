@@ -3,6 +3,7 @@ import { Header } from '@/src/features/Header';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { NavBar } from '@/src/components/NavBar/NavBar';
 import { AboutPanel } from '@/src/features/AboutPanel/AboutPanel';
+import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
 import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
@@ -34,6 +35,19 @@ export default async function AboutPage({ params: { lang } }: TParams) {
   const { headerListPage, headerMobile } = await getLogos();
   const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
   const categories = await getCategories(lang);
+
+  if (!bioData.image && !bioData.text) {
+    return (
+      <>
+        <LocaleSwitcher locale={lang} />
+        <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
+        <NavBar categories={categories} bioTitle={bioData.title} />
+        <main role="main">
+          <StatusMessage status={4} />;
+        </main>
+      </>
+    );
+  }
 
   return (
     <>

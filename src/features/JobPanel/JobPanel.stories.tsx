@@ -8,11 +8,10 @@ import { Locale } from '@/i18n-config';
 const meta: Meta<typeof JobPanelComponent> = {
   title: 'Features/JobPanel',
   component: JobPanelComponent,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
-  args: jobs[0],
+  args: { jobData: jobs[0], locale: 'pt' },
 };
 
 export default meta;
