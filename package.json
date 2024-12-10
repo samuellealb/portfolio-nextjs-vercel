@@ -58,5 +58,8 @@
     "sass": "^1.77.6",
     "storybook": "^8.4.7",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
