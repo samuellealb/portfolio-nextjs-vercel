@@ -49,12 +49,17 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryData = await getCategory(params.slug, params.lang);
   const categories = await getCategories(params.lang);
   const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const currentPath = `/${params.lang}/category/${params.slug}`;
 
   return (
     <>
       <LocaleSwitcher locale={params.lang} />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
-      <NavBar categories={categories} bioTitle={bioData.title} />
+      <NavBar
+        categories={categories}
+        bioTitle={bioData.title}
+        currentPath={currentPath}
+      />
       <main role="main">
         <JobsList {...categoryData} />
       </main>

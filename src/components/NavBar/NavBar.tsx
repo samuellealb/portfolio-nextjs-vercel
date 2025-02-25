@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { LocaleContext } from '@/src/context/LocaleContext';
 import { useContext } from 'react';
 
-export const NavBar = ({ categories, bioTitle }: TNavBar) => {
+export const NavBar = ({ categories, bioTitle, currentPath }: TNavBar) => {
   const { locale } = useContext(LocaleContext);
 
   return (
@@ -17,7 +17,7 @@ export const NavBar = ({ categories, bioTitle }: TNavBar) => {
             categories.map((category) => (
               <li key={category.slug} className={styles.NavItem}>
                 <Link
-                  className={styles.NavLink}
+                  className={`${styles.NavLink} ${currentPath === `/${locale}/category/${category.slug}` ? styles.NavLinkActive : ''}`}
                   href={`/${locale}/category/${category.slug}`}
                 >
                   {category.label}
@@ -25,7 +25,10 @@ export const NavBar = ({ categories, bioTitle }: TNavBar) => {
               </li>
             ))}
           <li className={styles.NavItem}>
-            <Link className={styles.NavLink} href={`/${locale}/about`}>
+            <Link
+              className={`${styles.NavLink} ${currentPath === `/${locale}/about` ? styles.NavLinkActive : ''}`}
+              href={`/${locale}/about`}
+            >
               {bioTitle}
             </Link>
           </li>

@@ -35,13 +35,18 @@ export default async function AboutPage({ params: { lang } }: TParams) {
   const { headerListPage, headerMobile } = await getLogos();
   const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
   const categories = await getCategories(lang);
+  const currentPath = `/${lang}/about`;
 
   if (!bioData.image && !bioData.text) {
     return (
       <>
         <LocaleSwitcher locale={lang} />
         <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
-        <NavBar categories={categories} bioTitle={bioData.title} />
+        <NavBar
+          categories={categories}
+          bioTitle={bioData.title}
+          currentPath={currentPath}
+        />
         <main role="main">
           <StatusMessage status={4} />;
         </main>
@@ -53,7 +58,11 @@ export default async function AboutPage({ params: { lang } }: TParams) {
     <>
       <LocaleSwitcher locale={lang} />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
-      <NavBar categories={categories} bioTitle={bioData.title} />
+      <NavBar
+        categories={categories}
+        bioTitle={bioData.title}
+        currentPath={currentPath}
+      />
       <main role="main">
         <AboutPanel profileImage={bioData.image} profileText={bioData.text} />
       </main>
