@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { JobPanel } from '@/src/features/JobPanel';
 import { getJob, getAllJobSlugs } from '@/src/lib/jobs';
@@ -54,6 +55,7 @@ export default async function JobPage({ params }: JobPageProps) {
   return (
     <>
       <LocaleSwitcher locale={params.lang} />
+      <MobileNavBar categories={categories} bioTitle={bioData.title} />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
       <NavBar categories={categories} bioTitle={bioData.title} />
       <main role="main">

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Header } from '@/src/features/Header';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
 import { AboutPanel } from '@/src/features/AboutPanel/AboutPanel';
 import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
 import { getLogos } from '@/src/lib/logos';
@@ -35,13 +36,23 @@ export default async function AboutPage({ params: { lang } }: TParams) {
   const { headerListPage, headerMobile } = await getLogos();
   const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
   const categories = await getCategories(lang);
+  const currentPath = `/${lang}/about`;
 
   if (!bioData.image && !bioData.text) {
     return (
       <>
         <LocaleSwitcher locale={lang} />
+        <MobileNavBar
+          categories={categories}
+          bioTitle={bioData.title}
+          currentPath={currentPath}
+        />
         <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
-        <NavBar categories={categories} bioTitle={bioData.title} />
+        <NavBar
+          categories={categories}
+          bioTitle={bioData.title}
+          currentPath={currentPath}
+        />
         <main role="main">
           <StatusMessage status={4} />;
         </main>
@@ -52,8 +63,17 @@ export default async function AboutPage({ params: { lang } }: TParams) {
   return (
     <>
       <LocaleSwitcher locale={lang} />
+      <MobileNavBar
+        categories={categories}
+        bioTitle={bioData.title}
+        currentPath={currentPath}
+      />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
-      <NavBar categories={categories} bioTitle={bioData.title} />
+      <NavBar
+        categories={categories}
+        bioTitle={bioData.title}
+        currentPath={currentPath}
+      />
       <main role="main">
         <AboutPanel profileImage={bioData.image} profileText={bioData.text} />
       </main>

@@ -8,7 +8,11 @@
   padding-block: rem(40);
 }
 
-.NavListWrapper {
+.NavListDesktop {
+  display: none;
+  @include media-query(tablet) {
+    display: flex;
+  }
   padding-bottom: rem(20);
   overflow-x: auto;
   &::-webkit-scrollbar {
@@ -46,4 +50,8 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+.NavLinkActive {
+  text-decoration: underline;
 }
