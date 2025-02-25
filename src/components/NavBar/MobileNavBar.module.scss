@@ -1,0 +1,72 @@
+@import '@/src/styles/functions.scss';
+@import '@/src/styles/mixins.scss';
+@import '@/src/styles/variables.scss';
+@import '@/src/styles/typography.scss';
+
+.MobileNavBar {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  @include media-query(tablet) {
+    display: none;
+  }
+}
+
+.Hamburger {
+  background: none;
+  border: none;
+  font-size: rem(40);
+  position: absolute;
+  top: rem(16);
+  left: rem(16);
+  cursor: pointer;
+}
+
+.MobileMenu {
+  background-color: $color-yellow-main;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.CloseButton {
+  background: none;
+  border: none;
+  font-size: rem(40);
+  position: absolute;
+  top: rem(16);
+  left: rem(16);
+  cursor: pointer;
+}
+
+.MobileNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.MobileNavItem {
+  margin: rem(16) 0;
+}
+
+.MobileNavLink {
+  @extend .topicItem;
+  font-size: rem(24);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.MobileNavLinkActive {
+  text-decoration: underline;
+}

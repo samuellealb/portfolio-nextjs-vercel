@@ -1,5 +1,6 @@
 import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { Metadata } from 'next';
 import { JobsList } from '@/src/features/JobsList';
@@ -54,6 +55,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <>
       <LocaleSwitcher locale={params.lang} />
+      <MobileNavBar
+        categories={categories}
+        bioTitle={bioData.title}
+        currentPath={currentPath}
+      />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
       <NavBar
         categories={categories}

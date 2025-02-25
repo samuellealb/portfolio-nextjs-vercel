@@ -11,7 +11,7 @@ export const NavBar = ({ categories, bioTitle, currentPath }: TNavBar) => {
 
   return (
     <nav className={styles.NavBar} role="navigation">
-      <div className={styles.NavListWrapper}>
+      <div className={styles.NavListDesktop}>
         <ul className={styles.NavList}>
           {categories &&
             categories.map((category) => (

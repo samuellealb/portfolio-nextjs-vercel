@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
 import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
 import { JobsList } from '@/src/features/JobsList';
 import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
@@ -51,6 +52,7 @@ export default async function Home({ params }: TParams) {
   return (
     <>
       <LocaleSwitcher locale={params.lang} />
+      <MobileNavBar categories={categories} bioTitle={bioData.title} />
       <Header homeLogo={headerDesktop} mobileLogo={headerMobile} />
       <NavBar categories={categories} bioTitle={bioData.title} />
       <main role="main">
