@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Base as BaseLayout } from '@/src/layouts/Base';
 import { AboutPanel as AboutPanelComponent } from './AboutPanel';
+import { SocialBar } from '@/src/components/SocialBar/SocialBar';
 
 const meta: Meta<typeof AboutPanelComponent> = {
   title: 'Features/AboutPanel',
@@ -18,6 +19,7 @@ const meta: Meta<typeof AboutPanelComponent> = {
         height: 600,
       },
       locale: 'pt',
+      socialBar: <SocialBar></SocialBar>,
     },
   },
 };

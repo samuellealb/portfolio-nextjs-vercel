@@ -1,4 +1,5 @@
 import { Locale } from '@/i18n-config';
+import React from 'react';
 
 export type TAboutPanel = {
   profileText: string;
@@ -9,4 +10,5 @@ export type TAboutPanel = {
     height: number;
   };
   locale: Locale;
+  socialBar: React.ReactNode;
 };

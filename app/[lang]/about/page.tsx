@@ -10,6 +10,7 @@ import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { TParams } from '@/src/lib/types';
 import { BIO_ENTRY_ID } from '@/src/lib/constants';
+import { SocialBar } from '@/src/components/SocialBar/SocialBar';
 
 export const revalidate = 60;
 
@@ -81,6 +82,7 @@ export default async function AboutPage({ params: { lang } }: TParams) {
             profileImage: bioData.image,
             profileText: bioData.text,
             locale: lang,
+            socialBar: <SocialBar></SocialBar>,
           }}
         />
       </main>

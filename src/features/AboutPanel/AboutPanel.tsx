@@ -3,7 +3,6 @@
 import styles from './AboutPanel.module.scss';
 import { TAboutPanel } from './AboutPanel.d';
 import Image from 'next/image';
-import { SocialBar } from '@/src/components/SocialBar/SocialBar';
 import { ContentfulLivePreviewInit } from '@/src/lib/contentfulLivePreviewInit';
 import {
   useContentfulInspectorMode,
@@ -27,7 +26,7 @@ export const AboutPanel = ({ aboutData }: { aboutData: TAboutPanel }) => {
             {data.profileText && (
               <div dangerouslySetInnerHTML={{ __html: data.profileText }}></div>
             )}
-            <SocialBar />
+            {data.socialBar}
           </div>
           {data.profileImage && (
             <div className={styles.Image}>
