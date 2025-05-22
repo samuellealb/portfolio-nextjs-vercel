@@ -1,3 +1,5 @@
+import { Locale } from '@/i18n-config';
+
 export type TAboutPanel = {
   profileText: string;
   profileImage: {
@@ -6,5 +8,5 @@ export type TAboutPanel = {
     width: number;
     height: number;
   };
-  locale: string;
+  locale: Locale;
 };

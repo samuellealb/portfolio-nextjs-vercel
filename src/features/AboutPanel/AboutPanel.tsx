@@ -12,7 +12,7 @@ import {
 } from '@contentful/live-preview/react';
 import { BIO_ENTRY_ID } from '@/src/lib/constants';
 
-export const AboutPanel = (aboutData: TAboutPanel) => {
+export const AboutPanel = ({ aboutData }: { aboutData: TAboutPanel }) => {
   const data = useContentfulLiveUpdates(aboutData);
   const isSingleColumn = !data.profileImage || !data.profileText;
   const inspectorProps = useContentfulInspectorMode({ entryId: BIO_ENTRY_ID });
