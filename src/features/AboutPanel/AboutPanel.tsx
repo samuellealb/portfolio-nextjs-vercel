@@ -14,29 +14,28 @@ import { BIO_ENTRY_ID } from '@/src/lib/constants';
 
 export const AboutPanel = (aboutData: TAboutPanel) => {
   const data = useContentfulLiveUpdates(aboutData);
-  const { profileText, profileImage, locale } = data;
-  const isSingleColumn = !profileImage || !profileText;
+  const isSingleColumn = !data.profileImage || !data.profileText;
   const inspectorProps = useContentfulInspectorMode({ entryId: BIO_ENTRY_ID });
   return (
     <>
       <ContentfulLivePreviewInit />
-      <ContentfulLivePreviewProvider locale={locale}>
+      <ContentfulLivePreviewProvider locale={data.locale}>
         <section
           className={`${styles.AboutPanel} ${isSingleColumn ? styles.SingleColumn : ''}`}
         >
           <div className={styles.Text} {...inspectorProps({ fieldId: 'text' })}>
-            {profileText && (
-              <div dangerouslySetInnerHTML={{ __html: profileText }}></div>
+            {data.profileText && (
+              <div dangerouslySetInnerHTML={{ __html: data.profileText }}></div>
             )}
             <SocialBar />
           </div>
-          {profileImage && (
+          {data.profileImage && (
             <div className={styles.Image}>
               <Image
-                src={profileImage.url}
-                alt={profileImage.title}
-                width={profileImage.width}
-                height={profileImage.height}
+                src={data.profileImage.url}
+                alt={data.profileImage.title}
+                width={data.profileImage.width}
+                height={data.profileImage.height}
                 {...inspectorProps({ fieldId: 'image' })}
               />
             </div>
