@@ -6,4 +6,5 @@ export type TAboutPanel = {
     width: number;
     height: number;
   };
+  locale: string;
 };

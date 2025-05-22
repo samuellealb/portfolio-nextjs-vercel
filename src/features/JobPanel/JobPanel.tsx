@@ -35,7 +35,7 @@ export const JobPanel = ({
     return (
       <>
         <ContentfulLivePreviewInit />
-        <ContentfulLivePreviewProvider locale="pt-BR">
+        <ContentfulLivePreviewProvider locale={locale}>
           <div className={styles.jobPanel}>
             <div className={styles.jobInfoSection}>
               <div className={styles.jobMetadata}>

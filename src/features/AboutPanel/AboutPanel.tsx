@@ -14,13 +14,13 @@ import { BIO_ENTRY_ID } from '@/src/lib/constants';
 
 export const AboutPanel = (aboutData: TAboutPanel) => {
   const data = useContentfulLiveUpdates(aboutData);
-  const { profileText, profileImage } = data;
+  const { profileText, profileImage, locale } = data;
   const isSingleColumn = !profileImage || !profileText;
   const inspectorProps = useContentfulInspectorMode({ entryId: BIO_ENTRY_ID });
   return (
     <>
       <ContentfulLivePreviewInit />
-      <ContentfulLivePreviewProvider locale="pt-BR">
+      <ContentfulLivePreviewProvider locale={locale}>
         <section
           className={`${styles.AboutPanel} ${isSingleColumn ? styles.SingleColumn : ''}`}
         >

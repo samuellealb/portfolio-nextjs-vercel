@@ -76,7 +76,11 @@ export default async function AboutPage({ params: { lang } }: TParams) {
         currentPath={currentPath}
       />
       <main role="main">
-        <AboutPanel profileImage={bioData.image} profileText={bioData.text} />
+        <AboutPanel
+          profileImage={bioData.image}
+          profileText={bioData.text}
+          locale={lang}
+        />
       </main>
     </>
   );
