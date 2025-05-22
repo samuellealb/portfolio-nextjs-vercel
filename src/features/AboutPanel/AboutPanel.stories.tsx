@@ -10,17 +10,21 @@ const meta: Meta<typeof AboutPanelComponent> = {
     layout: 'fullscreen',
   },
   args: {
-    aboutData: {
-      profileText: '<p>This is a sample profile text.</p>',
-      profileImage: {
+    bioEntry: {
+      sys: { id: '1' },
+      text: '<p>This is a sample profile text.</p>',
+      image: {
+        sys: { id: 'img-1' },
         url: 'https://via.placeholder.com/600',
         title: 'Sample Image',
         width: 600,
         height: 600,
       },
-      locale: 'pt',
-      socialBar: <SocialBar></SocialBar>,
+      description: 'Sample description',
+      title: 'Sample Title',
     },
+    locale: 'pt',
+    socialBar: <SocialBar></SocialBar>,
   },
 };
 
@@ -32,7 +36,11 @@ export const AboutPanel: Story = {
   render: (args) => (
     <BaseLayout>
       <main role="main">
-        <AboutPanelComponent aboutData={args.aboutData} />
+        <AboutPanelComponent
+          bioEntry={args.bioEntry}
+          locale={args.locale}
+          socialBar={args.socialBar}
+        />
       </main>
     </BaseLayout>
   ),
