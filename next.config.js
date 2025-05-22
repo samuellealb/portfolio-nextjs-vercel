@@ -1,6 +1,19 @@
 const path = require('path');
 
 module.exports = {
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: 'frame-ancestors https://app.contentful.com;',
+          },
+        ],
+      },
+    ];
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
