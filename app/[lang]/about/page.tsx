@@ -9,6 +9,7 @@ import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { TParams } from '@/src/lib/types';
+import { BIO_ENTRY_ID } from '@/src/lib/constants';
 
 export const revalidate = 60;
 
@@ -19,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TParams): Promise<Metadata> {
-  const data = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const data = await getBio(BIO_ENTRY_ID, params.lang);
   if (data) {
     return {
       title: data.title,
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: TParams): Promise<Metadata> {
 
 export default async function AboutPage({ params: { lang } }: TParams) {
   const { headerListPage, headerMobile } = await getLogos();
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
+  const bioData = await getBio(BIO_ENTRY_ID, lang);
   const categories = await getCategories(lang);
   const currentPath = `/${lang}/about`;
 

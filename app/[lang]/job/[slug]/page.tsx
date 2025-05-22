@@ -9,6 +9,7 @@ import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { Locale, i18n } from '@/i18n-config';
+import { BIO_ENTRY_ID } from '@/src/lib/constants';
 
 export type JobPageProps = { params: { slug: string; lang: Locale } };
 
@@ -50,7 +51,7 @@ export default async function JobPage({ params }: JobPageProps) {
   const { headerListPage, headerMobile } = await getLogos();
   const jobData = await getJob(params.slug, params.lang);
   const categories = await getCategories(params.lang);
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const bioData = await getBio(BIO_ENTRY_ID, params.lang);
 
   return (
     <>

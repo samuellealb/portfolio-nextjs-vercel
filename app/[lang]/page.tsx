@@ -13,6 +13,7 @@ import { getBio } from '@/src/lib/bio';
 import { TJob } from '@/src/lib/types';
 import { TParams } from '@/src/lib/types';
 import { Locale, i18n } from '@/i18n-config';
+import { BIO_ENTRY_ID } from '@/src/lib/constants';
 
 export const revalidate = 60;
 
@@ -38,7 +39,7 @@ export default async function Home({ params }: TParams) {
   const { headerDesktop, headerMobile } = await getLogos();
   const jobsList: TJob[] = await getJobs(params.lang);
   const categories = await getCategories(params.lang);
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const bioData = await getBio(BIO_ENTRY_ID, params.lang);
   const maintenanceMode = await getMaintenanceModeStatus(params.lang);
 
   if (maintenanceMode) {
