@@ -9,14 +9,14 @@ This is a **Next.js** project, integrated with **Storybook** for component devel
 ## Install dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 ## Development server
 
 ```bash
 ## To run Next.js development server:
-npm run dev
+yarn dev
 ## To run Storybook:
 yarn dev:sb
 ## To run both Next.js and Storybook concurrently:
@@ -34,11 +34,11 @@ Contentful API keys are required to run the project.
 Create a `.env.local` file in the root directory and add the following environment variables:
 
 ```bash
-CONTENTFUL_GRAPHQL_URL=https://graphql.contentful.com
-CONTENTFUL_ACCESS_TOKEN=your_access_token
-CONTENTFUL_PREVIEW_ACCESS_TOKEN=your_preview_access_token
-CONTENTFUL_SPACE_ID=your_space_id
+NEXT_PUBLIC_CONTENTFUL_GRAPHQL_URL=https://graphql.contentful.com
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=your_access_token
+NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN=your_preview_access_token
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID=your_space_id
 ## Need to set the environment to fetch content from
-CONTENTFUL_ENVIRONMENT=your_environment
+NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT=your_environment
 
 ```

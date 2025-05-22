@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.8",
+    "@contentful/live-preview": "^4.6.18",
     "@formatjs/intl-localematcher": "^0.5.7",
     "@glidejs/glide": "^3.6.2",
     "graphql": "^16.9.0",

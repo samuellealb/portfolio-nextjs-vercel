@@ -1,7 +1,13 @@
 'use client';
 
 import { useContext } from 'react';
-import { TJob } from '@/src/lib/types';
+import { ContentfulLivePreviewInit } from '@/src/lib/contentfulLivePreviewInit';
+import {
+  useContentfulInspectorMode,
+  useContentfulLiveUpdates,
+  ContentfulLivePreviewProvider,
+} from '@contentful/live-preview/react';
+import { TJob, TCategory } from '@/src/lib/types';
 import styles from './JobPanel.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -22,75 +28,100 @@ export const JobPanel = ({
 }) => {
   const jobExists = jobData && Object.keys(jobData).length > 0;
   const { modalOpen, setModalOpen } = useContext(ModalContext);
+  const data = useContentfulLiveUpdates(jobData);
+  const inspectorProps = useContentfulInspectorMode({ entryId: data.sys.id });
 
   if (jobExists) {
     return (
       <>
-        <div className={styles.jobPanel}>
-          <div className={styles.jobInfoSection}>
-            <div className={styles.jobMetadata}>
-              <h2 className={styles.jobTitle}>{jobData.title}</h2>
-              {jobData.genre}, {jobData.duration}min, {jobData.location},{' '}
-              {jobData.year}{' '}
-              <div className={styles.jobCategories}>
-                {jobData.categoryCollection.items.map((category, index) => (
-                  <React.Fragment key={index}>
-                    <Link
-                      className={styles.jobCategory}
-                      href={`/${locale}/category/${category.slug}`}
-                      title={category.label}
-                    >
-                      {category.label}
-                    </Link>
-                    {!(
-                      jobData.categoryCollection.items.length - 1 ===
-                      index
-                    ) && (
-                      <span className={styles.jobCategorySeparator}> | </span>
-                    )}
-                  </React.Fragment>
-                ))}
+        <ContentfulLivePreviewInit />
+        <ContentfulLivePreviewProvider locale="pt-BR">
+          <div className={styles.jobPanel}>
+            <div className={styles.jobInfoSection}>
+              <div className={styles.jobMetadata}>
+                <h2
+                  className={styles.jobTitle}
+                  {...inspectorProps({ fieldId: 'heading' })}
+                >
+                  {data.title}
+                </h2>
+                <span {...inspectorProps({ fieldId: 'metadata' })}>
+                  {data.genre}, {data.duration}min, {data.location},{' '}
+                  {data.year}{' '}
+                </span>
+                <div className={styles.jobCategories}>
+                  {data.categoryCollection.items.map(
+                    (category: TCategory, index: number) => (
+                      <React.Fragment key={index}>
+                        <Link
+                          className={styles.jobCategory}
+                          href={`/${locale}/category/${category.slug}`}
+                          title={category.label}
+                        >
+                          {category.label}
+                        </Link>
+                        {!(
+                          data.categoryCollection.items.length - 1 ===
+                          index
+                        ) && (
+                          <span className={styles.jobCategorySeparator}>
+                            {' '}
+                            |{' '}
+                          </span>
+                        )}
+                      </React.Fragment>
+                    ),
+                  )}
+                </div>
               </div>
+              <div
+                className={styles.jobTextBlock}
+                dangerouslySetInnerHTML={{ __html: data.sinopsis }}
+                {...inspectorProps({ fieldId: 'sinopsis' })}
+              />
+              <div
+                className={styles.jobTextBlock}
+                dangerouslySetInnerHTML={{ __html: data.crew }}
+                {...inspectorProps({ fieldId: 'crew' })}
+              />
+              <div
+                className={styles.jobTextBlock}
+                dangerouslySetInnerHTML={{ __html: data.awardsAndExhibitions }}
+                {...inspectorProps({ fieldId: 'awards' })}
+              />
             </div>
-            <div
-              className={styles.jobTextBlock}
-              dangerouslySetInnerHTML={{ __html: jobData.sinopsis }}
-            />
-            <div
-              className={styles.jobTextBlock}
-              dangerouslySetInnerHTML={{ __html: jobData.crew }}
-            />
-            <div
-              className={styles.jobTextBlock}
-              dangerouslySetInnerHTML={{ __html: jobData.awardsAndExhibitions }}
-            />
-          </div>
-          <div className={styles.jobImageSection}>
-            {jobData.videoEmbedCode && (
-              <div className={styles.jobTrailer}>
-                <div
-                  dangerouslySetInnerHTML={{ __html: jobData.videoEmbedCode }}
-                />
-              </div>
-            )}
+            <div className={styles.jobImageSection}>
+              {data.videoEmbedCode && (
+                <div className={styles.jobTrailer}>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: data.videoEmbedCode }}
+                    {...inspectorProps({ fieldId: 'trailer' })}
+                  />
+                </div>
+              )}
 
-            {!jobData.videoEmbedCode && jobData.cover && (
-              <div className={styles.jobCover}>
-                <Image
-                  src={jobData.cover.url}
-                  alt={jobData.cover.title}
-                  width={jobData.cover.width}
-                  height={jobData.cover.height}
-                />
-              </div>
-            )}
+              {!data.videoEmbedCode && data.cover && (
+                <div className={styles.jobCover}>
+                  <Image
+                    src={data.cover.url}
+                    alt={data.cover.title}
+                    width={data.cover.width}
+                    height={data.cover.height}
+                    {...inspectorProps({ fieldId: 'cover' })}
+                  />
+                </div>
+              )}
 
-            <GalleryGrid images={jobData.galleryCollection.items} />
+              <GalleryGrid images={data.galleryCollection.items} />
+            </div>
           </div>
-        </div>
-        <ModalDialog isOpen={modalOpen} closeAction={() => setModalOpen(false)}>
-          <GallerySlider images={jobData.galleryCollection.items} />
-        </ModalDialog>
+          <ModalDialog
+            isOpen={modalOpen}
+            closeAction={() => setModalOpen(false)}
+          >
+            <GallerySlider images={data.galleryCollection.items} />
+          </ModalDialog>
+        </ContentfulLivePreviewProvider>
       </>
     );
   }
