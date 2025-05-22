@@ -1,16 +1,17 @@
 import { Metadata } from 'next';
-import { Header } from '@/src/features/Header';
-import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
-import { NavBar } from '@/src/components/NavBar/NavBar';
-import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
 import { AboutPanel } from '@/src/features/AboutPanel/AboutPanel';
 import { StatusMessage } from '@/src/components/StatusMessage/StatusMessage';
+import { Status } from '@/src/components/StatusMessage/StatusMessage.d'; // Corrected import for Status
 import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { TParams } from '@/src/lib/types';
 import { BIO_ENTRY_ID } from '@/src/lib/constants';
 import { SocialBar } from '@/src/components/SocialBar/SocialBar';
+import { Header } from '@/src/features/Header/Header';
+import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar'; // Corrected import path for MobileNavBar
+import { NavBar } from '@/src/components/NavBar/NavBar'; // Added import for NavBar
 
 export const revalidate = 60;
 
@@ -40,13 +41,13 @@ export default async function AboutPage({ params: { lang } }: TParams) {
   const categories = await getCategories(lang);
   const currentPath = `/${lang}/about`;
 
-  if (!bioData.image && !bioData.text) {
+  if (!bioData || (!bioData.image && !bioData.text)) {
     return (
       <>
         <LocaleSwitcher locale={lang} />
         <MobileNavBar
           categories={categories}
-          bioTitle={bioData.title}
+          bioTitle={bioData?.title || 'About'}
           currentPath={currentPath}
         />
         <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
@@ -56,7 +57,8 @@ export default async function AboutPage({ params: { lang } }: TParams) {
           currentPath={currentPath}
         />
         <main role="main">
-          <StatusMessage status={4} />;
+          {/* Updated StatusMessage prop to pass a Status enum value */}
+          <StatusMessage status={Status.NO_DATA} />
         </main>
       </>
     );
@@ -70,7 +72,8 @@ export default async function AboutPage({ params: { lang } }: TParams) {
         bioTitle={bioData.title}
         currentPath={currentPath}
       />
-      <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
+      {/* Updated Header props based on THeader type */}
+      <Header pagesLogo={headerListPage} mobileLogo={headerMobile} />
       <NavBar
         categories={categories}
         bioTitle={bioData.title}
@@ -78,14 +81,12 @@ export default async function AboutPage({ params: { lang } }: TParams) {
       />
       <main role="main">
         <AboutPanel
-          aboutData={{
-            profileImage: bioData.image,
-            profileText: bioData.text,
-            locale: lang,
-            socialBar: <SocialBar></SocialBar>,
-          }}
+          bioEntry={bioData}
+          locale={lang}
+          socialBar={<SocialBar />}
         />
       </main>
+      {/* ... Footer ... */}
     </>
   );
 }

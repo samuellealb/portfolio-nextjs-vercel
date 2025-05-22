@@ -13,6 +13,10 @@ export async function getBio(
       query: gql`
         query GetBio($id: String!, $locale: String!) {
           splitPage(id: $id, locale: $locale) {
+            sys {
+              id
+            }
+            __typename
             text {
               json
             }
@@ -21,6 +25,9 @@ export async function getBio(
               title
               width
               height
+              sys {
+                id
+              }
             }
             description
             title
@@ -34,12 +41,9 @@ export async function getBio(
     })
     .then((response) => {
       const profile = response.data.splitPage;
-      let modifiedProfile = { ...profile };
-
-      if (profile.text) {
-        modifiedProfile.text = documentToHtmlString(profile.text.json);
-      }
-
-      return modifiedProfile;
+      return {
+        ...profile,
+        text: profile.text ? documentToHtmlString(profile.text.json) : '',
+      };
     });
 }

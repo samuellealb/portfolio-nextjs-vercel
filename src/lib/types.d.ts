@@ -61,8 +61,12 @@ export interface TGetCategoriesProps {
 }
 
 export interface TGetBioProps {
+  sys: {
+    id: string;
+  };
+  __typename?: string;
   text: string;
-  image: Image;
+  image: TImage;
   description: string;
   title: string;
 }
