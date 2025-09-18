@@ -22,7 +22,7 @@ const meta: Meta<typeof AboutPanelComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<TAboutPanel>;
 
 export const AboutPanel: Story = {
   render: (args: TAboutPanel) => (
