@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Base as BaseLayout } from '@/src/layouts/Base';
 import { AboutPanel as AboutPanelComponent } from './AboutPanel';
 import { SocialBar } from '@/src/components/SocialBar/SocialBar';
+import { AboutPanelProps } from './AboutPanel.d';
 
 const meta: Meta<typeof AboutPanelComponent> = {
   title: 'Features/AboutPanel',
@@ -30,7 +31,7 @@ const meta: Meta<typeof AboutPanelComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<AboutPanelProps>;
 
 export const AboutPanel: Story = {
   render: (args) => (

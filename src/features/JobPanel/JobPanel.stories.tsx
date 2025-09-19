@@ -16,7 +16,7 @@ const meta: Meta<typeof JobPanelComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<{ jobData: TJob; locale: Locale }>;
 
 export const JobPanel: Story = {
   render: (args: { jobData: TJob; locale: Locale }) => (

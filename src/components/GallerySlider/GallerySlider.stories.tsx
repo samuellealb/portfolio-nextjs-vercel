@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { ModalDialog } from '../ModalDialog/ModalDialog';
 import { GallerySlider as GallerySliderComponent } from './GallerySlider';
+import { TGallerySlider } from './GallerySlider.d';
 import { imageFactory } from '@/src/lib/factory';
 import { SliderProvider } from '@/src/context/SliderContext';
 
@@ -18,7 +19,7 @@ const meta: Meta<typeof GallerySliderComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<TGallerySlider>;
 
 export const Standalone: Story = {
   render: (args) => (

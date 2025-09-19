@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { NavBar as NavBarComponent } from './NavBar';
 import { MobileNavBar as MobileNavBarComponent } from './MobileNavBar';
+import type { TNavBar } from './NavBar.d';
 import { categories } from '@/src/lib/mocks';
 
 const meta: Meta<typeof NavBarComponent> = {
@@ -13,7 +14,7 @@ const meta: Meta<typeof NavBarComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<TNavBar>;
 
 export const NavBar: Story = {
   render: (args) => (
