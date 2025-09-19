@@ -58,7 +58,7 @@
     "sass": "^1.77.6",
     "storybook": "8.2.9",
     "typescript": "^5",
-    "webpack": "^5"
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": ">=20"
