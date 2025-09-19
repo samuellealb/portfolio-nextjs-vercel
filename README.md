@@ -9,14 +9,14 @@ This is a **Next.js** project, integrated with **Storybook** for component devel
 ## Install dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 ## Development server
 
 ```bash
 ## To run Next.js development server:
-npm run dev
+yarn dev
 ## To run Storybook:
 yarn dev:sb
 ## To run both Next.js and Storybook concurrently:
