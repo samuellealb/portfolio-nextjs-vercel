@@ -1,6 +1,6 @@
-@import './functions';
-@import './mixins';
-@import './variables';
+@use './functions' as *;
+@use './mixins' as *;
+@use './variables' as *;
 
 // Fonts
 @font-face {

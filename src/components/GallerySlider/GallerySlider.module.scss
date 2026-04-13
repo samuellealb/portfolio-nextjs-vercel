@@ -1,6 +1,6 @@
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/functions.scss';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/functions' as *;
 
 .Gallery {
   background-color: $color-black-80;

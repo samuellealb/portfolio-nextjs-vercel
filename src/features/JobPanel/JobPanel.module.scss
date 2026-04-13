@@ -1,7 +1,7 @@
-@import '@/src/styles/functions.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/typography.scss';
+@use '../../styles/functions' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
 
 .jobPanel {
   display: grid;
@@ -19,12 +19,12 @@
 }
 
 .jobTitle {
-  @extend .mainHeading;
+  @extend %mainHeading;
   display: block;
 }
 
 .jobMetadata {
-  @extend .subHeading;
+  @extend %subHeading;
   text-align: center;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .jobCategory {
-  @extend .subHeading;
+  @extend %subHeading;
   text-transform: lowercase;
   text-decoration: none;
   display: inline-block;
@@ -43,7 +43,7 @@
 }
 
 .jobTextBlock {
-  @extend .body;
+  @extend %body;
   padding-inline: rem(8);
   margin-bottom: rem(32);
 }

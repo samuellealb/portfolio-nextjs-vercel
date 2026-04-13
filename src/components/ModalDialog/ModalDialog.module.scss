@@ -1,5 +1,5 @@
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/functions.scss';
+@use '../../styles/variables' as *;
+@use '../../styles/functions' as *;
 
 .ModalDialog {
   position: fixed;

@@ -1,7 +1,7 @@
-@import '@/src/styles/functions.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/typography.scss';
+@use '../../styles/functions' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
 
 .LocaleSwitcher {
   display: flex;
@@ -25,7 +25,7 @@
     padding: 0;
 
     a {
-      @extend .highlight;
+      @extend %highlight;
     }
   }
 
@@ -37,6 +37,6 @@
 
   .Separator {
     display: inline-grid;
-    @extend .highlight;
+    @extend %highlight;
   }
 }

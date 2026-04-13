@@ -20,10 +20,12 @@ $color-black-off: #1a1a1a;
 $color-black-80: rgba(26, 26, 26, 0.8);
 $color-highlight-dark: #3700d3;
 
+@use 'sass:math';
+
 // Thumbnail component
 $thumb-width: 230;
 $thumb-height: 210;
-$thumb-aspect-ratio: #{$thumb-height / $thumb-width};
+$thumb-aspect-ratio: math.div($thumb-height, $thumb-width);
 
 // Misc
 $border-radius: 20;

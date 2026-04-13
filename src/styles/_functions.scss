@@ -1,4 +1,5 @@
-@import './variables';
+@use 'sass:math';
+@use './variables' as *;
 
 /**
  * Calculates the value in rem units based on the given pixel value.
@@ -7,7 +8,7 @@
  * @return {string} - The converted value in rem units.
  */
 @function rem($n) {
-  $base: $font-size-base / 1px;
-  $rem: $n / $base;
+  $base: math.div($font-size-base, 1px);
+  $rem: math.div($n, $base);
   @return #{$rem}rem;
 }

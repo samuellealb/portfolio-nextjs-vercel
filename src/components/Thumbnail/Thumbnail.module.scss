@@ -1,6 +1,6 @@
-@import '@/src/styles/functions.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/variables.scss';
+@use '../../styles/functions' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
 
 .thumbnail {
   position: relative;

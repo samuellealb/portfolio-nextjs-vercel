@@ -1,7 +1,7 @@
-@import '@/src/styles/functions.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/typography.scss';
+@use '../../styles/functions' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
 
 .MobileNavBar {
   display: block;
@@ -60,7 +60,7 @@
 }
 
 .MobileNavLink {
-  @extend .topicItem;
+  @extend %topicItem;
   font-size: rem(24);
   &:hover {
     text-decoration: underline;

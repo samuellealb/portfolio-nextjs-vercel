@@ -1,22 +1,22 @@
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/functions.scss';
+@use './variables' as *;
+@use './mixins' as *;
+@use './functions' as *;
 
-.mainHeading {
+%mainHeading {
   font-family: $font-family-heading;
   font-size: rem(32);
   text-transform: uppercase;
   font-weight: 100;
 }
 
-.subHeading {
+%subHeading {
   font-family: $font-family-heading;
   font-size: rem(16);
   font-weight: 600;
   color: $color-black-off;
 }
 
-.topicItem {
+%topicItem {
   font-family: $font-family-heading;
   font-size: rem(24);
   font-weight: 800;
@@ -25,7 +25,7 @@
   text-decoration: none;
 }
 
-.highlight {
+%highlight {
   font-family: $font-family-cursive;
   font-size: rem(28);
   font-weight: 400;
@@ -33,7 +33,7 @@
   text-decoration: none;
 }
 
-.body {
+%body {
   font-family: $font-family-body;
   font-size: rem(12);
 
@@ -47,7 +47,7 @@
   }
 }
 
-.bodyLarge {
+%bodyLarge {
   font-family: $font-family-body;
   font-size: rem(16);
 

@@ -1,7 +1,7 @@
-@import '@/src/styles/functions.scss';
-@import '@/src/styles/mixins.scss';
-@import '@/src/styles/variables.scss';
-@import '@/src/styles/typography.scss';
+@use '../../styles/functions' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
 
 .SocialBar {
   display: flex;
