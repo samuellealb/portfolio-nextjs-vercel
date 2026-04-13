@@ -1,6 +1,6 @@
 import styles from './StatusMessage.module.scss';
 import Image from 'next/image';
-import { Status } from './StatusMessage.d';
+import { Status } from './StatusMessage.types';
 
 const statusConfig = {
   [Status.MAINTENANCE]: {
