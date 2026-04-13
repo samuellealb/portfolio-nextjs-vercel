@@ -1,14 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Base as BaseLayout } from '@/src/layouts/Base';
-import { default as JobPage } from '@/app/[lang]/job/[slug]/page';
+import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
+import { Header } from '@/src/features/Header';
+import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
+import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
+import { JobPanel } from '@/src/features/JobPanel';
+import { jobs, categories, logos } from '@/src/lib/mocks';
 
-const meta: Meta<typeof JobPage> = {
+const meta: Meta = {
   title: 'Pages/Job',
-  component: JobPage,
   parameters: {
     layout: 'fullscreen',
   },
-  args: {},
 };
 
 export default meta;
@@ -18,7 +21,13 @@ type Story = StoryObj<typeof meta>;
 export const Job: Story = {
   render: () => (
     <BaseLayout>
-      <JobPage params={{ slug: 'do-outro-lado-da-cozinha', lang: 'fr' }} />
+      <LocaleSwitcher locale="pt" />
+      <MobileNavBar categories={categories} bioTitle="About" />
+      <Header pagesLogo={logos.pagesLogo} mobileLogo={logos.mobileLogo} />
+      <NavBar categories={categories} bioTitle="About" />
+      <main role="main">
+        <JobPanel jobData={jobs[0]} locale="pt" />
+      </main>
     </BaseLayout>
   ),
 };

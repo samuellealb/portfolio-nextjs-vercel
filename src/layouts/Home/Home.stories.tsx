@@ -1,14 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Base as BaseLayout } from '@/src/layouts/Base';
-import { default as HomePage } from '@/app/[lang]/page';
+import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
+import { Header } from '@/src/features/Header';
+import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
+import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
+import { JobsList } from '@/src/features/JobsList';
+import { jobs, categories, logos } from '@/src/lib/mocks';
 
-const meta: Meta<typeof HomePage> = {
+const meta: Meta = {
   title: 'Pages/Home',
-  component: HomePage,
   parameters: {
     layout: 'fullscreen',
   },
-  args: {},
 };
 
 export default meta;
@@ -18,7 +21,13 @@ type Story = StoryObj<typeof meta>;
 export const Home: Story = {
   render: () => (
     <BaseLayout>
-      <HomePage params={{ lang: 'fr' }} />
+      <LocaleSwitcher locale="pt" />
+      <MobileNavBar categories={categories} bioTitle="About" />
+      <Header homeLogo={logos.homeLogo} mobileLogo={logos.mobileLogo} />
+      <NavBar categories={categories} bioTitle="About" />
+      <main role="main">
+        <JobsList {...jobs} />
+      </main>
     </BaseLayout>
   ),
 };

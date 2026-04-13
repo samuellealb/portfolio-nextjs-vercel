@@ -1,14 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Base as BaseLayout } from '@/src/layouts/Base';
-import { default as CategoryPage } from '@/app/[lang]/category/[slug]/page';
+import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
+import { Header } from '@/src/features/Header';
+import { NavBar } from '@/src/components/NavBar/NavBar';
+import { MobileNavBar } from '@/src/components/NavBar/MobileNavBar';
+import { LocaleSwitcher } from '@/src/components/LocaleSwitcher/LocaleSwitcher';
+import { JobsList } from '@/src/features/JobsList';
+import { jobs, categories, logos } from '@/src/lib/mocks';
 
-const meta: Meta<typeof CategoryPage> = {
+const sciFiJobs = jobs.filter((j) =>
+  j.categoryCollection.items.some((c) => c.slug === 'sci-fi'),
+);
+
+const meta: Meta = {
   title: 'Pages/Category',
-  component: CategoryPage,
   parameters: {
     layout: 'fullscreen',
   },
-  args: {},
 };
 
 export default meta;
@@ -18,7 +25,21 @@ type Story = StoryObj<typeof meta>;
 export const Category: Story = {
   render: () => (
     <BaseLayout>
-      <CategoryPage params={{ slug: 'camera', lang: 'fr' }} />
+      <LocaleSwitcher locale="pt" />
+      <MobileNavBar
+        categories={categories}
+        bioTitle="About"
+        currentPath="/pt/category/sci-fi"
+      />
+      <Header pagesLogo={logos.pagesLogo} mobileLogo={logos.mobileLogo} />
+      <NavBar
+        categories={categories}
+        bioTitle="About"
+        currentPath="/pt/category/sci-fi"
+      />
+      <main role="main">
+        <JobsList {...sciFiJobs} />
+      </main>
     </BaseLayout>
   ),
 };

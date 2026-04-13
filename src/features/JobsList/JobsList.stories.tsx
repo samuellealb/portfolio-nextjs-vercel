@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Base as BaseLayout } from '@/src/layouts/Base';
+import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
 import { JobsList as JobsListComponent } from './JobsList';
 import { jobs } from '@/src/lib/mocks';
 import { TJob } from '@/src/lib/types';

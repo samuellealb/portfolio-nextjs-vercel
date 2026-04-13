@@ -1,11 +1,39 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Base as BaseLayout } from '@/src/layouts/Base';
-import { AboutPanel as AboutPanelComponent } from './AboutPanel';
+import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
 import { TAboutPanel } from './AboutPanel.d';
+import styles from './AboutPanel.module.scss';
+import Image from 'next/image';
+import { StorybookSocialBar } from '@/src/components/SocialBar/StorybookSocialBar';
 
-const meta: Meta<typeof AboutPanelComponent> = {
+const AboutPanelPreview = ({ profileText, profileImage }: TAboutPanel) => {
+  const isSingleColumn = !profileImage || !profileText;
+  return (
+    <section
+      className={`${styles.AboutPanel} ${isSingleColumn ? styles.SingleColumn : ''}`}
+    >
+      <div className={styles.Text}>
+        {profileText && (
+          <div dangerouslySetInnerHTML={{ __html: profileText }}></div>
+        )}
+        <StorybookSocialBar />
+      </div>
+      {profileImage && (
+        <div className={styles.Image}>
+          <Image
+            src={profileImage.url}
+            alt={profileImage.title}
+            width={profileImage.width}
+            height={profileImage.height}
+          />
+        </div>
+      )}
+    </section>
+  );
+};
+
+const meta: Meta<typeof AboutPanelPreview> = {
   title: 'Features/AboutPanel',
-  component: AboutPanelComponent,
+  component: AboutPanelPreview,
   parameters: {
     layout: 'fullscreen',
   },
@@ -28,7 +56,7 @@ export const AboutPanel: Story = {
   render: (args: TAboutPanel) => (
     <BaseLayout>
       <main role="main">
-        <AboutPanelComponent {...args} />
+        <AboutPanelPreview {...args} />
       </main>
     </BaseLayout>
   ),
