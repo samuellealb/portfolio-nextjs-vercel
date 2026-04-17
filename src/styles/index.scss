@@ -1,1 +1,25 @@
-@import './global.module.scss';
+@use './global.module.scss';
+
+// Fonts
+@font-face {
+  font-family: 'caviar_dreamsregular';
+  src:
+    url('/fonts/caviardreams-webfont.woff2') format('woff2'),
+    url('/fonts/caviardreams-webfont.woff') format('woff');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i&subset=latin-ext');
+
+@font-face {
+  font-family: 'passengers';
+  src:
+    url('/fonts/passengers_script-webfont.woff2') format('woff2'),
+    url('/fonts/passengers_script-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'swash';
+  src:
+    url('/fonts/swash_passengers-webfont.woff2') format('woff2'),
+    url('/fonts/swash_passengers-webfont.woff') format('woff');
+}

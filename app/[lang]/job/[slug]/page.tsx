@@ -10,7 +10,7 @@ import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { Locale, i18n } from '@/i18n-config';
 
-export type JobPageProps = { params: { slug: string; lang: Locale } };
+export type JobPageProps = { params: Promise<{ slug: string; lang: Locale }> };
 
 export const revalidate = 60;
 
@@ -20,15 +20,16 @@ export async function generateStaticParams() {
   const locales: Locale[] = i18n.locales.slice();
   const slugs = await getAllJobSlugs();
 
-  return slugs.flatMap((slug: string): JobPageProps[] =>
-    locales.map((lang): JobPageProps => ({ params: { slug, lang } })),
+  return slugs.flatMap((slug: string) =>
+    locales.map((lang) => ({ slug, lang })),
   );
 }
 
 export async function generateMetadata({
   params,
 }: JobPageProps): Promise<Metadata> {
-  const data = await getJob(params.slug, params.lang);
+  const { slug, lang } = await params;
+  const data = await getJob(slug, lang);
   if (data) {
     return {
       title: data.title,
@@ -47,19 +48,20 @@ export async function generateMetadata({
 }
 
 export default async function JobPage({ params }: JobPageProps) {
+  const { slug, lang } = await params;
   const { headerListPage, headerMobile } = await getLogos();
-  const jobData = await getJob(params.slug, params.lang);
-  const categories = await getCategories(params.lang);
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const jobData = await getJob(slug, lang);
+  const categories = await getCategories(lang);
+  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
 
   return (
     <>
-      <LocaleSwitcher locale={params.lang} />
+      <LocaleSwitcher locale={lang} />
       <MobileNavBar categories={categories} bioTitle={bioData.title} />
       <Header homeLogo={headerListPage} mobileLogo={headerMobile} />
       <NavBar categories={categories} bioTitle={bioData.title} />
       <main role="main">
-        <JobPanel jobData={jobData} locale={params.lang} />
+        <JobPanel jobData={jobData} locale={lang} />
       </main>
     </>
   );

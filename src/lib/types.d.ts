@@ -1,7 +1,7 @@
 import { Locale } from '@/i18n-config';
 
 export interface TParams {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }
 
 export interface TJob {
@@ -48,16 +48,16 @@ export interface TImage {
 }
 
 export interface TGetJobsProps {
-  params: {
+  params: Promise<{
     slug: string;
-    lang: Locale;
-  };
+    lang: string;
+  }>;
 }
 export interface TGetCategoriesProps {
-  params: {
+  params: Promise<{
     slug: string;
-    lang: Locale;
-  };
+    lang: string;
+  }>;
 }
 
 export interface TGetBioProps {

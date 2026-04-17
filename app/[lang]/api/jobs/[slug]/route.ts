@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getJob } from '@/src/lib/jobs';
 import { TGetJobsProps, TJob } from '@/src/lib/types';
+import { Locale } from '@/i18n-config';
 
 export async function GET(
   _request: NextRequest,
   { params }: TGetJobsProps,
 ): Promise<NextResponse> {
-  const job: TJob | undefined = await getJob(params.slug, params.lang);
+  const { slug, lang } = await params;
+  const job: TJob | undefined = await getJob(slug, lang as Locale);
 
   const response = NextResponse.json(
     {

@@ -49,8 +49,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Matcher ignoring `/_next/`, `/api/`, `.svg`, and `.jpg`, and `.png` files
+  // Matcher ignoring `/_next/`, `/api/`, `.svg`, `.jpg`, `.png`, and font files
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg$|.*\\.jpg$|.*\\.png$).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg$|.*\\.jpg$|.*\\.png$|.*\\.woff2?$|.*\\.ttf$|.*\\.eot$).*)',
   ],
 };

@@ -1,13 +1,15 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { TCategory, TGetCategoriesProps } from '@/src/lib/types';
+import { TCategory } from '@/src/lib/types';
 import { getCategories } from '@/src/lib/categories';
+import { Locale } from '@/i18n-config';
 
 export async function GET(
   _request: NextRequest,
-  { params }: TGetCategoriesProps,
+  { params }: { params: Promise<{ lang: string }> },
 ): Promise<NextResponse> {
+  const { lang } = await params;
   const CategoriesList: TCategory[] | undefined = await getCategories(
-    params.lang,
+    lang as Locale,
   );
 
   const response = NextResponse.json(

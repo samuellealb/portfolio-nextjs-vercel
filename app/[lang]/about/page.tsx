@@ -9,17 +9,19 @@ import { getLogos } from '@/src/lib/logos';
 import { getCategories } from '@/src/lib/categories';
 import { getBio } from '@/src/lib/bio';
 import { TParams } from '@/src/lib/types';
+import { i18n } from '@/i18n-config';
 
 export const revalidate = 60;
 
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+  return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
 export async function generateMetadata({ params }: TParams): Promise<Metadata> {
-  const data = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
+  const { lang } = await params;
+  const data = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
   if (data) {
     return {
       title: data.title,
@@ -32,7 +34,8 @@ export async function generateMetadata({ params }: TParams): Promise<Metadata> {
   };
 }
 
-export default async function AboutPage({ params: { lang } }: TParams) {
+export default async function AboutPage({ params }: TParams) {
+  const { lang } = await params;
   const { headerListPage, headerMobile } = await getLogos();
   const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
   const categories = await getCategories(lang);

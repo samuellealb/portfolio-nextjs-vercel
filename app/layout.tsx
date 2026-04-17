@@ -5,20 +5,14 @@ import { LocaleProvider } from '@/src/context/LocaleContext';
 import { ModalProvider } from '@/src/context/ModalContext';
 import { SliderProvider } from '@/src/context/SliderContext';
 import { BodyClassManager } from '@/src/lib/bodyClassHandler';
-import { i18n, type Locale } from '@/i18n-config';
 
 type LayoutProps = {
   children: React.ReactNode;
-  params: { lang: Locale };
 };
 
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
-}
-
-export default function RootLayout({ children, params }: LayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang={params.lang}>
+    <html>
       <body>
         <LocaleProvider>
           <ModalProvider>

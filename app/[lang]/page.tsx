@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 
   return jobs.flatMap((jobsList, index) =>
     jobsList?.map((job) => ({
-      params: { slug: job.slug, lang: locales[index] },
+      slug: job.slug,
+      lang: locales[index],
     })),
   );
 }
@@ -35,11 +36,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Home({ params }: TParams) {
+  const { lang } = await params;
   const { headerDesktop, headerMobile } = await getLogos();
-  const jobsList: TJob[] = await getJobs(params.lang);
-  const categories = await getCategories(params.lang);
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
-  const maintenanceMode = await getMaintenanceModeStatus(params.lang);
+  const jobsList: TJob[] = await getJobs(lang);
+  const categories = await getCategories(lang);
+  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
+  const maintenanceMode = await getMaintenanceModeStatus(lang);
 
   if (maintenanceMode) {
     return (
@@ -51,7 +53,7 @@ export default async function Home({ params }: TParams) {
   }
   return (
     <>
-      <LocaleSwitcher locale={params.lang} />
+      <LocaleSwitcher locale={lang} />
       <MobileNavBar categories={categories} bioTitle={bioData.title} />
       <Header homeLogo={headerDesktop} mobileLogo={headerMobile} />
       <NavBar categories={categories} bioTitle={bioData.title} />

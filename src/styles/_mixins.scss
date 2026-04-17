@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use './variables' as *;
 
 /**
@@ -69,31 +70,31 @@
  */
 @mixin media-query($viewport) {
   @if $viewport==mobile {
-    @media (max-width: calc(map-get($breakpoints, 'sm') - 1px)) {
+    @media (max-width: calc(map.get($breakpoints, 'sm') - 1px)) {
       @content;
     }
   }
 
   @if $viewport==mobileLarge {
-    @media (min-width: map-get($breakpoints, 'sm')) {
+    @media (min-width: map.get($breakpoints, 'sm')) {
       @content;
     }
   }
 
   @if $viewport==tablet {
-    @media (min-width: map-get($breakpoints, 'md')) {
+    @media (min-width: map.get($breakpoints, 'md')) {
       @content;
     }
   }
 
   @if $viewport==desktop {
-    @media (min-width: map-get($breakpoints, 'lg')) {
+    @media (min-width: map.get($breakpoints, 'lg')) {
       @content;
     }
   }
 
   @if $viewport==ultrawide {
-    @media (min-width: map-get($breakpoints, 'xl')) {
+    @media (min-width: map.get($breakpoints, 'xl')) {
       @content;
     }
   }

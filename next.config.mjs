@@ -1,8 +1,8 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+export default {
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(import.meta.dirname, 'styles')],
   },
   images: {
     remotePatterns: [

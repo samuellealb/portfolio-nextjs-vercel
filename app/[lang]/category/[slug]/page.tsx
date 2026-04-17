@@ -9,7 +9,9 @@ import { getBio } from '@/src/lib/bio';
 import { getLogos } from '@/src/lib/logos';
 import { Locale, i18n } from '@/i18n-config';
 
-export type CategoryPageProps = { params: { slug: string; lang: Locale } };
+export type CategoryPageProps = {
+  params: Promise<{ slug: string; lang: Locale }>;
+};
 
 export const revalidate = 60;
 
@@ -23,7 +25,8 @@ export async function generateStaticParams() {
 
   return categories.flatMap((categs, index) =>
     categs?.map((categ) => ({
-      params: { slug: categ.slug, lang: locales[index] },
+      slug: categ.slug,
+      lang: locales[index],
     })),
   );
 }
@@ -31,11 +34,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
-  const data = await getCategory(params.slug, params.lang);
+  const { slug, lang } = await params;
+  const data = await getCategory(slug, lang);
   if (data) {
     return {
-      title: 'Jeanne Dosse works on ' + params.slug,
-      description: params.slug + ' jobs',
+      title: 'Jeanne Dosse works on ' + slug,
+      description: slug + ' jobs',
     };
   }
 
@@ -46,15 +50,16 @@ export async function generateMetadata({
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { slug, lang } = await params;
   const { headerListPage, headerMobile } = await getLogos();
-  const categoryData = await getCategory(params.slug, params.lang);
-  const categories = await getCategories(params.lang);
-  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', params.lang);
-  const currentPath = `/${params.lang}/category/${params.slug}`;
+  const categoryData = await getCategory(slug, lang);
+  const categories = await getCategories(lang);
+  const bioData = await getBio('3xXi5X2KBSsFJqnCNYNSuJ', lang);
+  const currentPath = `/${lang}/category/${slug}`;
 
   return (
     <>
-      <LocaleSwitcher locale={params.lang} />
+      <LocaleSwitcher locale={lang} />
       <MobileNavBar
         categories={categories}
         bioTitle={bioData.title}
