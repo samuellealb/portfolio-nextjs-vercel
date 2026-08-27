@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
 import { TAboutPanel } from './AboutPanel.d';
 import styles from './AboutPanel.module.scss';

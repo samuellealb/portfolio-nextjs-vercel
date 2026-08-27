@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import styles from '@/src/components/SocialBar/SocialBar.module.scss';
 import { SocialBar as SocialBarComponent } from '@/src/components/SocialBar/SocialBar';
 import Image from 'next/image';

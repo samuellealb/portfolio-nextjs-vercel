@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
 import { JobPanel as JobPanelComponent } from './JobPanel';
 import { jobs } from '@/src/lib/mocks';

@@ -1,6 +1,6 @@
 // src/components/ParallaxImage/ParallaxImage.stories.tsx
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { ParallaxImage as ParallaxImageComponent } from './ParallaxImage';
 import { TImage } from '@/src/lib/types';
 

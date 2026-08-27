@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { NavBar as NavBarComponent } from './NavBar';
 import { MobileNavBar as MobileNavBarComponent } from './MobileNavBar';
 import type { TNavBar } from './NavBar.d';

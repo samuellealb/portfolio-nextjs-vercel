@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { StorybookBase as BaseLayout } from '@/src/layouts/Base/StorybookBase';
 import { Header } from '@/src/features/Header';
 import { NavBar } from '@/src/components/NavBar/NavBar';

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Header as HeaderComponent } from './Header';
 import { logos } from '@/src/lib/mocks';
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { ModalDialog } from '../ModalDialog/ModalDialog';
 import { GallerySlider as GallerySliderComponent } from './GallerySlider';
 import { TGallerySlider } from './GallerySlider.d';

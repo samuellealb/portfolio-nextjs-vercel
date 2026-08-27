@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 // import { fn } from '@storybook/test';
 import { Thumbnail as ThumbnailComponent } from './Thumbnail';
 import { jobs } from '@/src/lib/mocks';

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { ModalDialog as ModalDialogComponent } from './ModalDialog';
 import { ReactNode } from 'react';
 
